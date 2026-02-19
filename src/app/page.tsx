@@ -1,65 +1,441 @@
-import Image from "next/image";
+"use client";
 
-export default function Home() {
+import { useState } from "react";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
+import { Marquee } from "@/components/ui/marquee";
+import { products, videoSections, serviceCards } from "@/data/products";
+
+export default function HomePage() {
+  const [email, setEmail] = useState("");
+  const [loading, setLoading] = useState(false);
+  const latestProducts = products.slice(0, 12);
+
+  const handleSubscribe = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!email.trim()) return;
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+      setEmail("");
+      alert("Thanks for subscribing!");
+    }, 1000);
+  };
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
+    <div className="bg-black">
+      {/* ===== HERO ===== */}
+      <section className="relative h-[70vh] md:h-[85vh] lg:h-screen w-full overflow-hidden bg-black">
+        <video
+          className="absolute top-0 left-0 w-full h-full object-cover opacity-80"
+          preload="metadata"
+          playsInline
+          autoPlay
+          muted
+          loop
+          style={{ willChange: "transform" }}
+        >
+          <source src="/heroVideo.mp4" type="video/mp4" />
+        </video>
+        <div className="absolute inset-0 bg-black/40" />
+        <div className="absolute inset-0 flex flex-col justify-center items-center text-center px-4 pt-[100px]">
+          <h2
+            className="text-white tracking-[0.3em] text-sm md:text-base mb-6 animate-slide-up"
+            style={{ fontFamily: "ui-sans-serif, system-ui, sans-serif" }}
+          >
+            TIMELESS ELEGANCE
+          </h2>
+          <h1
+            className="text-3xl md:text-[40px] lg:text-[49px] text-white mb-8 animate-fade-in font-normal leading-tight text-center"
+            style={{ fontFamily: 'Prata, "Prata Fallback", serif' }}
+          >
+            CRAFTED WITH
+            <br />
+            PASSION
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+          <p
+            className="max-w-xl text-gray-200 text-base md:text-lg mb-10 leading-relaxed animate-slide-up"
+            style={{
+              animationDelay: "0.2s",
+              fontFamily: '"Mona Sans", "Mona Sans Fallback", ui-sans-serif, system-ui, sans-serif',
+            }}
+          >
+            LKB Jewellers brings you exceptional pieces that tell your story.
+            Each creation is a testament to our commitment to quality and artistry.
           </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            href="/shop"
+            className="border border-white text-white px-10 py-4 text-sm tracking-widest hover:bg-white hover:text-black transition-all duration-300 animate-slide-up"
+            style={{ animationDelay: "0.4s" }}
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+            EXPLORE COLLECTION
+          </Link>
         </div>
-      </main>
+      </section>
+
+      {/* ===== LATEST ARRIVALS ===== */}
+      <section className="py-12 md:py-16 bg-black relative overflow-hidden">
+        <div className="absolute inset-0 opacity-5">
+          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-white rounded-full blur-[120px] animate-pulse" />
+          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-white rounded-full blur-[120px] animate-pulse" style={{ animationDelay: "2s" }} />
+        </div>
+        <div className="container mx-auto px-4 md:px-6 relative z-10">
+          <div className="text-center mb-8">
+            <div className="inline-flex items-center gap-4 mb-4">
+              <div className="h-px w-12 bg-gradient-to-r from-transparent to-white" />
+              <span className="text-gray-400 text-[10px] tracking-[0.4em] uppercase" style={{ fontFamily: "ui-sans-serif, system-ui, sans-serif" }}>New Collection</span>
+              <div className="h-px w-12 bg-gradient-to-l from-transparent to-white" />
+            </div>
+            <h2 className="text-3xl md:text-4xl text-white mb-4 font-normal" style={{ fontFamily: '"Prata", "Prata Fallback", serif' }}>Latest Arrivals</h2>
+            <p className="text-gray-500 text-sm max-w-xl mx-auto" style={{ fontFamily: '"Mona Sans", "Mona Sans Fallback", ui-sans-serif, system-ui, sans-serif' }}>
+              Scroll to discover our newest pieces, each one crafted with precision and passion
+            </p>
+          </div>
+        </div>
+
+        {/* Marquee carousel - full width, outside container */}
+        <div className="relative z-10 w-[80%] mx-auto">
+          <Marquee
+            pauseOnHover
+            repeat={8}
+            className="py-12 [--duration:60s] [--gap:1rem]"
+          >
+            {latestProducts.map((product) => (
+              <Link
+                key={product.id}
+                href={`/product/${product.id}`}
+                className="group/card relative flex-shrink-0 w-[180px] sm:w-[210px] md:w-[240px]"
+              >
+                <div className="relative aspect-[3/4] overflow-hidden bg-black rounded-lg">
+                  <img
+                    src={product.image}
+                    alt={product.name}
+                    className="w-full h-full object-cover transition-all duration-700 group-hover/card:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-80 group-hover/card:opacity-60 transition-opacity duration-500" />
+                  <div className="absolute inset-0 rounded-lg transition-all duration-500 shadow-[0_10px_30px_rgba(0,0,0,0.4)] group-hover/card:ring-1 group-hover/card:ring-white/20" />
+
+                  {/* Corner decorations on hover */}
+                  <div className="absolute top-4 left-4 w-8 h-8 border-t-2 border-l-2 border-white opacity-0 group-hover/card:opacity-100 transition-opacity duration-500" />
+                  <div className="absolute top-4 right-4 w-8 h-8 border-t-2 border-r-2 border-white opacity-0 group-hover/card:opacity-100 transition-opacity duration-500" />
+                  <div className="absolute bottom-4 left-4 w-8 h-8 border-b-2 border-l-2 border-white opacity-0 group-hover/card:opacity-100 transition-opacity duration-500" />
+                  <div className="absolute bottom-4 right-4 w-8 h-8 border-b-2 border-r-2 border-white opacity-0 group-hover/card:opacity-100 transition-opacity duration-500" />
+
+                  {/* Bottom info */}
+                  <div className="absolute inset-x-0 bottom-0 p-4">
+                    <div className="h-0.5 w-12 bg-gradient-to-r from-white to-transparent mb-3" />
+                    <h3 className="text-white text-base font-sans mb-1 line-clamp-2 drop-shadow-2xl font-semibold">
+                      {product.name}
+                    </h3>
+                    <p className="text-white text-sm font-bold mb-2 drop-shadow-lg">
+                      £{product.price.toLocaleString("en-GB")}
+                    </p>
+                    <div className="flex items-center gap-2 text-white text-[10px] font-bold tracking-wider uppercase opacity-0 -translate-x-4 group-hover/card:opacity-100 group-hover/card:translate-x-0 transition-all duration-500">
+                      <span>View Details</span>
+                      <ArrowRight className="w-3 h-3" />
+                    </div>
+                  </div>
+
+                  {/* NEW badge */}
+                  <div className="absolute top-3 left-3">
+                    <div className="bg-white/90 backdrop-blur-sm px-2 py-1 rounded-full">
+                      <span className="text-black text-xs font-bold tracking-wider uppercase">New</span>
+                    </div>
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </Marquee>
+        </div>
+
+        <div className="container mx-auto px-4 md:px-6 relative z-10">
+          <div className="text-center mt-12">
+            <Link href="/shop" className="group inline-flex items-center gap-3 bg-white text-black px-10 py-4 font-bold tracking-widest text-sm hover:shadow-2xl hover:shadow-white/50 transition-all duration-300 relative overflow-hidden">
+              <span className="relative z-10">EXPLORE FULL COLLECTION</span>
+              <ArrowRight className="relative z-10 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              <div className="absolute inset-0 bg-gray-200 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ===== CRAFTSMANSHIP ===== */}
+      <section className="relative py-16 md:py-20 lg:py-28 bg-black overflow-hidden">
+        <div className="absolute inset-0">
+          <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-white/5 via-transparent to-white/5" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-white/10 rounded-full blur-[150px] animate-pulse" />
+        </div>
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute top-20 left-10 w-32 h-32 border border-white/20 rounded-full animate-float" />
+          <div className="absolute bottom-20 right-10 w-48 h-48 border border-white/10 rounded-full animate-float" style={{ animationDelay: "1s" }} />
+        </div>
+
+        <div className="container mx-auto px-4 md:px-6 relative z-10 max-w-7xl">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-16 lg:gap-20 items-center">
+            <div className="flex flex-col justify-center space-y-6 md:space-y-8 max-w-xl mx-auto lg:mx-0 py-8 md:py-12">
+              <div className="flex items-center gap-4">
+                <div className="h-px w-16 bg-gradient-to-r from-transparent to-white" />
+                <span className="text-white uppercase tracking-[0.3em] text-xs font-light" style={{ fontFamily: "ui-sans-serif, system-ui, sans-serif" }}>Bespoke Craftsmanship</span>
+              </div>
+              <h2 className="text-4xl md:text-5xl lg:text-6xl leading-tight" style={{ fontFamily: 'Prata, "Prata Fallback", serif' }}>
+                <span className="text-white block mb-2 font-bold tracking-[0.2em]">CRAFTING MOMENTS</span>
+                <span className="text-white block mb-2 font-bold tracking-[0.2em]">THAT</span>
+                <span className="block text-white font-bold tracking-[0.2em]">LAST A LIFETIME</span>
+              </h2>
+              <div className="relative pl-6 border-l-2 border-white/30">
+                <p className="text-gray-300 text-base leading-relaxed" style={{ fontFamily: '"Mona Sans", "Mona Sans Fallback", ui-sans-serif, system-ui, sans-serif' }}>
+                  We design more than jewellery. We create heirlooms that capture memories and emotions with uncompromising craftsmanship.
+                </p>
+              </div>
+              <div className="flex flex-wrap gap-4 pt-4">
+                <Link href="/bespoke" className="group relative px-6 py-3 bg-white text-black font-bold tracking-widest text-sm overflow-hidden hover:shadow-2xl hover:shadow-white/50 transition-all duration-300">
+                  <span className="relative z-10">LEARN MORE</span>
+                  <div className="absolute inset-0 bg-gray-200 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                </Link>
+                <Link href="/shop" className="group px-6 py-3 border-2 border-white text-white font-bold tracking-widest text-sm hover:bg-white hover:text-black transition-all duration-300 flex items-center gap-2">
+                  DISCOVER
+                  <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+                </Link>
+              </div>
+            </div>
+
+            <div className="flex items-center justify-center px-4 md:px-0">
+              <div className="relative max-w-xl w-full">
+                <div className="absolute -inset-4 bg-gradient-to-r from-white via-gray-400 to-white opacity-20 animate-pulse" />
+                <div className="absolute -top-6 -left-6 w-24 h-24 border-t-2 border-l-2 border-white" />
+                <div className="absolute -bottom-6 -right-6 w-24 h-24 border-b-2 border-r-2 border-white" />
+                {/* Sparkles */}
+                <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-white rounded-full animate-sparkle" />
+                <div className="absolute top-1/3 right-1/3 w-1.5 h-1.5 bg-gray-300 rounded-full animate-sparkle" style={{ animationDelay: "0.5s" }} />
+                <div className="absolute bottom-1/4 left-1/3 w-2 h-2 bg-white rounded-full animate-sparkle" style={{ animationDelay: "1s" }} />
+                <div className="absolute top-1/4 right-1/4 text-white text-2xl animate-sparkle opacity-80" style={{ animationDelay: "0.3s" }}>✦</div>
+                <div className="absolute bottom-1/4 right-1/3 text-gray-300 text-xl animate-sparkle opacity-70" style={{ animationDelay: "1.2s" }}>✦</div>
+
+                <div className="relative aspect-square max-h-[500px] overflow-visible rounded-lg group">
+                  <div className="absolute -inset-24 bg-white/20 rounded-full blur-[140px] opacity-90 animate-pulse" style={{ animationDuration: "3s" }} />
+                  <div className="absolute -inset-12 bg-white/15 rounded-full blur-[80px] opacity-95 animate-pulse group-hover:opacity-100 transition-opacity duration-1000" style={{ animationDuration: "6s", animationDelay: "1.5s" }} />
+                  <div className="relative overflow-hidden rounded-lg shadow-[0_0_80px_rgba(255,255,255,0.6)]">
+                    <img
+                      src="https://i0.wp.com/lkbjewellers.com/wp-content/uploads/2023/12/MINI-LKB-PENDANT.jpg?w=1500&ssl=1"
+                      alt="Exclusive bespoke pendant craftsmanship"
+                      className="w-full h-full object-contain transform group-hover:scale-105 transition-transform duration-700 relative z-10"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10" />
+                    <div className="absolute top-6 right-6 bg-black/80 backdrop-blur-sm border border-white/50 px-4 py-2 rounded-full z-20">
+                      <span className="text-white text-xs font-semibold tracking-wider">HANDCRAFTED</span>
+                    </div>
+                  </div>
+                </div>
+                <div className="absolute -top-8 -right-8 w-32 h-32 bg-white/10 rounded-full animate-pulse" />
+                <div className="absolute -bottom-8 -left-8 w-40 h-40 bg-white/5 rounded-full animate-pulse" style={{ animationDelay: "1s" }} />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/30 to-transparent" />
+      </section>
+
+      {/* ===== STICKY VIDEO SECTIONS ===== */}
+      <div className="relative w-full bg-black">
+        {videoSections.map((section, index) => (
+          <section key={section.id} className="sticky top-0 h-screen w-full overflow-hidden flex items-center justify-center border-t border-white/10 bg-black" style={{ zIndex: index + 1 }}>
+            <video className="absolute inset-0 w-full h-full object-cover opacity-60" preload="metadata" playsInline autoPlay muted loop>
+              <source src={section.videoUrl} type="video/mp4" />
+            </video>
+            <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/50" />
+            <div className="relative z-10 text-center max-w-4xl px-6">
+              <h2 className="text-6xl md:text-8xl text-white mb-8 uppercase font-bold" style={{ fontFamily: 'Prata, "Prata Fallback", serif' }}>{section.title}</h2>
+              <Link href={section.link} className="inline-flex items-center gap-3 text-white border-b border-white pb-2 hover:text-gray-300 hover:border-gray-300 transition-colors tracking-widest text-sm">
+                DISCOVER <ArrowRight size={16} />
+              </Link>
+            </div>
+          </section>
+        ))}
+      </div>
+
+      {/* ===== WHAT WE OFFER ===== */}
+      <section className="py-12 md:py-16 bg-gradient-to-b from-[#0a0a0a] to-black px-4 md:px-6 relative overflow-hidden">
+        <div className="absolute inset-0 opacity-5 overflow-hidden">
+          <div className="absolute top-0 left-1/4 w-96 h-96 bg-[#D4AF37] rounded-full blur-[120px] animate-pulse" />
+          <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-[#D4AF37] rounded-full blur-[120px] animate-pulse" style={{ animationDelay: "2s" }} />
+        </div>
+        <div className="container mx-auto relative z-10">
+          <div className="text-center mb-12">
+            <div className="inline-flex items-center gap-4 mb-6">
+              <div className="h-px w-16 bg-gradient-to-r from-transparent to-white" />
+              <span className="text-white text-xs tracking-[0.5em] uppercase" style={{ fontFamily: "ui-sans-serif, system-ui, sans-serif" }}>Our Expertise</span>
+              <div className="h-px w-16 bg-gradient-to-l from-transparent to-white" />
+            </div>
+            <h2 className="text-5xl md:text-6xl text-white mb-6 font-normal" style={{ fontFamily: '"Prata", "Prata Fallback", serif' }}>
+              What We <span className="text-white">Offer</span>
+            </h2>
+            <p className="text-gray-400 text-lg max-w-2xl mx-auto" style={{ fontFamily: '"Mona Sans", "Mona Sans Fallback", ui-sans-serif, system-ui, sans-serif' }}>
+              Exceptional services tailored to your vision
+            </p>
+            <Link href="/contact" className="inline-flex items-center pt-4 gap-2 text-gray-500 hover:text-white text-xs tracking-widest uppercase transition-colors group">
+              Contact a Specialist
+              <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+            </Link>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 max-w-7xl mx-auto">
+            {serviceCards.map((card, index) => (
+              <Link key={card.id} href={card.id === "buy" ? "/we-buy" : card.id === "sell" ? "/shop" : card.id === "service" ? "/servicing" : "/bespoke"} className="group relative h-[350px] md:h-[400px] lg:h-[450px] overflow-hidden cursor-pointer block" style={{ animationDelay: `${index * 100}ms` }}>
+                <div className="relative h-full transition-all duration-500 group-hover:-translate-y-4 group-hover:scale-105" style={{ transformStyle: "preserve-3d" }}>
+                  <div className="absolute inset-0 border-2 border-gray-900 group-hover:border-[#D4AF37]/50 transition-all duration-500 z-20 pointer-events-none" />
+                  <div className="absolute inset-0 overflow-hidden">
+                    <img src={card.image} alt={card.title} loading="lazy" className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110 group-hover:rotate-1" style={{ willChange: "transform" }} />
+                  </div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-transparent opacity-90 group-hover:opacity-70 transition-opacity duration-500" />
+                  <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-[#D4AF37] via-yellow-500 to-[#D4AF37] scale-x-0 group-hover:scale-x-100 transition-transform duration-700 origin-left" />
+                  <div className="absolute top-6 right-6 z-30">
+                    <div className="w-12 h-12 rounded-full border border-gray-700 group-hover:border-[#D4AF37] bg-black/50 backdrop-blur-sm flex items-center justify-center transition-all duration-500 group-hover:scale-110">
+                      <span className="text-[#D4AF37] text-sm font-bold">0{index + 1}</span>
+                    </div>
+                  </div>
+                  <div className="absolute bottom-0 left-0 right-0 p-5 md:p-6 lg:p-8 z-20">
+                    <div className="w-12 h-12 mb-4 rounded-full bg-[#D4AF37]/10 border border-[#D4AF37]/30 flex items-center justify-center opacity-0 group-hover:opacity-100 transform -translate-y-4 group-hover:translate-y-0 transition-all duration-500 delay-100">
+                      <ArrowRight size={20} className="text-[#D4AF37] rotate-[-45deg]" />
+                    </div>
+                    <h3 className="text-2xl md:text-3xl text-white mb-2 md:mb-3 transition-all duration-300 group-hover:text-white font-bold" style={{ fontFamily: 'Prata, "Prata Fallback", serif' }}>{card.title}</h3>
+                    <p className="text-gray-400 text-xs md:text-sm leading-relaxed opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-500 delay-150">{card.description}</p>
+                    <div className="flex items-center gap-2 text-[#D4AF37] text-[0.65rem] md:text-xs tracking-widest uppercase mt-3 md:mt-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-200">
+                      Learn More
+                      <ArrowRight size={10} className="md:w-3 md:h-3 group-hover:translate-x-2 transition-transform" />
+                    </div>
+                  </div>
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 pointer-events-none" />
+                </div>
+                <div className="absolute inset-0 bg-black/50 blur-xl -z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 translate-y-8" />
+              </Link>
+            ))}
+          </div>
+
+          <div className="flex items-center justify-center gap-4 mt-12">
+            <div className="h-px w-24 bg-gradient-to-r from-transparent to-[#D4AF37]/50" />
+            <div className="w-2 h-2 rounded-full bg-[#D4AF37] animate-pulse" />
+            <div className="h-px w-24 bg-gradient-to-l from-transparent to-[#D4AF37]/50" />
+          </div>
+        </div>
+      </section>
+
+      {/* ===== SHOP BY CATEGORY ===== */}
+      <section className="py-12 md:py-16 bg-black px-4 md:px-6 relative overflow-hidden">
+        <div className="container mx-auto relative z-10 max-w-7xl">
+          <div className="text-center mb-12">
+            <div className="inline-flex items-center gap-4 mb-6">
+              <div className="h-px w-16 bg-gradient-to-r from-transparent to-white" />
+              <span className="text-white text-xs tracking-[0.5em] uppercase" style={{ fontFamily: "ui-sans-serif, system-ui, sans-serif" }}>Curated Collections</span>
+              <div className="h-px w-16 bg-gradient-to-l from-transparent to-white" />
+            </div>
+            <h2 className="text-5xl md:text-6xl text-white mb-6 font-normal" style={{ fontFamily: '"Prata", "Prata Fallback", serif' }}>
+              Shop By <span className="font-normal text-white">Category</span>
+            </h2>
+            <p className="text-gray-400 text-lg max-w-2xl mx-auto" style={{ fontFamily: '"Mona Sans", "Mona Sans Fallback", ui-sans-serif, system-ui, sans-serif' }}>Discover Excellence</p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 mb-6 md:mb-8">
+            {[
+              { href: "/watches", img: "https://i.ibb.co/ynGMQB6f/1-blue-gold.jpg", alt: "Exclusive Watches", title: "TIMEPIECES", sub: "Exclusive Watches" },
+              { href: "/shop?category=exclusive jewellery", img: "https://i.ibb.co/m5z17bfC/1.jpg", alt: "Fine Jewellery", title: "EXCLUSIVE JEWELLERY", sub: "Bespoke Creations" },
+              { href: "/accessories", img: "https://i.ibb.co/9HRG7t7H/WEBNEWHATS-8.jpg", alt: "LKB Merchandise", title: "ACCESSORIES", sub: "Premium Accessories", extraClass: "md:col-span-2 lg:col-span-1" },
+            ].map((cat) => (
+              <Link key={cat.title} href={cat.href} className={`group relative h-[250px] md:h-[280px] lg:h-[300px] overflow-hidden block rounded-lg ${cat.extraClass || ""}`}>
+                <div className="absolute inset-0 overflow-hidden">
+                  <img src={cat.img} alt={cat.alt} loading="lazy" className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-110" />
+                  <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-all duration-500" />
+                </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
+                <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6 md:px-8">
+                  <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-[0.15em] md:tracking-[0.2em] text-white mb-1 md:mb-2" style={{ fontFamily: 'Prata, "Prata Fallback", serif' }}>{cat.title}</h3>
+                  <p className="text-gray-300 text-xs md:text-sm tracking-[0.15em] md:tracking-[0.2em] uppercase">{cat.sub}</p>
+                </div>
+                <div className="absolute inset-0 border-2 border-gray-800 group-hover:border-white/50 transition-all duration-500 pointer-events-none rounded-lg" />
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ===== NEWSLETTER ===== */}
+      <section className="relative py-12 md:py-16 bg-black overflow-hidden">
+        <div className="absolute inset-0 opacity-10 overflow-hidden">
+          <div className="absolute top-0 left-1/4 w-96 h-96 bg-white rounded-full blur-[150px] animate-pulse" />
+          <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-white rounded-full blur-[150px] animate-pulse" style={{ animationDelay: "1.5s" }} />
+        </div>
+        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+
+        <div className="container mx-auto px-4 md:px-6 relative z-10">
+          <div className="max-w-4xl mx-auto">
+            <div className="text-center mb-12">
+              <div className="inline-flex items-center gap-4 mb-6">
+                <div className="h-px w-12 bg-gradient-to-r from-transparent to-white" />
+                <span className="text-white text-xs tracking-[0.5em] uppercase">Stay Connected</span>
+                <div className="h-px w-12 bg-gradient-to-l from-transparent to-white" />
+              </div>
+              <h2 className="text-5xl md:text-6xl lg:text-7xl text-white mb-6 leading-tight font-normal" style={{ fontFamily: '"Prata", "Prata Fallback", serif' }}>Join Our Circle</h2>
+              <p className="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed" style={{ fontFamily: '"Mona Sans", "Mona Sans Fallback", ui-sans-serif, system-ui, sans-serif' }}>
+                Subscribe to receive exclusive updates on new collections, private sales, and insider access to the world of LKB Jewellers.
+              </p>
+            </div>
+
+            <div className="relative px-4">
+              <div className="absolute -inset-1 bg-gradient-to-r from-white/20 via-white/40 to-white/20 rounded-2xl blur-lg opacity-50" />
+              <div className="relative bg-gradient-to-br from-gray-900/90 to-black/90 backdrop-blur-xl border border-white/20 rounded-2xl p-6 md:p-8 lg:p-12">
+                <form onSubmit={handleSubscribe} className="flex flex-col md:flex-row gap-3 md:gap-4">
+                  <div className="flex-1 relative group">
+                    <input
+                      type="email"
+                      placeholder="Enter your email address"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      disabled={loading}
+                      className="w-full px-4 md:px-6 py-3 md:py-4 bg-black/50 border border-gray-700 rounded-lg text-white placeholder-gray-500 text-base focus:outline-none focus:border-white focus:ring-2 focus:ring-white/20 transition-all duration-300"
+                      style={{ fontSize: "16px" }}
+                      required
+                    />
+                    <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-white/0 via-white/5 to-white/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+                  </div>
+                  <button type="submit" disabled={loading} className="group relative px-6 md:px-8 py-3 md:py-4 bg-white text-black font-bold tracking-widest text-xs md:text-sm rounded-lg overflow-hidden transition-all duration-300 hover:shadow-2xl hover:shadow-white/50 hover:scale-105">
+                    <span className="relative z-10 flex items-center justify-center gap-2">
+                      {loading ? "SENDING..." : "SUBSCRIBE"}
+                      <ArrowRight className="w-3 h-3 md:w-4 md:h-4 group-hover:translate-x-1 transition-transform" />
+                    </span>
+                    <div className="absolute inset-0 bg-gray-200 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  </button>
+                </form>
+                <p className="text-gray-500 text-[0.65rem] md:text-xs text-center mt-4 md:mt-6 px-2">
+                  By subscribing, you agree to our{" "}
+                  <Link href="/privacy-policy" className="text-white hover:underline">Privacy Policy</Link>. Unsubscribe anytime.
+                </p>
+                {/* Corner decorations */}
+                <div className="absolute top-3 left-3 md:top-4 md:left-4 w-12 h-12 md:w-16 md:h-16 border-t border-l border-white/20 rounded-tl-xl" />
+                <div className="absolute top-3 right-3 md:top-4 md:right-4 w-12 h-12 md:w-16 md:h-16 border-t border-r border-white/20 rounded-tr-xl" />
+                <div className="absolute bottom-3 left-3 md:bottom-4 md:left-4 w-12 h-12 md:w-16 md:h-16 border-b border-l border-white/20 rounded-bl-xl" />
+                <div className="absolute bottom-3 right-3 md:bottom-4 md:right-4 w-12 h-12 md:w-16 md:h-16 border-b border-r border-white/20 rounded-br-xl" />
+              </div>
+            </div>
+
+            {/* Stats */}
+            <div className="grid grid-cols-3 gap-4 md:gap-6 lg:gap-8 mt-8 md:mt-12 px-2 md:px-4">
+              {[
+                { icon: "✦", title: "Exclusive Previews", desc: "Be first to see new collections" },
+                { icon: "★", title: "Special Offers", desc: "Members-only discounts & sales" },
+                { icon: "◆", title: "Expert Insights", desc: "Jewellery care & styling tips" },
+              ].map((stat) => (
+                <div key={stat.title} className="text-center">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 mx-auto mb-2 md:mb-3 lg:mb-4 rounded-full bg-white/10 border border-white/30 flex items-center justify-center">
+                    <span className="text-white text-lg sm:text-xl md:text-2xl">{stat.icon}</span>
+                  </div>
+                  <h3 className="text-white font-semibold mb-1 md:mb-2 text-xs sm:text-sm md:text-base" style={{ fontFamily: '"Prata", "Prata Fallback", serif' }}>{stat.title}</h3>
+                  <p className="text-gray-500 text-[0.65rem] sm:text-xs md:text-sm">{stat.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
