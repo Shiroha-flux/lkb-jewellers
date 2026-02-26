@@ -116,15 +116,13 @@ export const navMenuData = {
   },
   services: {
     title: "OTHER SERVICES",
-    defaultImage:
-      "https://i0.wp.com/lkbjewellers.com/wp-content/uploads/2023/10/SRD-3-scaled.jpg?resize=510%2C765&ssl=1",
+    defaultImage: "/about-us/srd-3.webp",
     offerings: [
       {
         name: "Bespoke Designs",
         desc: "Custom creations by master craftsmen",
         link: "/bespoke",
-        image:
-          "https://i0.wp.com/lkbjewellers.com/wp-content/uploads/2023/10/DAVIDO-42-scaled.jpg?resize=1229%2C1536&ssl=1",
+        image: "/about-us/davido-42.webp",
       },
       {
         name: "Sell",
@@ -136,43 +134,38 @@ export const navMenuData = {
         name: "Watches/Jewellery Servicing",
         desc: "Expert restoration & maintenance services",
         link: "/servicing",
-        image:
-          "https://i0.wp.com/lkbjewellers.com/wp-content/uploads/2023/10/SRD-3-scaled.jpg?resize=510%2C765&ssl=1",
+        image: "/about-us/srd-3.webp",
       },
     ],
   },
   contact: {
     title: "ABOUT US",
-    defaultImage:
-      "https://i0.wp.com/lkbjewellers.com/wp-content/uploads/2025/02/LKB-GRM-CROWN-JEWELS-BTS-26-scaled.jpeg?resize=1536%2C1229&ssl=1",
+    defaultImage: "/about-us/crown-jewels.webp",
     links: [
       {
         name: "Hall of Fame",
         desc: "Our distinguished clientele & their pieces",
         link: "/hall-of-fame",
-        image: "https://i.ibb.co/4ZTkytsR/JEWELLERY-WEB-NEW-03.jpg",
+        image: "/about-us/hall-of-fame.jpg",
       },
       {
         name: "LKB Foundation",
         desc: "Our commitment to giving back",
         link: "https://www.lkbfoundation.org/",
-        image:
-          "https://i0.wp.com/lkbjewellers.com/wp-content/uploads/2023/12/MINI-LKB-PENDANT.jpg?w=1500&ssl=1",
+        image: "/about-us/mini-pendant.jpg",
         external: true,
       },
       {
         name: "About Us",
         desc: "Our heritage, values & craftsmanship",
         link: "/about",
-        image:
-          "https://i0.wp.com/lkbjewellers.com/wp-content/uploads/2025/02/LKB-GRM-CROWN-JEWELS-BTS-26-scaled.jpeg?resize=1536%2C1229&ssl=1",
+        image: "/about-us/crown-jewels.webp",
       },
       {
         name: "Contact Us",
         desc: "Visit us at Hatton Garden, London",
         link: "/contact",
-        image:
-          "https://i0.wp.com/lkbjewellers.com/wp-content/uploads/2024/08/Suspect-With-Chain-scaled.jpg?w=1978&ssl=1",
+        image: "/about-us/suspect-chain.webp",
       },
     ],
   },
