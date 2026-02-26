@@ -37,8 +37,9 @@ export function filterRings(rings: Ring[], filters: ActiveFilters): Ring[] {
 /**
  * Parse URL search params into ActiveFilters object.
  */
-export function parseFiltersFromURL(searchParams: URLSearchParams): ActiveFilters {
+export function parseFiltersFromURL(searchParams: URLSearchParams | { get: (key: string) => string | null } | null): ActiveFilters {
   const filters: ActiveFilters = {}
+  if (!searchParams) return filters
   const shape = searchParams.get('shape')
   const metal = searchParams.get('metal')
   const settingStyle = searchParams.get('settingStyle')

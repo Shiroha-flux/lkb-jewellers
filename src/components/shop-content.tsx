@@ -93,8 +93,8 @@ interface ShopContentProps {
 
 export default function ShopContent({ defaultCategory }: ShopContentProps) {
   const searchParams = useSearchParams();
-  const categoryParam = searchParams.get("category");
-  const brandParam = searchParams.get("brand");
+  const categoryParam = searchParams?.get("category") ?? null;
+  const brandParam = searchParams?.get("brand") ?? null;
 
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);

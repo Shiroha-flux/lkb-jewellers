@@ -25,7 +25,7 @@ interface FilterSectionProps {
 
 function FilterSection({ label, tooltip, children }: FilterSectionProps) {
   return (
-    <div className="flex flex-col gap-3">
+    <div className="flex flex-col gap-3 flex-shrink-0">
       <div className="flex items-center gap-1.5">
         <span className="text-xs font-semibold tracking-widest uppercase text-gray-400">
           {label}
@@ -118,8 +118,9 @@ export function FilterBar({ activeFilters, onFilterChange }: FilterBarProps) {
 
   return (
     <div className="w-full bg-zinc-950 border-b border-zinc-800">
-      <div className="container mx-auto px-4 py-6">
-        <div className="flex flex-col gap-6 lg:flex-row lg:gap-8 lg:items-start overflow-x-auto">
+      <div className="container mx-auto px-4 py-4 md:py-6">
+        {/* Mobile: horizontal scroll | Desktop: wrap */}
+        <div className="flex flex-row gap-4 md:gap-8 overflow-x-auto pb-2 md:pb-0 scroll-smooth [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
 
           {/* Shape */}
           <FilterSection

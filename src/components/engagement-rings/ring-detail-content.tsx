@@ -110,7 +110,7 @@ export function RingDetailContent({ ring }: RingDetailContentProps) {
             <Separator className="bg-zinc-800" />
 
             {/* Trust badges */}
-            <div className="grid grid-cols-4 gap-4 py-4">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 py-4">
               <TrustBadge icon={Shield} label="Lifetime Warranty" />
               <TrustBadge icon={RefreshCw} label="Free Resizing" />
               <TrustBadge icon={Truck} label="Free Shipping" />

@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { Montserrat } from "next/font/google";
 import "./globals.css";
 import { CartProvider } from "@/context/cart-context";
 import { AuthProvider } from "@/context/auth-context";
@@ -8,14 +7,6 @@ import Footer from "@/components/footer";
 import AppShell from "@/components/app-shell";
 import TopBanner from "@/components/top-banner";
 import FloatingButtons from "@/components/floating-buttons";
-
-const montserrat = Montserrat({
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700", "800"],
-  display: "swap",
-  variable: "--font-montserrat",
-});
-
 
 export const metadata: Metadata = {
   title:
@@ -32,9 +23,58 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${montserrat.variable}`}>
+    <html lang="en">
+      <head>
+        <style>{`
+          @font-face {
+            font-family: 'Montserrat';
+            src: url('/fonts/montserrat-300.woff2') format('woff2');
+            font-weight: 300;
+            font-style: normal;
+            font-display: swap;
+          }
+          @font-face {
+            font-family: 'Montserrat';
+            src: url('/fonts/montserrat-400.woff2') format('woff2');
+            font-weight: 400;
+            font-style: normal;
+            font-display: swap;
+          }
+          @font-face {
+            font-family: 'Montserrat';
+            src: url('/fonts/montserrat-500.woff2') format('woff2');
+            font-weight: 500;
+            font-style: normal;
+            font-display: swap;
+          }
+          @font-face {
+            font-family: 'Montserrat';
+            src: url('/fonts/montserrat-600.woff2') format('woff2');
+            font-weight: 600;
+            font-style: normal;
+            font-display: swap;
+          }
+          @font-face {
+            font-family: 'Montserrat';
+            src: url('/fonts/montserrat-700.woff2') format('woff2');
+            font-weight: 700;
+            font-style: normal;
+            font-display: swap;
+          }
+          @font-face {
+            font-family: 'Montserrat';
+            src: url('/fonts/montserrat-800.woff2') format('woff2');
+            font-weight: 800;
+            font-style: normal;
+            font-display: swap;
+          }
+          :root {
+            --font-montserrat: 'Montserrat', sans-serif;
+          }
+        `}</style>
+      </head>
       <body
-        className={`antialiased ${montserrat.className}`}
+        className="antialiased"
         suppressHydrationWarning
       >
         <AuthProvider>
