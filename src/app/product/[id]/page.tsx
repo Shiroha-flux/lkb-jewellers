@@ -16,7 +16,7 @@ const PLACEHOLDER_IMG =
 export default function ProductPage() {
   const params = useParams();
   const { addToCart } = useCart();
-  const id = params.id as string;
+  const id = (params?.id ?? "") as string;
   const [product, setProduct] = useState<Product | null>(null);
   const [loading, setLoading] = useState(true);
 
