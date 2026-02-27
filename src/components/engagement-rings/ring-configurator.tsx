@@ -15,6 +15,8 @@ import type { GemstoneFilter } from '@/lib/gemstone-utils'
 interface RingConfiguratorProps {
   ring: Ring
   gemstones?: RecommendedGemstone[]
+  selectedMetal: string
+  onMetalChange: (metal: string) => void
 }
 
 function LabelWithTooltip({ label, tooltip }: { label: string; tooltip: string }) {
@@ -55,10 +57,10 @@ function ConfigRow({ label, tooltip, children }: { label: string; tooltip: strin
   )
 }
 
-export function RingConfigurator({ ring, gemstones }: RingConfiguratorProps) {
+export function RingConfigurator({ ring, gemstones, selectedMetal, onMetalChange }: RingConfiguratorProps) {
   // Your Setting state
   const [sideStones, setSideStones] = useState(ring.sideStonesOptions[0] ?? 'Lab Grown Diamond')
-  const [metalType, setMetalType] = useState(ring.metalOptions[0] ?? 'Platinum')
+  const metalType = selectedMetal
   const [setting, setSetting] = useState(ring.settingOptions[0] ?? 'High Setting')
   const [ringSize, setRingSize] = useState('')
 
@@ -109,7 +111,7 @@ export function RingConfigurator({ ring, gemstones }: RingConfiguratorProps) {
             label="Metal Type"
             tooltip="The precious metal used for your ring. Each metal has unique properties and appearance."
           >
-            <Select value={metalType} onValueChange={setMetalType}>
+            <Select value={metalType} onValueChange={onMetalChange}>
               <SelectTrigger className="bg-zinc-900 border-zinc-700 text-white hover:border-zinc-500 focus:ring-[#D4AF37] focus:ring-1">
                 <SelectValue />
               </SelectTrigger>
