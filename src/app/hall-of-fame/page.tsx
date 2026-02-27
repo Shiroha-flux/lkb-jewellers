@@ -1,9 +1,8 @@
 "use client";
 
-import { useState, useRef, useCallback } from "react";
+import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import { Crown } from "lucide-react";
-import ShowroomSection from "@/components/showroom-section";
 
 const pieces = [
 	{
@@ -68,18 +67,43 @@ const pieces = [
 	},
 ];
 
+function CornerBrackets({ color = "#555" }: { color?: string }) {
+	return (
+		<>
+			<svg className="absolute top-0 left-0 w-3 h-3" viewBox="0 0 10 10" fill="none">
+				<path d={`M9.51051 1.00049H0.253906V9.75645`} stroke={color} strokeWidth="1.5" />
+			</svg>
+			<svg className="absolute top-0 right-0 w-3 h-3" viewBox="0 0 10 10" fill="none">
+				<path d={`M0.253906 1.00049H9.51051V9.75645`} stroke={color} strokeWidth="1.5" />
+			</svg>
+			<svg className="absolute bottom-0 left-0 w-3 h-3" viewBox="0 0 10 10" fill="none">
+				<path d={`M9.51051 9.00049H0.253906V0.244531`} stroke={color} strokeWidth="1.5" />
+			</svg>
+			<svg className="absolute bottom-0 right-0 w-3 h-3" viewBox="0 0 10 10" fill="none">
+				<path d={`M0.253906 9.00049H9.51051V0.244531`} stroke={color} strokeWidth="1.5" />
+			</svg>
+		</>
+	);
+}
+
 export default function HallOfFamePage() {
-	const [activeIndex, setActiveIndex] = useState(0);
+	const [activeIndex, setActiveIndex] = useState(2);
 	const carouselRef = useRef<HTMLDivElement>(null);
 	const current = pieces[activeIndex];
 
-	const handleWheel = useCallback((e: React.WheelEvent) => {
-		e.preventDefault();
-		if (e.deltaY > 0) {
-			setActiveIndex((prev) => Math.min(prev + 1, pieces.length - 1));
-		} else {
-			setActiveIndex((prev) => Math.max(prev - 1, 0));
-		}
+	useEffect(() => {
+		const el = carouselRef.current;
+		if (!el) return;
+		const handler = (e: WheelEvent) => {
+			e.preventDefault();
+			if (e.deltaY > 0) {
+				setActiveIndex((prev) => Math.min(prev + 1, pieces.length - 1));
+			} else {
+				setActiveIndex((prev) => Math.max(prev - 1, 0));
+			}
+		};
+		el.addEventListener("wheel", handler, { passive: false });
+		return () => el.removeEventListener("wheel", handler);
 	}, []);
 
 	const touchStartY = useRef(0);
@@ -93,155 +117,191 @@ export default function HallOfFamePage() {
 	};
 
 	return (
-		<div className="bg-black min-h-screen text-white">
-			{/* ===== MAIN SECTION ===== */}
-			<section className="pt-32 md:pt-40 pb-16 md:pb-24 px-4 md:px-6">
-				<div className="container mx-auto max-w-7xl">
-					{/* Header */}
-					<div className="text-center mb-12">
-						<h2 className="text-white text-sm tracking-[0.3em] uppercase mb-4 font-heading">HALL OF FAME</h2>
-						<p className="text-gray-400 text-base max-w-2xl mx-auto" style={{ fontFamily: '"Mona Sans", "Mona Sans Fallback", ui-sans-serif, system-ui, sans-serif' }}>
-							Celebrating our distinguished clientele and their extraordinary pieces
-						</p>
-					</div>
+		<div className="min-h-screen bg-black flex flex-col pt-20 pb-8">
+			{/* ===== HEADER ===== */}
+			<div className="container mx-auto px-6 mb-6">
+				<div className="flex items-center justify-center gap-3 mb-3">
+					<Crown className="w-8 h-8 text-white" aria-hidden="true" />
+					<h1 className="text-4xl md:text-5xl font-normal tracking-[0.15em] text-white" style={{ fontFamily: 'Prata, "Prata Fallback", serif' }}>
+						HALL OF FAME
+					</h1>
+				</div>
+				<p className="text-center text-gray-400 text-sm max-w-xl mx-auto" style={{ fontFamily: '"Mona Sans", "Mona Sans Fallback", ui-sans-serif, system-ui, sans-serif' }}>
+					Celebrating our distinguished clientele and their extraordinary pieces
+				</p>
+			</div>
 
-					{/* 2-Panel Layout */}
-					<div className="grid grid-cols-1 lg:grid-cols-5 gap-6 lg:gap-8">
-						{/* LEFT - Vertical Carousel */}
-						<div className="lg:col-span-2 order-2 lg:order-1">
-							<div className="text-center mb-4">
-								<h3 className="text-[#D4AF37] text-xl font-heading mb-1">Our Clients</h3>
-								<p className="text-gray-500 text-xs tracking-widest uppercase hidden md:block">Scroll to Navigate</p>
-								<p className="text-gray-500 text-xs tracking-widest uppercase md:hidden">Swipe to Navigate</p>
-							</div>
-
-							{/* Carousel */}
-							<div
-								ref={carouselRef}
-								className="relative h-[300px] md:h-[400px] overflow-hidden border border-gray-800/50 rounded-lg bg-gray-900/20 cursor-pointer"
-								style={{ perspective: "1000px" }}
-								onWheel={handleWheel}
-								onTouchStart={handleTouchStart}
-								onTouchEnd={handleTouchEnd}
-							>
-								{/* Top/bottom fade */}
-								<div className="absolute top-0 left-0 right-0 h-16 bg-gradient-to-b from-black to-transparent z-10 pointer-events-none" />
-								<div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-black to-transparent z-10 pointer-events-none" />
-
-								{/* Center highlight line */}
-								<div className="absolute top-1/2 left-0 right-0 -translate-y-1/2 h-px bg-gradient-to-r from-transparent via-[#D4AF37]/60 to-transparent z-[5]" />
-
-								{/* Items */}
-								<div className="absolute inset-0 flex flex-col items-center justify-center">
-									{pieces.map((item, i) => {
-										const offset = i - activeIndex;
-										const absOffset = Math.abs(offset);
-										const isActive = i === activeIndex;
-
-										if (absOffset > 3) return null;
-
-										return (
-											<button
-												key={item.id}
-												onClick={() => setActiveIndex(i)}
-												className="absolute w-full text-center transition-all duration-500 ease-out px-4"
-												style={{
-													transform: `translateY(${offset * 50}px) scale(${isActive ? 1 : 1 - absOffset * 0.1})`,
-													opacity: isActive ? 1 : Math.max(0, 1 - absOffset * 0.35),
-													zIndex: isActive ? 10 : 5 - absOffset,
-												}}
-											>
-												{isActive ? (
-													<div className="py-3 bg-gradient-to-r from-transparent via-[#D4AF37]/10 to-transparent">
-														<div className="relative inline-block px-8 py-2">
-															<div className="absolute top-0 left-0 w-3 h-3 border-t border-l border-[#D4AF37]/50" />
-															<div className="absolute top-0 right-0 w-3 h-3 border-t border-r border-[#D4AF37]/50" />
-															<div className="absolute bottom-0 left-0 w-3 h-3 border-b border-l border-[#D4AF37]/50" />
-															<div className="absolute bottom-0 right-0 w-3 h-3 border-b border-r border-[#D4AF37]/50" />
-															<p className="text-white text-base md:text-lg tracking-[0.15em] font-heading">{item.name}</p>
-															<p className="text-[#D4AF37] text-xs tracking-[0.25em] uppercase mt-1">{item.year}</p>
-														</div>
-													</div>
-												) : (
-													<div className="py-2">
-														<div className="relative inline-block px-6">
-															<div className="absolute top-0 left-0 w-2 h-2 border-t border-l border-gray-700/50" />
-															<div className="absolute top-0 right-0 w-2 h-2 border-t border-r border-gray-700/50" />
-															<div className="absolute bottom-0 left-0 w-2 h-2 border-b border-l border-gray-700/50" />
-															<div className="absolute bottom-0 right-0 w-2 h-2 border-b border-r border-gray-700/50" />
-															<p className="text-gray-500 text-sm tracking-[0.1em] font-heading">{item.name}</p>
-														</div>
-													</div>
-												)}
-											</button>
-										);
-									})}
-								</div>
-							</div>
-
-							{/* Counter */}
-							<p className="text-center text-gray-400 text-xs tracking-widest uppercase mt-3 font-medium">
-								{activeIndex + 1} / {pieces.length}
+			{/* ===== CONTENT ===== */}
+			<div className="container mx-auto px-6 flex-1 flex items-center">
+				<div className="grid grid-cols-1 lg:grid-cols-5 gap-6 lg:gap-8 w-full">
+					{/* LEFT - Vertical Carousel */}
+					<div className="lg:col-span-2 order-1 lg:order-1">
+						<div className="text-center mb-4">
+							<h2 className="text-xl text-white mb-1 font-bold" style={{ fontFamily: 'Prata, "Prata Fallback", serif' }}>Our Clients</h2>
+							<p className="text-xs text-gray-500 tracking-widest uppercase" style={{ fontFamily: "ui-sans-serif, system-ui, sans-serif" }}>
+								<span className="hidden md:inline">Scroll to Navigate</span>
+								<span className="md:hidden">Swipe to Navigate</span>
 							</p>
 						</div>
 
-						{/* RIGHT - Detail Panel */}
-						<div className="lg:col-span-3 order-1 lg:order-2">
-							<div className="bg-gray-900/30 border border-gray-800 rounded-lg overflow-hidden h-[400px] md:h-[500px] flex flex-col">
-								{/* Image Area */}
-								<div className="relative h-60 md:h-80 bg-black overflow-hidden group">
-									<Image
-										src={current.image}
-										alt={current.piece}
-										fill
-										className="object-contain group-hover:scale-105 transition-transform duration-500"
-										sizes="(max-width: 1024px) 100vw, 60vw"
-									/>
-									<div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
-									<div className="absolute bottom-0 left-0 right-0 p-4 md:p-6 z-10 flex justify-between items-end">
+						{/* Carousel */}
+						<div
+							ref={carouselRef}
+							className="relative h-[300px] md:h-[400px] flex items-center justify-center overflow-hidden cursor-pointer border border-gray-800/50 rounded-lg bg-gray-900/20"
+							style={{ perspective: "1000px", touchAction: "pan-y" }}
+	
+							onTouchStart={handleTouchStart}
+							onTouchEnd={handleTouchEnd}
+						>
+							{/* Scroll hint */}
+							<div className="absolute top-4 right-4 z-20 text-xs text-gray-500 animate-pulse">
+								<span className="hidden md:inline">🖱️ Scroll</span>
+								<span className="md:hidden">👆 Swipe</span>
+							</div>
+
+							{/* Items */}
+							<div className="relative w-full">
+								{pieces.map((item, i) => {
+									const offset = i - activeIndex;
+									const absOffset = Math.abs(offset);
+									const isActive = i === activeIndex;
+
+									let yOffset: number;
+									let scale: number;
+									let opacity: number;
+									let pointerEvents: "auto" | "none";
+
+									if (isActive) {
+										yOffset = 0;
+										scale = 1;
+										opacity = 1;
+										pointerEvents = "auto";
+									} else if (absOffset === 1) {
+										yOffset = offset * 50;
+										scale = 0.88;
+										opacity = 0.8;
+										pointerEvents = "auto";
+									} else if (absOffset === 2) {
+										yOffset = offset * 50;
+										scale = 0.76;
+										opacity = 0.6;
+										pointerEvents = "auto";
+									} else if (absOffset === 3) {
+										yOffset = offset * 50;
+										scale = 0.7;
+										opacity = 0.4;
+										pointerEvents = "none";
+									} else {
+										yOffset = offset * 50;
+										scale = 0.7;
+										opacity = 0.2;
+										pointerEvents = "none";
+									}
+
+									return (
+										<button
+											key={item.id}
+											onClick={() => setActiveIndex(i)}
+											className="absolute w-full transition-all duration-500 ease-out"
+											style={{
+												transform: `translateY(${yOffset}px) scale(${scale})`,
+												opacity,
+												top: "50%",
+												marginTop: "-15px",
+												pointerEvents,
+											}}
+										>
+											<div className={`relative px-4 py-3 text-center transition-all duration-400 ${isActive ? "bg-gradient-to-r from-transparent via-white/10 to-transparent" : "bg-transparent"}`}>
+												<CornerBrackets color={isActive ? "#D4AF37" : "#555"} />
+												{isActive ? (
+													<>
+														<div className="tracking-[0.15em] transition-all duration-400 text-white text-base md:text-lg font-light" style={{ fontFamily: 'Prata, "Prata Fallback", serif' }}>
+															{item.name}
+														</div>
+														<div className="mt-1 text-xs text-white uppercase tracking-[0.25em] font-medium">
+															{item.year}
+														</div>
+													</>
+												) : (
+													<div className="tracking-[0.15em] transition-all duration-400 text-gray-500 text-sm" style={{ fontFamily: 'Prata, "Prata Fallback", serif' }}>
+														{item.name}
+													</div>
+												)}
+											</div>
+										</button>
+									);
+								})}
+							</div>
+
+							{/* Center highlight line */}
+							<div className="absolute left-0 right-0 top-1/2 h-px bg-gradient-to-r from-transparent via-white/60 to-transparent pointer-events-none" />
+
+							{/* Top/bottom fade */}
+							<div className="absolute top-0 left-0 right-0 h-20 bg-gradient-to-b from-black to-transparent pointer-events-none" />
+							<div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-black to-transparent pointer-events-none" />
+						</div>
+
+						{/* Counter */}
+						<div className="text-center mt-3 text-xs text-gray-400 uppercase tracking-widest font-medium">
+							{activeIndex + 1} / {pieces.length}
+						</div>
+					</div>
+
+					{/* RIGHT - Detail Panel */}
+					<div className="lg:col-span-3 order-2 lg:order-2" style={{ touchAction: "auto" }}>
+						<div className="bg-gray-900/30 border border-gray-800 overflow-hidden h-[400px] md:h-[500px] flex flex-col" style={{ touchAction: "auto" }}>
+							{/* Image Area */}
+							<div className="relative h-60 md:h-80 bg-black overflow-hidden group" style={{ touchAction: "auto" }}>
+								<Image
+									src={current.image}
+									alt={current.name}
+									fill
+									className="object-contain transition-all duration-500 group-hover:scale-105"
+									sizes="(max-width: 1024px) 100vw, 60vw"
+								/>
+								<div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
+								<div className="absolute bottom-0 left-0 right-0 p-4 md:p-6 z-10">
+									<div className="flex items-end justify-between">
 										<div>
-											<p className="text-[#D4AF37] text-xs tracking-[0.25em] uppercase mb-1" style={{ fontFamily: "ui-sans-serif, system-ui, sans-serif" }}>Piece</p>
-											<h2 className="text-white text-xl md:text-2xl lg:text-3xl font-bold font-heading">{current.piece}</h2>
+											<p className="text-xs text-white uppercase tracking-[0.25em] mb-1" style={{ fontFamily: "ui-sans-serif, system-ui, sans-serif" }}>PIECE</p>
+											<h2 className="text-xl md:text-2xl lg:text-3xl text-white mb-1 font-bold" style={{ fontFamily: 'Prata, "Prata Fallback", serif' }}>{current.piece}</h2>
 										</div>
 										<div className="text-right">
-											<p className="text-gray-400 text-xs tracking-wider uppercase mb-1" style={{ fontFamily: "ui-sans-serif, system-ui, sans-serif" }}>Year</p>
-											<p className="text-[#D4AF37] text-lg md:text-xl font-bold font-heading">{current.year}</p>
+											<p className="text-xs text-gray-400 uppercase tracking-wider mb-1" style={{ fontFamily: "ui-sans-serif, system-ui, sans-serif" }}>YEAR</p>
+											<p className="text-lg md:text-xl text-white font-bold" style={{ fontFamily: 'Prata, "Prata Fallback", serif' }}>{current.year}</p>
 										</div>
 									</div>
 								</div>
+							</div>
 
-								{/* Details Area */}
-								<div className="p-4 md:p-6 border-t border-gray-800 flex-1">
-									<div className="flex items-center gap-3 mb-3">
-										<div className="flex-1 h-px bg-gradient-to-r from-transparent to-[#D4AF37]/40" />
-										<Crown className="w-5 h-5 text-[#D4AF37]" />
-										<div className="flex-1 h-px bg-gradient-to-l from-transparent to-[#D4AF37]/40" />
+							{/* Details Area */}
+							<div className="p-4 md:p-6 border-t border-gray-800 flex-1" style={{ touchAction: "auto" }}>
+								<div className="flex items-center gap-3 mb-4">
+									<div className="h-px flex-1 bg-gradient-to-r from-white to-transparent" />
+									<Crown className="w-5 h-5 text-white" aria-hidden="true" />
+									<div className="h-px flex-1 bg-gradient-to-l from-white to-transparent" />
+								</div>
+
+								<h3 className="text-lg md:text-xl text-white mb-3 tracking-wide font-bold" style={{ fontFamily: 'Prata, "Prata Fallback", serif' }}>{current.name}</h3>
+								<p className="text-gray-400 leading-relaxed text-sm mb-4" style={{ fontFamily: '"Mona Sans", "Mona Sans Fallback", ui-sans-serif, system-ui, sans-serif' }}>
+									{current.description}
+								</p>
+
+								<div className="grid grid-cols-2 gap-3">
+									<div className="bg-black/50 p-3 border border-gray-800">
+										<p className="text-xs text-gray-500 uppercase tracking-wider mb-1">Category</p>
+										<p className="text-white font-semibold text-sm">{current.category}</p>
 									</div>
-
-									<h3 className="text-white text-lg md:text-xl tracking-wide font-bold font-heading mb-2">{current.name}</h3>
-									<p className="text-gray-400 text-sm leading-relaxed mb-4" style={{ fontFamily: '"Mona Sans", "Mona Sans Fallback", ui-sans-serif, system-ui, sans-serif' }}>
-										{current.description}
-									</p>
-
-									<div className="grid grid-cols-2 gap-3">
-										<div className="bg-black/50 p-3 border border-gray-800">
-											<p className="text-gray-500 text-xs tracking-wider uppercase">Category</p>
-											<p className="text-white font-semibold text-sm">{current.category}</p>
-										</div>
-										<div className="bg-black/50 p-3 border border-gray-800">
-											<p className="text-gray-500 text-xs tracking-wider uppercase">Status</p>
-											<p className="text-white font-semibold text-sm">{current.status}</p>
-										</div>
+									<div className="bg-black/50 p-3 border border-gray-800">
+										<p className="text-xs text-gray-500 uppercase tracking-wider mb-1">Status</p>
+										<p className="text-white font-semibold text-sm">{current.status}</p>
 									</div>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-			</section>
-
-			{/* ===== VISIT OUR SHOWROOM ===== */}
-			<ShowroomSection />
+			</div>
 		</div>
 	);
 }

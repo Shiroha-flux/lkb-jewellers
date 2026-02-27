@@ -262,24 +262,24 @@ export default function HomePage() {
 						{serviceCards.map((card, index) => (
 							<Link key={card.id} href={card.id === "buy" ? "/we-buy" : card.id === "sell" ? "/shop" : card.id === "service" ? "/servicing" : "/bespoke"} className="group relative h-[350px] md:h-[400px] lg:h-[450px] overflow-hidden cursor-pointer block" style={{ animationDelay: `${index * 100}ms` }}>
 								<div className="relative h-full transition-all duration-500 group-hover:-translate-y-4 group-hover:scale-105" style={{ transformStyle: "preserve-3d" }}>
-									<div className="absolute inset-0 border-2 border-gray-900 group-hover:border-[#D4AF37]/50 transition-all duration-500 z-20 pointer-events-none" />
+									<div className="absolute inset-0 border-2 border-gray-900 group-hover:border-white/50 transition-all duration-500 z-20 pointer-events-none" />
 									<div className="absolute inset-0 overflow-hidden">
 										<Image src={card.image} alt={card.title} fill className="object-cover transition-all duration-700 group-hover:scale-110 group-hover:rotate-1" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw" />
 									</div>
 									<div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-transparent opacity-90 group-hover:opacity-70 transition-opacity duration-500" />
 									<div className="absolute bottom-0 left-0 w-full h-1.5 bg-gradient-to-r from-[#D4AF37] via-white to-[#D4AF37] scale-x-0 group-hover:scale-x-100 transition-transform duration-700 origin-left z-30" />
 									<div className="absolute top-6 right-6 z-30">
-										<div className="w-12 h-12 rounded-full border border-gray-700 group-hover:border-[#D4AF37] bg-black/50 backdrop-blur-sm flex items-center justify-center transition-all duration-500 group-hover:scale-110">
-											<span className="text-[#D4AF37] text-sm font-bold">0{index + 1}</span>
+										<div className="w-12 h-12 rounded-full border border-gray-700 group-hover:border-white bg-black/50 backdrop-blur-sm flex items-center justify-center transition-all duration-500 group-hover:scale-110">
+											<span className="text-white text-sm font-bold">0{index + 1}</span>
 										</div>
 									</div>
 									<div className="absolute bottom-0 left-0 right-0 p-5 md:p-6 lg:p-8 z-20">
-										<div className="w-12 h-12 mb-4 rounded-full bg-[#D4AF37]/10 border border-[#D4AF37]/30 flex items-center justify-center opacity-0 group-hover:opacity-100 transform -translate-y-4 group-hover:translate-y-0 transition-all duration-500 delay-100">
-											<ArrowRight size={20} className="text-[#D4AF37] rotate-[-45deg]" />
+										<div className="w-12 h-12 mb-4 rounded-full bg-white/10 border border-white/30 flex items-center justify-center opacity-0 group-hover:opacity-100 transform -translate-y-4 group-hover:translate-y-0 transition-all duration-500 delay-100">
+											<ArrowRight size={20} className="text-white rotate-[-45deg]" />
 										</div>
 										<h3 className="text-2xl md:text-3xl text-white mb-2 md:mb-3 transition-all duration-300 group-hover:text-white font-bold font-heading">{card.title}</h3>
 										<p className="text-gray-400 text-xs md:text-sm leading-relaxed opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-500 delay-150">{card.description}</p>
-										<div className="flex items-center gap-2 text-[#D4AF37] text-[0.65rem] md:text-xs tracking-widest uppercase mt-3 md:mt-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-200">
+										<div className="flex items-center gap-2 text-white text-[0.65rem] md:text-xs tracking-widest uppercase mt-3 md:mt-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-200">
 											Learn More
 											<ArrowRight size={10} className="md:w-3 md:h-3 group-hover:translate-x-2 transition-transform" />
 										</div>
@@ -292,9 +292,9 @@ export default function HomePage() {
 					</div>
 
 					<div className="flex items-center justify-center gap-4 mt-12">
-						<div className="h-px w-24 bg-gradient-to-r from-transparent to-[#D4AF37]/50" />
-						<div className="w-2 h-2 rounded-full bg-[#D4AF37] animate-pulse" />
-						<div className="h-px w-24 bg-gradient-to-l from-transparent to-[#D4AF37]/50" />
+						<div className="h-px w-24 bg-gradient-to-r from-transparent to-white/50" />
+						<div className="w-2 h-2 rounded-full bg-white animate-pulse" />
+						<div className="h-px w-24 bg-gradient-to-l from-transparent to-white/50" />
 					</div>
 				</div>
 			</section>

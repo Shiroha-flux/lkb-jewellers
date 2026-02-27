@@ -101,6 +101,7 @@ export default function ShopContent({ defaultCategory }: ShopContentProps) {
   const [refreshing, setRefreshing] = useState(false);
   const [showFilters, setShowFilters] = useState(true);
   const [activeCategory, setActiveCategory] = useState("all");
+  const [activeSubcategory, setActiveSubcategory] = useState("all");
   const [activeBrand, setActiveBrand] = useState("all");
   const [activeCaseSize, setActiveCaseSize] = useState("all");
   const [activeMaterial, setActiveMaterial] = useState("all");
@@ -120,6 +121,7 @@ export default function ShopContent({ defaultCategory }: ShopContentProps) {
     if (brandParam) {
       setActiveBrand(brandParam.replace(/-/g, " "));
       setActiveCategory("watch");
+      setActiveSubcategory("all");
     } else if (categoryParam) {
       // Map URL param values to actual DB category names
       const catMap: Record<string, string> = {
@@ -129,8 +131,25 @@ export default function ShopContent({ defaultCategory }: ShopContentProps) {
         "jewellery": "luxury-jewellery",
         "merchandise": "merchandise",
       };
+      // Map subcategory URL params to tag keywords for filtering
+      const subcatTagMap: Record<string, string> = {
+        "chains": "chains",
+        "bracelets": "bracelets",
+        "rings": "ring",
+        "pendants": "pendants",
+        "earrings": "earrings",
+        "flagship caps": "caps",
+        "watch strap": "watch strap",
+        "lifestyle": "lifestyle",
+      };
       const raw = categoryParam.toLowerCase();
-      setActiveCategory(catMap[raw] || raw);
+      if (subcatTagMap[raw]) {
+        setActiveCategory("all");
+        setActiveSubcategory(subcatTagMap[raw]);
+      } else {
+        setActiveCategory(catMap[raw] || raw);
+        setActiveSubcategory("all");
+      }
     } else if (defaultCategory) {
       const map: Record<string, string> = {
         Watches: "watch",
@@ -138,6 +157,7 @@ export default function ShopContent({ defaultCategory }: ShopContentProps) {
         Accessories: "merchandise",
       };
       setActiveCategory(map[defaultCategory] || "all");
+      setActiveSubcategory("all");
     }
   }, [categoryParam, brandParam, defaultCategory]);
 
@@ -172,6 +192,13 @@ export default function ShopContent({ defaultCategory }: ShopContentProps) {
     if (activeCategory !== "all") {
       result = result.filter(
         (p) => p.category.toLowerCase() === activeCategory
+      );
+    }
+
+    // Subcategory (filter by tags, normalize non-breaking spaces)
+    if (activeSubcategory !== "all") {
+      result = result.filter(
+        (p) => p.tags && p.tags.toLowerCase().replace(/\u00A0/g, " ").includes(activeSubcategory.toLowerCase())
       );
     }
 
@@ -233,6 +260,7 @@ export default function ShopContent({ defaultCategory }: ShopContentProps) {
   }, [
     products,
     activeCategory,
+    activeSubcategory,
     activeBrand,
     activeCaseSize,
     activeMaterial,

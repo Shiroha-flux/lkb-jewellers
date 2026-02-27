@@ -10,7 +10,7 @@ export default function ShowroomSection() {
 
   return (
     <section className="pt-32 md:pt-40 pb-16 md:pb-24 bg-black">
-      <div className="mx-auto px-6 max-w-6xl mb-16 md:mb-20">
+      <div className="w-full mb-16 md:mb-20">
         <div className="h-px bg-gray-800" />
       </div>
       <div className="mx-auto px-6 max-w-7xl">

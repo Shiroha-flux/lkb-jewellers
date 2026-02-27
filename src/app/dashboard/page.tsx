@@ -98,6 +98,84 @@ interface Notification {
 }
 
 // Auth Guard Component — uses admin cookie session
+function AdminLoginForm() {
+  const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+  const [error, setError] = useState("");
+  const [verifying, setVerifying] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!password.trim()) return;
+    setError("");
+    setVerifying(true);
+
+    try {
+      const res = await fetch("/api/auth", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ password }),
+      });
+
+      if (res.ok) {
+        document.cookie = `admin_session=authenticated; path=/; max-age=${60 * 60 * 24 * 7}; SameSite=Lax`;
+        window.location.reload();
+      } else {
+        setError("Incorrect password");
+        setVerifying(false);
+      }
+    } catch {
+      setError("Failed to verify. Please try again.");
+      setVerifying(false);
+    }
+  };
+
+  return (
+    <div className="min-h-screen bg-black text-white flex items-center justify-center px-6">
+      <div className="w-full max-w-md border border-gray-800 bg-[#0a0a0a] rounded-xl p-8 shadow-2xl">
+        <h1 className="text-2xl text-white mb-2 font-heading">
+          Dashboard Access
+        </h1>
+        <p className="text-gray-400 text-sm mb-6">
+          Enter admin password to continue.
+        </p>
+
+        <form onSubmit={handleSubmit} className="space-y-4">
+          <div className="relative">
+            <Input
+              type={showPassword ? "text" : "password"}
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              placeholder="Password"
+              className="h-auto w-full bg-[#0a0a0a] border border-gray-800 text-white px-4 py-3 pr-12 rounded-lg focus:outline-none focus:border-white"
+              disabled={verifying}
+              autoFocus
+            />
+            <button
+              type="button"
+              onClick={() => setShowPassword(!showPassword)}
+              className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-white transition-colors p-1"
+              disabled={verifying}
+            >
+              {showPassword ? <X className="h-5 w-5" /> : <Search className="h-5 w-5" />}
+            </button>
+          </div>
+
+          <Button
+            type="submit"
+            className="h-auto w-full bg-white text-black py-3 rounded-lg font-bold tracking-widest text-sm hover:bg-gray-200 transition-all duration-300 active:scale-95 disabled:opacity-50"
+            disabled={verifying}
+          >
+            {verifying ? "Verifying..." : "Enter Dashboard"}
+          </Button>
+
+          {error && <p className="text-red-400 text-sm">{error}</p>}
+        </form>
+      </div>
+    </div>
+  );
+}
+
 function AuthGuard({ children }: { children: React.ReactNode }) {
   const { isAdmin, loading } = useAuth();
 
@@ -110,21 +188,7 @@ function AuthGuard({ children }: { children: React.ReactNode }) {
   }
 
   if (!isAdmin) {
-    return (
-      <div className="min-h-screen bg-black text-white flex items-center justify-center px-6">
-        <div className="w-full max-w-md border border-gray-800 bg-black rounded-xl p-6 shadow-2xl text-center">
-          <h1 className="text-2xl text-white mb-2 font-heading">
-            Dashboard Access
-          </h1>
-          <p className="text-gray-400 text-sm mb-6">You must be logged in to access the dashboard.</p>
-          <Button asChild className="inline-block w-full bg-white text-black py-3 rounded-lg font-bold tracking-widest text-sm hover:bg-gray-200 transition-colors h-auto">
-            <Link href="/login">
-              Go to Login
-            </Link>
-          </Button>
-        </div>
-      </div>
-    );
+    return <AdminLoginForm />;
   }
 
   return <>{children}</>;
