@@ -1,6 +1,7 @@
 import { Suspense } from 'react'
 import type { Metadata } from 'next'
 import { EngagementRingsContent } from '@/components/engagement-rings/engagement-rings-content'
+import { fetchAllRings } from '@/lib/supabase-rings'
 
 export const metadata: Metadata = {
   title: 'Engagement Rings | LKB Jewellers',
@@ -31,10 +32,12 @@ function LoadingSkeleton() {
   )
 }
 
-export default function EngagementRingsPage() {
+export default async function EngagementRingsPage() {
+  const rings = await fetchAllRings()
+
   return (
     <Suspense fallback={<LoadingSkeleton />}>
-      <EngagementRingsContent />
+      <EngagementRingsContent rings={rings} />
     </Suspense>
   )
 }

@@ -5,13 +5,17 @@ import { useSearchParams, useRouter } from 'next/navigation'
 import { X } from 'lucide-react'
 import { FilterBar } from '@/components/engagement-rings/filter-bar'
 import { RingCard } from '@/components/engagement-rings/ring-card'
-import { engagementRings } from '@/data/engagement-rings'
+import type { Ring } from '@/data/engagement-rings'
 import { filterRings, parseFiltersFromURL, filtersToURL, hasActiveFilters } from '@/lib/ring-filters'
 import type { ActiveFilters } from '@/lib/ring-filters'
 
 const PAGE_SIZE = 12
 
-export function EngagementRingsContent() {
+interface EngagementRingsContentProps {
+  rings: Ring[]
+}
+
+export function EngagementRingsContent({ rings }: EngagementRingsContentProps) {
   const searchParams = useSearchParams()
   const router = useRouter()
 
@@ -27,8 +31,8 @@ export function EngagementRingsContent() {
 
   // Filter rings
   const filteredRings = useMemo(
-    () => filterRings(engagementRings, activeFilters),
-    [activeFilters]
+    () => filterRings(rings, activeFilters),
+    [rings, activeFilters]
   )
 
   const visibleRings = filteredRings.slice(0, visibleCount)

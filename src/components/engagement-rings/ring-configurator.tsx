@@ -7,12 +7,14 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Separator } from '@/components/ui/separator'
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip'
 import type { Ring } from '@/data/engagement-rings'
-import { stoneTypes, clarityOptions, caratRanges, colourOptions, recommendedGemstones } from '@/data/gemstone-options'
+import { stoneTypes, clarityOptions, caratRanges, colourOptions, recommendedGemstones as staticGemstones } from '@/data/gemstone-options'
+import type { RecommendedGemstone } from '@/data/gemstone-options'
 import { filterGemstones, formatGemstonePrice, getStoneTypeLabel } from '@/lib/gemstone-utils'
 import type { GemstoneFilter } from '@/lib/gemstone-utils'
 
 interface RingConfiguratorProps {
   ring: Ring
+  gemstones?: RecommendedGemstone[]
 }
 
 function LabelWithTooltip({ label, tooltip }: { label: string; tooltip: string }) {
@@ -53,7 +55,7 @@ function ConfigRow({ label, tooltip, children }: { label: string; tooltip: strin
   )
 }
 
-export function RingConfigurator({ ring }: RingConfiguratorProps) {
+export function RingConfigurator({ ring, gemstones }: RingConfiguratorProps) {
   // Your Setting state
   const [sideStones, setSideStones] = useState(ring.sideStonesOptions[0] ?? 'Lab Grown Diamond')
   const [metalType, setMetalType] = useState(ring.metalOptions[0] ?? 'Platinum')
@@ -63,7 +65,8 @@ export function RingConfigurator({ ring }: RingConfiguratorProps) {
   // Your Gemstone state
   const [gemFilter, setGemFilter] = useState<GemstoneFilter>({})
 
-  const filteredGemstones = filterGemstones(recommendedGemstones, gemFilter)
+  const allGemstones = gemstones ?? staticGemstones
+  const filteredGemstones = filterGemstones(allGemstones, gemFilter)
 
   function updateGemFilter(key: keyof GemstoneFilter, value: string) {
     setGemFilter(prev => ({ ...prev, [key]: value || undefined }))

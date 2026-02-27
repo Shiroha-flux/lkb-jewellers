@@ -6,9 +6,11 @@ import { Separator } from '@/components/ui/separator'
 import { ImageGallery } from '@/components/engagement-rings/image-gallery'
 import { RingConfigurator } from '@/components/engagement-rings/ring-configurator'
 import type { Ring } from '@/data/engagement-rings'
+import type { RecommendedGemstone } from '@/data/gemstone-options'
 
 interface RingDetailContentProps {
   ring: Ring
+  gemstones?: RecommendedGemstone[]
 }
 
 function TrustBadge({ icon: Icon, label }: { icon: React.ElementType; label: string }) {
@@ -31,7 +33,7 @@ function SpecRow({ label, value }: { label: string; value: string }) {
   )
 }
 
-export function RingDetailContent({ ring }: RingDetailContentProps) {
+export function RingDetailContent({ ring, gemstones }: RingDetailContentProps) {
   const formattedPrice = new Intl.NumberFormat('en-US', {
     style: 'currency',
     currency: ring.currency,
@@ -105,7 +107,7 @@ export function RingDetailContent({ ring }: RingDetailContentProps) {
             <Separator className="bg-zinc-800" />
 
             {/* Ring Configurator */}
-            <RingConfigurator ring={ring} />
+            <RingConfigurator ring={ring} gemstones={gemstones} />
 
             <Separator className="bg-zinc-800" />
 

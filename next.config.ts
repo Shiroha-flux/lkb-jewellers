@@ -41,7 +41,7 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: "https",
-        hostname: "media.cullenjewellery.com",
+        hostname: "ttiwmcrfahbczzehmyds.supabase.co",
       },
     ],
   },
