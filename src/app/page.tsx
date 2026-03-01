@@ -74,14 +74,14 @@ export default function HomePage() {
 					<div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-white rounded-full blur-[120px] animate-pulse" style={{ animationDelay: "2s" }} />
 				</div>
 				<div className="container mx-auto px-4 md:px-6 relative z-10">
-					<div className="text-center mb-8">
-						<div className="inline-flex items-center gap-4 mb-4">
-							<div className="h-px w-12 bg-gradient-to-r from-transparent to-white" />
-							<span className="text-gray-200 text-xs tracking-[0.4em] uppercase">New Collection</span>
-							<div className="h-px w-12 bg-gradient-to-l from-transparent to-white" />
+					<div className="text-center mb-12">
+						<div className="inline-flex items-center gap-4 mb-6">
+							<div className="h-px w-16 bg-gradient-to-r from-transparent to-white" />
+							<span className="text-white text-xs tracking-[0.5em] uppercase">New Collection</span>
+							<div className="h-px w-16 bg-gradient-to-l from-transparent to-white" />
 						</div>
-						<h2 className="text-4xl md:text-5xl text-white mb-4 font-normal font-heading">Latest Arrivals</h2>
-						<p className="text-gray-300 text-base max-w-xl mx-auto font-display">Scroll to discover our newest pieces, each one crafted with precision and passion</p>
+						<h2 className="text-5xl md:text-6xl text-white mb-6 font-normal font-heading">Latest Arrivals</h2>
+						<p className="text-gray-400 text-lg max-w-2xl mx-auto font-display">Scroll to discover our newest pieces, each one crafted with precision and passion</p>
 					</div>
 				</div>
 

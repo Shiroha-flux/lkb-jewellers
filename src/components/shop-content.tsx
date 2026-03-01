@@ -7,9 +7,7 @@ import Image from "next/image";
 import { SlidersHorizontal, RefreshCw } from "lucide-react";
 import { getProducts } from "@/lib/products";
 import type { Product } from "@/data/products";
-
-const PLACEHOLDER_IMG =
-  "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Crect width='400' height='400' fill='%23f3f4f6'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='%239ca3af' font-family='sans-serif' font-size='14'%3ENo Image%3C/text%3E%3C/svg%3E";
+import { ProductCard } from "@/components/product-card";
 
 function titleCase(str: string): string {
   return str
@@ -613,63 +611,7 @@ export default function ShopContent({ defaultCategory }: ShopContentProps) {
         ) : (
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
             {filteredProducts.map((product) => (
-              <Link
-                key={product.id}
-                href={`/product/${product.id}`}
-                className="group block"
-              >
-                {/* Image */}
-                <div className="relative overflow-hidden bg-gray-100 aspect-square mb-4">
-                  <Image
-                    src={product.image || PLACEHOLDER_IMG}
-                    alt={product.name}
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-500"
-                    sizes="(max-width: 640px) 50vw, (max-width: 768px) 33vw, (max-width: 1024px) 25vw, 20vw"
-                    onError={(e) => { (e.target as HTMLImageElement).srcset = ""; (e.target as HTMLImageElement).src = PLACEHOLDER_IMG; }}
-                  />
-                  {/* Hover CTA */}
-                  <div
-                    className={`absolute bottom-0 left-0 right-0 p-4 translate-y-full group-hover:translate-y-0 transition-all duration-300 text-center text-xs tracking-widest uppercase font-bold ${
-                      product.stock === 0
-                        ? "bg-red-900 text-white"
-                        : "bg-white text-gray-900 hover:bg-gold hover:text-black"
-                    }`}
-                  >
-                    {product.stock === 0
-                      ? "OUT OF STOCK"
-                      : product.price > 0
-                        ? "Quick Add"
-                        : "Enquire Now"}
-                  </div>
-                </div>
-
-                {/* Info */}
-                <div className="text-center">
-                  <h3
-                    className="text-lg mb-1 text-gray-800 group-hover:text-black transition-colors font-heading"
-                  >
-                    {product.name}
-                  </h3>
-                  <p className="text-gray-400 text-xs uppercase tracking-widest mb-1">
-                    {product.category === "luxury-jewellery" ? "Luxury Jewellery" : product.category === "watch" ? "Watch" : product.category}
-                  </p>
-                  <div className="flex items-center justify-center gap-2">
-                    <p
-                      className="text-black font-semibold text-base"
-                    >
-                      {product.price > 0
-                        ? `£${product.price.toLocaleString("en-GB")}`
-                        : "Price on request"}
-                    </p>
-                    {product.stock === 0 && (
-                      <span className="text-xs bg-red-900/30 text-red-500 px-2 py-0.5 rounded">
-                        Out of Stock
-                      </span>
-                    )}
-                  </div>
-                </div>
-              </Link>
+              <ProductCard key={product.id} product={product} />
             ))}
           </div>
         )}

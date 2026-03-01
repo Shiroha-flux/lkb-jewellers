@@ -96,31 +96,33 @@ export default function BespokePage() {
 			</section>
 
 			{/* ===== BESPOKE JEWELLERY INTRO ===== */}
-			<div className=" mx-auto px-4 md:px-6 text-center max-w-4xl my-12 md:my-16 relative">
+			<div className="mx-auto px-4 md:px-6 text-center max-w-4xl my-12 md:my-16 relative">
 				<div className="absolute inset-0 overflow-hidden pointer-events-none">
-					{[...Array(15)].map((_, i) => (
-						<div
-							key={i}
-							className="absolute w-1 h-1 bg-white rounded-full animate-pulse"
-							style={{
-								left: `${10 + ((i * 6.2) % 80)}%`,
-								top: `${5 + ((i * 7.3) % 90)}%`,
-								animationDelay: `${(i * 0.3) % 3}s`,
-								animationDuration: `${2 + (i % 3)}s`,
-								opacity: 0.5 + (i % 5) * 0.1,
-							}}
-						/>
-					))}
+					<div className="absolute w-1 h-1 bg-gold rounded-full animate-sparkle" style={{ left: "55.8135%", top: "73.9739%", animationDelay: "2.63476s", animationDuration: "3.42336s", opacity: 0.810061 }} />
+					<div className="absolute w-1 h-1 bg-gold rounded-full animate-sparkle" style={{ left: "84.3031%", top: "76.5577%", animationDelay: "2.72858s", animationDuration: "2.98425s", opacity: 0.559772 }} />
+					<div className="absolute w-1 h-1 bg-gold rounded-full animate-sparkle" style={{ left: "45.9747%", top: "33.2331%", animationDelay: "1.87834s", animationDuration: "2.30436s", opacity: 0.73225 }} />
+					<div className="absolute w-1 h-1 bg-gold rounded-full animate-sparkle" style={{ left: "15.2933%", top: "82.0598%", animationDelay: "0.163197s", animationDuration: "2.55954s", opacity: 0.751574 }} />
+					<div className="absolute w-1 h-1 bg-gold rounded-full animate-sparkle" style={{ left: "43.4577%", top: "49.5507%", animationDelay: "0.287795s", animationDuration: "3.08631s", opacity: 0.757974 }} />
+					<div className="absolute w-1 h-1 bg-gold rounded-full animate-sparkle" style={{ left: "78.5185%", top: "6.41371%", animationDelay: "0.904114s", animationDuration: "3.61924s", opacity: 0.695006 }} />
+					<div className="absolute w-1 h-1 bg-gold rounded-full animate-sparkle" style={{ left: "37.1695%", top: "21.6541%", animationDelay: "1.08309s", animationDuration: "2.69894s", opacity: 0.572262 }} />
+					<div className="absolute w-1 h-1 bg-gold rounded-full animate-sparkle" style={{ left: "18.8139%", top: "16.5647%", animationDelay: "2.44818s", animationDuration: "2.27164s", opacity: 0.971967 }} />
+					<div className="absolute w-1 h-1 bg-gold rounded-full animate-sparkle" style={{ left: "28.4972%", top: "89.6973%", animationDelay: "1.68733s", animationDuration: "3.61344s", opacity: 0.768388 }} />
+					<div className="absolute w-1 h-1 bg-gold rounded-full animate-sparkle" style={{ left: "39.7637%", top: "65.8443%", animationDelay: "0.496274s", animationDuration: "3.01708s", opacity: 0.591293 }} />
+					<div className="absolute w-1 h-1 bg-gold rounded-full animate-sparkle" style={{ left: "50.8881%", top: "10.8658%", animationDelay: "1.39868s", animationDuration: "2.81652s", opacity: 0.99909 }} />
+					<div className="absolute w-1 h-1 bg-gold rounded-full animate-sparkle" style={{ left: "72.8409%", top: "78.1251%", animationDelay: "0.220552s", animationDuration: "2.48981s", opacity: 0.759028 }} />
+					<div className="absolute w-1 h-1 bg-gold rounded-full animate-sparkle" style={{ left: "47.5367%", top: "40.7652%", animationDelay: "0.261579s", animationDuration: "2.55087s", opacity: 0.590712 }} />
+					<div className="absolute w-1 h-1 bg-gold rounded-full animate-sparkle" style={{ left: "29.0815%", top: "79.225%", animationDelay: "0.688706s", animationDuration: "3.07498s", opacity: 0.77156 }} />
+					<div className="absolute w-1 h-1 bg-gold rounded-full animate-sparkle" style={{ left: "83.4321%", top: "45.8455%", animationDelay: "1.50202s", animationDuration: "2.82929s", opacity: 0.776874 }} />
 				</div>
 				<h2 className="text-3xl sm:text-4xl md:text-5xl mb-6 md:mb-8 text-white font-bold px-4 font-heading">Bespoke Jewellery</h2>
-				<div className="w-16 md:w-24 h-0.5 bg-white mx-auto mb-8 md:mb-10" />
+				<div className="w-16 md:w-24 h-0.5 bg-gold mx-auto mb-8 md:mb-10" />
 				<p className="text-gray-300 text-base md:text-lg leading-relaxed mb-4 md:mb-6 font-normal px-4" style={{ fontFamily: '"Mona Sans", "Mona Sans Fallback", ui-sans-serif, system-ui, sans-serif' }}>
 					At the Local Kettle Brothers, we see bespoke jewellery as art. We create exquisite pieces that reflect our client&apos;s unique style and individuality. Our team of accredited creative designers and artist have years of experience bringing even the most complex visions to life.
 				</p>
 				<p className="text-gray-300 text-base md:text-lg leading-relaxed mb-4 md:mb-6 font-normal px-4" style={{ fontFamily: '"Mona Sans", "Mona Sans Fallback", ui-sans-serif, system-ui, sans-serif' }}>
 					From our initial consultation to the final handcrafted product, we take meticulous care at every step of the process. We use only the finest materials and the most advanced techniques to create beautiful and durable jewellery.
 				</p>
-				<p className="text-gray-300 text-base md:text-lg leading-relaxed mb-4 md:mb-6 font-normal px-4" style={{ fontFamily: '"Mona Sans", "Mona Sans Fallback", ui-sans-serif, system-ui, sans-serif' }}>
+				<p className="text-gray-300 text-base md:text-lg leading-relaxed font-normal px-4" style={{ fontFamily: '"Mona Sans", "Mona Sans Fallback", ui-sans-serif, system-ui, sans-serif' }}>
 					We mark life&apos;s significant moments with pieces of exceptional beauty, rarity, and quality. Whether you&apos;re celebrating an engagement, a wedding, or simply want to indulge yourself, we&apos;ll create a piece of jewelry you&apos;ll cherish for years to come.
 				</p>
 			</div>
