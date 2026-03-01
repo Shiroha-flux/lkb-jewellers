@@ -1,5 +1,6 @@
 'use client'
 
+import { useState, useMemo } from 'react'
 import Link from 'next/link'
 import { ArrowLeft, Star, Shield, RefreshCw, Truck, Gem } from 'lucide-react'
 import { Separator } from '@/components/ui/separator'
@@ -33,7 +34,36 @@ function SpecRow({ label, value }: { label: string; value: string }) {
   )
 }
 
+/** Map metal label → image color prefix (yellow / rose / white) */
+function metalToColorKey(metal: string): string {
+  const lower = metal.toLowerCase()
+  if (lower.includes('yellow')) return 'yellow'
+  if (lower.includes('rose')) return 'rose'
+  return 'white' // Platinum & White Gold both use white images
+}
+
 export function RingDetailContent({ ring, gemstones }: RingDetailContentProps) {
+  const [selectedMetal, setSelectedMetal] = useState(ring.metalOptions[0] ?? 'Platinum')
+
+  // Filter images & thumbnails based on selected metal color
+  const colorKey = metalToColorKey(selectedMetal)
+
+  const galleryImages = useMemo(() => {
+    const filtered = ring.images.filter(url => {
+      const filename = url.split('/').pop() ?? ''
+      return filename.startsWith(colorKey + '_')
+    })
+    return filtered.length > 0 ? filtered : ring.images
+  }, [ring.images, colorKey])
+
+  const galleryThumbs = useMemo(() => {
+    const filtered = ring.thumbnails.filter(url => {
+      const filename = url.split('/').pop() ?? ''
+      return filename.startsWith(colorKey + '_')
+    })
+    return filtered.length > 0 ? filtered : ring.thumbnails
+  }, [ring.thumbnails, colorKey])
+
   const formattedPrice = new Intl.NumberFormat('en-US', {
     style: 'currency',
     currency: ring.currency,
@@ -60,8 +90,8 @@ export function RingDetailContent({ ring, gemstones }: RingDetailContentProps) {
           {/* Left: Image Gallery */}
           <div className="lg:sticky lg:top-8 lg:self-start">
             <ImageGallery
-              images={ring.images}
-              thumbnails={ring.thumbnails}
+              images={galleryImages}
+              thumbnails={galleryThumbs}
               alt={ring.name}
             />
           </div>
@@ -94,7 +124,7 @@ export function RingDetailContent({ ring, gemstones }: RingDetailContentProps) {
                   <Star key={i} size={14} className="text-[#D4AF37] fill-[#D4AF37]" />
                 ))}
               </div>
-              <span className="text-gray-400 text-xs">5.0 · Cullen Jewellery</span>
+              <span className="text-gray-400 text-xs">5.0 · LKB Jewellers</span>
             </div>
 
             {/* Description */}
@@ -107,7 +137,12 @@ export function RingDetailContent({ ring, gemstones }: RingDetailContentProps) {
             <Separator className="bg-zinc-800" />
 
             {/* Ring Configurator */}
-            <RingConfigurator ring={ring} gemstones={gemstones} />
+            <RingConfigurator
+              ring={ring}
+              gemstones={gemstones}
+              selectedMetal={selectedMetal}
+              onMetalChange={setSelectedMetal}
+            />
 
             <Separator className="bg-zinc-800" />
 

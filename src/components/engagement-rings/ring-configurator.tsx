@@ -15,6 +15,8 @@ import type { GemstoneFilter } from '@/lib/gemstone-utils'
 interface RingConfiguratorProps {
   ring: Ring
   gemstones?: RecommendedGemstone[]
+  selectedMetal: string
+  onMetalChange: (metal: string) => void
 }
 
 function LabelWithTooltip({ label, tooltip }: { label: string; tooltip: string }) {
@@ -55,10 +57,10 @@ function ConfigRow({ label, tooltip, children }: { label: string; tooltip: strin
   )
 }
 
-export function RingConfigurator({ ring, gemstones }: RingConfiguratorProps) {
+export function RingConfigurator({ ring, gemstones, selectedMetal, onMetalChange }: RingConfiguratorProps) {
   // Your Setting state
   const [sideStones, setSideStones] = useState(ring.sideStonesOptions[0] ?? 'Lab Grown Diamond')
-  const [metalType, setMetalType] = useState(ring.metalOptions[0] ?? 'Platinum')
+  const metalType = selectedMetal
   const [setting, setSetting] = useState(ring.settingOptions[0] ?? 'High Setting')
   const [ringSize, setRingSize] = useState('')
 
@@ -69,7 +71,7 @@ export function RingConfigurator({ ring, gemstones }: RingConfiguratorProps) {
   const filteredGemstones = filterGemstones(allGemstones, gemFilter)
 
   function updateGemFilter(key: keyof GemstoneFilter, value: string) {
-    setGemFilter(prev => ({ ...prev, [key]: value || undefined }))
+    setGemFilter(prev => ({ ...prev, [key]: (value === 'all' || value === '') ? undefined : value }))
   }
 
   return (
@@ -109,7 +111,7 @@ export function RingConfigurator({ ring, gemstones }: RingConfiguratorProps) {
             label="Metal Type"
             tooltip="The precious metal used for your ring. Each metal has unique properties and appearance."
           >
-            <Select value={metalType} onValueChange={setMetalType}>
+            <Select value={metalType} onValueChange={onMetalChange}>
               <SelectTrigger className="bg-zinc-900 border-zinc-700 text-white hover:border-zinc-500 focus:ring-[#D4AF37] focus:ring-1">
                 <SelectValue />
               </SelectTrigger>
@@ -188,12 +190,12 @@ export function RingConfigurator({ ring, gemstones }: RingConfiguratorProps) {
             label="Stone Type"
             tooltip="Choose between lab grown diamonds, natural diamonds, moissanite, or lab grown sapphires."
           >
-            <Select value={gemFilter.stoneType ?? ''} onValueChange={v => updateGemFilter('stoneType', v)}>
+            <Select value={gemFilter.stoneType ?? 'all'} onValueChange={v => updateGemFilter('stoneType', v)}>
               <SelectTrigger className="bg-zinc-900 border-zinc-700 text-white hover:border-zinc-500 focus:ring-[#D4AF37] focus:ring-1">
                 <SelectValue placeholder="All stone types" />
               </SelectTrigger>
               <SelectContent className="bg-zinc-900 border-zinc-700">
-                <SelectItem value="" className="text-white hover:bg-zinc-800 focus:bg-zinc-800">All stone types</SelectItem>
+                <SelectItem value="all" className="text-white hover:bg-zinc-800 focus:bg-zinc-800">All stone types</SelectItem>
                 {stoneTypes.map(opt => (
                   <SelectItem key={opt.value} value={opt.value} className="text-white hover:bg-zinc-800 focus:bg-zinc-800">
                     {opt.label}
@@ -208,12 +210,12 @@ export function RingConfigurator({ ring, gemstones }: RingConfiguratorProps) {
             label="Clarity"
             tooltip="Diamond clarity refers to the absence of inclusions and blemishes. IF is the highest grade."
           >
-            <Select value={gemFilter.clarity ?? ''} onValueChange={v => updateGemFilter('clarity', v)}>
+            <Select value={gemFilter.clarity ?? 'all'} onValueChange={v => updateGemFilter('clarity', v)}>
               <SelectTrigger className="bg-zinc-900 border-zinc-700 text-white hover:border-zinc-500 focus:ring-[#D4AF37] focus:ring-1">
                 <SelectValue placeholder="All clarities" />
               </SelectTrigger>
               <SelectContent className="bg-zinc-900 border-zinc-700">
-                <SelectItem value="" className="text-white hover:bg-zinc-800 focus:bg-zinc-800">All clarities</SelectItem>
+                <SelectItem value="all" className="text-white hover:bg-zinc-800 focus:bg-zinc-800">All clarities</SelectItem>
                 {clarityOptions.map(opt => (
                   <SelectItem key={opt.value} value={opt.value} className="text-white hover:bg-zinc-800 focus:bg-zinc-800">
                     {opt.label}
@@ -227,12 +229,12 @@ export function RingConfigurator({ ring, gemstones }: RingConfiguratorProps) {
             label="Carat"
             tooltip="Carat is the unit of measurement for diamond weight. Larger carats appear bigger."
           >
-            <Select value={gemFilter.caratRange ?? ''} onValueChange={v => updateGemFilter('caratRange', v)}>
+            <Select value={gemFilter.caratRange ?? 'all'} onValueChange={v => updateGemFilter('caratRange', v)}>
               <SelectTrigger className="bg-zinc-900 border-zinc-700 text-white hover:border-zinc-500 focus:ring-[#D4AF37] focus:ring-1">
                 <SelectValue placeholder="All carat sizes" />
               </SelectTrigger>
               <SelectContent className="bg-zinc-900 border-zinc-700">
-                <SelectItem value="" className="text-white hover:bg-zinc-800 focus:bg-zinc-800">All carat sizes</SelectItem>
+                <SelectItem value="all" className="text-white hover:bg-zinc-800 focus:bg-zinc-800">All carat sizes</SelectItem>
                 {caratRanges.map(opt => (
                   <SelectItem key={opt.value} value={opt.value} className="text-white hover:bg-zinc-800 focus:bg-zinc-800">
                     {opt.label}
@@ -246,12 +248,12 @@ export function RingConfigurator({ ring, gemstones }: RingConfiguratorProps) {
             label="Colour"
             tooltip="Diamond colour is graded from D (colourless) to Z (light yellow). D is the most prized."
           >
-            <Select value={gemFilter.colour ?? ''} onValueChange={v => updateGemFilter('colour', v)}>
+            <Select value={gemFilter.colour ?? 'all'} onValueChange={v => updateGemFilter('colour', v)}>
               <SelectTrigger className="bg-zinc-900 border-zinc-700 text-white hover:border-zinc-500 focus:ring-[#D4AF37] focus:ring-1">
                 <SelectValue placeholder="All colours" />
               </SelectTrigger>
               <SelectContent className="bg-zinc-900 border-zinc-700">
-                <SelectItem value="" className="text-white hover:bg-zinc-800 focus:bg-zinc-800">All colours</SelectItem>
+                <SelectItem value="all" className="text-white hover:bg-zinc-800 focus:bg-zinc-800">All colours</SelectItem>
                 {colourOptions.map(opt => (
                   <SelectItem key={opt.value} value={opt.value} className="text-white hover:bg-zinc-800 focus:bg-zinc-800">
                     {opt.label} — {opt.description.split('—')[0].trim()}
@@ -294,7 +296,6 @@ export function RingConfigurator({ ring, gemstones }: RingConfiguratorProps) {
                       sizes="(max-width: 640px) 50vw, 200px"
                       className="object-cover"
                       onError={() => {}}
-                      unoptimized
                     />
                     {gem.badge && (
                       <div className="absolute top-2 left-2 bg-emerald-950/80 border border-emerald-800/50 rounded-full px-2 py-0.5">

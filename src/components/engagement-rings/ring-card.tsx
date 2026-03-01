@@ -7,6 +7,7 @@ import type { Ring } from '@/data/engagement-rings'
 
 interface RingCardProps {
   ring: Ring
+  priority?: boolean
 }
 
 function formatPrice(price: number, currency: string): string {
@@ -41,7 +42,7 @@ function RingImageFallback({ name }: { name: string }) {
   )
 }
 
-export function RingCard({ ring }: RingCardProps) {
+export function RingCard({ ring, priority = false }: RingCardProps) {
   const [imgError, setImgError] = useState(false)
   const [isHovered, setIsHovered] = useState(false)
 
@@ -70,14 +71,14 @@ export function RingCard({ ring }: RingCardProps) {
                 src={primaryImage}
                 alt={`${ring.name} engagement ring`}
                 fill
-                sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 33vw"
                 className={`object-cover transition-all duration-700 ${
                   isHovered && hoverImage !== primaryImage
                     ? 'opacity-0 scale-105'
                     : 'opacity-100 scale-100 group-hover:scale-105'
                 }`}
                 onError={() => setImgError(true)}
-                unoptimized
+                priority={priority}
               />
               {/* Hover image (second image) */}
               {hoverImage !== primaryImage && (
@@ -85,12 +86,11 @@ export function RingCard({ ring }: RingCardProps) {
                   src={hoverImage}
                   alt={`${ring.name} engagement ring alternate view`}
                   fill
-                  sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                  sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 33vw"
                   className={`object-cover absolute inset-0 transition-all duration-700 ${
                     isHovered ? 'opacity-100 scale-105' : 'opacity-0 scale-100'
                   }`}
                   onError={() => {}}
-                  unoptimized
                 />
               )}
             </>
@@ -98,18 +98,22 @@ export function RingCard({ ring }: RingCardProps) {
 
           {/* Loading skeleton overlay */}
           <div className="absolute inset-0 bg-zinc-800 animate-pulse opacity-0 group-data-[loading]:opacity-100" />
+
+          {/* Setting style overlay */}
+          {ring.settingStyle && (
+            <div className="absolute bottom-0 left-0 bg-black/60 backdrop-blur-sm px-2 py-1 text-[9px] font-medium tracking-widest uppercase text-gray-300 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+              {ring.settingStyle.replace(/_/g, ' ')}
+            </div>
+          )}
         </div>
 
         {/* Card content */}
-        <div className="p-4">
-          <h3 className="font-heading text-white text-base font-medium tracking-wide mb-1 group-hover:text-[#D4AF37] transition-colors duration-200">
+        <div className="p-3">
+          <h3 className="font-heading text-white text-base font-medium tracking-wide uppercase mb-1 group-hover:text-[#D4AF37] transition-colors duration-200">
             {ring.name}
           </h3>
-          <p className="text-gray-500 text-xs leading-relaxed line-clamp-2 mb-3">
-            {ring.title.replace(`${ring.name} - `, '')}
-          </p>
-          <p className="text-[#D4AF37] text-sm font-medium tracking-wide">
-            From {formatPrice(ring.basePrice, ring.currency)} {ring.currency}
+          <p className="text-[#D4AF37] text-sm font-medium uppercase tracking-widest">
+            Starting {formatPrice(ring.basePrice, ring.currency)} {ring.currency}
           </p>
         </div>
       </div>
