@@ -7,6 +7,7 @@ import Image from "next/image";
 import { User, ShoppingBag, Search, Menu, X } from "lucide-react";
 import { navMenuData } from "@/data/products";
 import { useCart } from "@/context/cart-context";
+import { useAuth } from "@/context/auth-context";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Sheet, SheetTrigger, SheetContent, SheetClose, SheetTitle } from "@/components/ui/sheet";
@@ -56,6 +57,7 @@ export default function Navbar() {
 	const [hoveredImage, setHoveredImage] = useState<string | null>(null);
 	const [mobileOpen, setMobileOpen] = useState(false);
 	const { cartCount } = useCart();
+	const { user } = useAuth();
 
 	useEffect(() => {
 		const onScroll = () => setScrolled(window.scrollY > 10);
@@ -124,8 +126,9 @@ export default function Navbar() {
 
 						{/* Icons */}
 						<div className="flex items-center gap-6 ml-6">
+							{user ? (
 							<div className="relative shrink-0 group">
-								<button onClick={() => router.push("/login")} className="text-white hover:text-white transition-colors focus:outline-none" aria-label="Login">
+								<button className="text-white hover:text-white transition-colors focus:outline-none" aria-label="Account">
 									<User size={18} strokeWidth={2} />
 								</button>
 								<div className="absolute right-0 top-full mt-2 w-56 bg-black border border-white/30 rounded-lg shadow-2xl z-50 invisible opacity-0 group-hover:visible group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition-all duration-200">
@@ -134,7 +137,7 @@ export default function Navbar() {
 											<User size={20} className="text-black" />
 										</div>
 										<div className="flex-1 min-w-0">
-											<p className="text-white font-medium truncate">User</p>
+											<p className="text-white font-medium truncate">{user.email}</p>
 										</div>
 									</div>
 									<div className="py-2">
@@ -143,6 +146,11 @@ export default function Navbar() {
 									</div>
 								</div>
 							</div>
+						) : (
+							<button onClick={() => router.push("/login")} className="text-white hover:text-white transition-colors focus:outline-none shrink-0" aria-label="Login">
+								<User size={18} strokeWidth={2} />
+							</button>
+						)}
 							<Link href="/checkout" className="relative group shrink-0">
 								<ShoppingBag size={18} strokeWidth={2} className="text-white group-hover:text-gray-300 transition-colors" />
 								{cartCount > 0 && <Badge className="absolute -top-3 -right-3 bg-white text-black text-[9px] font-bold w-4 h-4 p-0 flex items-center justify-center hover:bg-white">{cartCount}</Badge>}
