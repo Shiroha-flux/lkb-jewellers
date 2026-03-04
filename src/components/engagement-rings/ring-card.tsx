@@ -5,6 +5,12 @@ import Image from 'next/image'
 import Link from 'next/link'
 import type { Ring } from '@/data/engagement-rings'
 
+// Tiny dark blur placeholder — 1x1 pixel zinc-900 (#18181b) sebagai base64 JPEG
+const BLUR_PLACEHOLDER =
+  'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAEBAQEBAQEBAQEBAQEB' +
+  'AQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQH/wAALCAABAAEBAREA' +
+  '/8QAFAABAAAAAAAAAAAAAAAAAAAACv/EABQQAQAAAAAAAAAAAAAAAAAAAAD/2gAIAQEAAD8AVIP/2Q=='
+
 interface RingCardProps {
   ring: Ring
   priority?: boolean
@@ -46,8 +52,8 @@ export function RingCard({ ring, priority = false }: RingCardProps) {
   const [imgError, setImgError] = useState(false)
   const [isHovered, setIsHovered] = useState(false)
 
-  const primaryImage = ring.images[0]
-  const hoverImage = ring.images[1] ?? ring.images[0]
+  const primaryImage = ring.thumbnails[0] ?? ring.images[0]
+  const hoverImage = ring.thumbnails[1] ?? ring.thumbnails[0] ?? ring.images[0]
 
   return (
     <Link
@@ -75,6 +81,8 @@ export function RingCard({ ring, priority = false }: RingCardProps) {
                   loading="eager"
                   sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 33vw"
                   className="object-cover absolute inset-0"
+                  placeholder="blur"
+                  blurDataURL={BLUR_PLACEHOLDER}
                   onError={() => {}}
                 />
               )}
@@ -87,6 +95,8 @@ export function RingCard({ ring, priority = false }: RingCardProps) {
                 className={`object-cover absolute inset-0 z-10 transition-opacity duration-500 ${
                   isHovered && hoverImage !== primaryImage ? 'opacity-0' : 'opacity-100'
                 }`}
+                placeholder="blur"
+                blurDataURL={BLUR_PLACEHOLDER}
                 onError={() => setImgError(true)}
                 priority={priority}
               />

@@ -9,6 +9,19 @@ function sortByOrder<T extends OrderedRow>(rows: T[]): T[] {
   return [...rows].sort((a, b) => (a._order ?? 0) - (b._order ?? 0))
 }
 
+/**
+ * Convert Supabase storage URL ke Image Transform URL untuk thumbnail.
+ * Serve gambar width px, quality 75 — jauh lebih kecil dari full-res.
+ * https://supabase.com/docs/guides/storage/serving/image-transformations
+ */
+function toThumbnailUrl(url: string, width = 640, quality = 75): string {
+  if (!url.includes('/storage/v1/object/public/')) return url
+  return (
+    url.replace('/storage/v1/object/public/', '/storage/v1/render/image/public/') +
+    `?width=${width}&quality=${quality}&resize=contain`
+  )
+}
+
 function mapToRing(
   row: any,
   images: any[],
@@ -44,7 +57,7 @@ function mapToRing(
     basePrice: Number(row.base_price_usd),
     currency: row.currency ?? 'USD',
     images: orderedImages.map(image => image.image_url),
-    thumbnails: orderedImages.map(image => image.thumbnail_url ?? image.image_url),
+    thumbnails: orderedImages.map(image => toThumbnailUrl(image.thumbnail_url ?? image.image_url)),
     metalOptions: orderedMetals.map(metal => metal.label),
     settingOptions: orderedSettings.map(setting => setting.label),
     sideStonesOptions: orderedSideStones.map(sideStone => sideStone.label),
