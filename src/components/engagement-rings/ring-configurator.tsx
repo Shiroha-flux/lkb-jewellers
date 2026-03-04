@@ -57,6 +57,31 @@ function ConfigRow({ label, tooltip, children }: { label: string; tooltip: strin
   )
 }
 
+function PillButton({
+  label,
+  isSelected,
+  onClick,
+}: {
+  label: string
+  isSelected: boolean
+  onClick: () => void
+}) {
+  return (
+    <button
+      onClick={onClick}
+      className={`
+        px-4 py-2 rounded-full border text-sm font-medium transition-all duration-200 whitespace-nowrap
+        ${isSelected
+          ? 'border-[#D4AF37] text-[#D4AF37] bg-[#D4AF37]/5'
+          : 'border-zinc-800 text-gray-400 bg-zinc-900 hover:border-zinc-600 hover:text-gray-300'
+        }
+      `}
+    >
+      {label}
+    </button>
+  )
+}
+
 export function RingConfigurator({ ring, gemstones, selectedMetal, onMetalChange }: RingConfiguratorProps) {
   // Your Setting state
   const [sideStones, setSideStones] = useState(ring.sideStonesOptions[0] ?? 'Lab Grown Diamond')
@@ -93,72 +118,68 @@ export function RingConfigurator({ ring, gemstones, selectedMetal, onMetalChange
             label="Side & Melee Stones"
             tooltip="The smaller accent stones that complement your centre stone."
           >
-            <Select value={sideStones} onValueChange={setSideStones}>
-              <SelectTrigger className="bg-zinc-900 border-zinc-700 text-white hover:border-zinc-500 focus:ring-[#D4AF37] focus:ring-1">
-                <SelectValue />
-              </SelectTrigger>
-              <SelectContent className="bg-zinc-900 border-zinc-700">
-                {ring.sideStonesOptions.map(opt => (
-                  <SelectItem key={opt} value={opt} className="text-white hover:bg-zinc-800 focus:bg-zinc-800">
-                    {opt}
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
+            <div className="flex flex-wrap gap-2">
+              {ring.sideStonesOptions.map(opt => (
+                <PillButton
+                  key={opt}
+                  label={opt}
+                  isSelected={sideStones === opt}
+                  onClick={() => setSideStones(opt)}
+                />
+              ))}
+            </div>
           </ConfigRow>
 
           <ConfigRow
             label="Metal Type"
             tooltip="The precious metal used for your ring. Each metal has unique properties and appearance."
           >
-            <Select value={metalType} onValueChange={onMetalChange}>
-              <SelectTrigger className="bg-zinc-900 border-zinc-700 text-white hover:border-zinc-500 focus:ring-[#D4AF37] focus:ring-1">
-                <SelectValue />
-              </SelectTrigger>
-              <SelectContent className="bg-zinc-900 border-zinc-700">
-                {ring.metalOptions.map(opt => (
-                  <SelectItem key={opt} value={opt} className="text-white hover:bg-zinc-800 focus:bg-zinc-800">
-                    {opt}
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
+            <div className="flex flex-wrap gap-2">
+              {ring.metalOptions.map(opt => (
+                <PillButton
+                  key={opt}
+                  label={opt}
+                  isSelected={metalType === opt}
+                  onClick={() => onMetalChange(opt)}
+                />
+              ))}
+            </div>
           </ConfigRow>
 
           <ConfigRow
             label="Setting"
             tooltip="How high the centre stone sits above the band. High setting maximises light exposure."
           >
-            <Select value={setting} onValueChange={setSetting}>
-              <SelectTrigger className="bg-zinc-900 border-zinc-700 text-white hover:border-zinc-500 focus:ring-[#D4AF37] focus:ring-1">
-                <SelectValue />
-              </SelectTrigger>
-              <SelectContent className="bg-zinc-900 border-zinc-700">
-                {ring.settingOptions.map(opt => (
-                  <SelectItem key={opt} value={opt} className="text-white hover:bg-zinc-800 focus:bg-zinc-800">
-                    {opt}
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
+            <div className="flex flex-wrap gap-2">
+              {ring.settingOptions.map(opt => (
+                <PillButton
+                  key={opt}
+                  label={opt}
+                  isSelected={setting === opt}
+                  onClick={() => setSetting(opt)}
+                />
+              ))}
+            </div>
           </ConfigRow>
 
           <ConfigRow
             label="Ring Size"
             tooltip="UK ring sizing. Not sure of your size? We offer complimentary resizing."
           >
-            <Select value={ringSize} onValueChange={setRingSize}>
-              <SelectTrigger className="bg-zinc-900 border-zinc-700 text-white hover:border-zinc-500 focus:ring-[#D4AF37] focus:ring-1">
-                <SelectValue placeholder="Select size" />
-              </SelectTrigger>
-              <SelectContent className="bg-zinc-900 border-zinc-700">
-                {ring.ringSizes.map(size => (
-                  <SelectItem key={size} value={size} className="text-white hover:bg-zinc-800 focus:bg-zinc-800">
-                    {size}
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
+            <div className="flex flex-wrap gap-2">
+              {ring.ringSizes.map(size => (
+                <PillButton
+                  key={size}
+                  label={size}
+                  isSelected={ringSize === size}
+                  onClick={() => setRingSize(size)}
+                />
+              ))}
+            </div>
+            <p className="text-gray-600 text-xs mt-2">
+              Not sure of your size?{' '}
+              <span className="text-[#D4AF37] cursor-pointer hover:underline">We offer complimentary resizing.</span>
+            </p>
           </ConfigRow>
         </div>
       </section>

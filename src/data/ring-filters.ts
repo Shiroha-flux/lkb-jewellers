@@ -1,8 +1,8 @@
 // Ring filter options for the engagement rings listing page
 // Matches Cullen Jewellery filter categories
 
-export type ShapeValue = 'round' | 'oval' | 'emerald' | 'radiant' | 'pear' | 'cushion' | 'elongated_cushion' | 'elongated_hexagon' | 'marquise' | 'princess' | 'asscher' | 'heart'
-export type MetalValue = 'two_tone' | 'platinum' | 'yellow_gold' | 'rose_gold' | 'white_gold'
+export type ShapeValue = 'round' | 'oval' | 'emerald' | 'radiant' | 'pear' | 'cushion' | 'elongated_cushion' | 'elongated_hexagon' | 'marquise' | 'princess' | 'asscher'
+export type MetalValue = 'platinum' | 'yellow_gold' | 'rose_gold' | 'white_gold'
 export type SettingStyleValue = 'trilogy' | 'solitaire' | 'halo' | 'toi_et_moi' | 'bezel' | 'east_west'
 export type BandTypeValue = 'plain' | 'pave' | 'accents'
 export type SettingProfileValue = 'high_set' | 'low_set'
@@ -90,22 +90,9 @@ export const shapeOptions: ShapeOption[] = [
     description: 'Square step-cut with distinctive windmill pattern',
     svgPath: 'M7 7h10v10H7z M5 9l2-2 M5 15l2 2 M19 9l-2-2 M19 15l-2 2',
   },
-  {
-    value: 'heart',
-    label: 'Heart',
-    description: 'Romantic symbol of love and devotion',
-    svgPath: 'M12 21C12 21 4 14 4 9a4 4 0 0 1 8 0 4 4 0 0 1 8 0c0 5-8 12-8 12z',
-  },
 ]
 
 export const metalOptions: MetalOption[] = [
-  {
-    value: 'two_tone',
-    label: 'Two Tone',
-    description: 'Combination of two metals for a unique look',
-    color: '#C0C0C0',
-    secondaryColor: '#D4AF37',
-  },
   {
     value: 'platinum',
     label: 'Platinum',
