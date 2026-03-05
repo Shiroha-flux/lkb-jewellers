@@ -196,6 +196,13 @@ export default function Navbar() {
 												</Link>
 											</SheetClose>
 
+											{/* ENGAGEMENT RINGS */}
+											<SheetClose asChild>
+												<Link href="/engagement-rings" className="text-white text-sm font-semibold tracking-[0.2em] font-body px-6 py-5 border-b border-gray-900 hover:bg-gray-900/50 transition-colors block">
+													ENGAGEMENT RINGS
+												</Link>
+											</SheetClose>
+
 											{/* Accordion items */}
 											<Accordion type="single" collapsible className="w-full">
 												{(
