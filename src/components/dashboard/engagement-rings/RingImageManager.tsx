@@ -98,8 +98,8 @@ export default function RingImageManager({ slug, name }: RingImageManagerProps) 
         fetch(`/api/rings/preferences?slug=${encodeURIComponent(slug)}`),
       ])
 
-      if (!listRes.ok) throw new Error(`List API gagal: HTTP ${listRes.status}`)
-      if (!prefsRes.ok) throw new Error(`Preferences API gagal: HTTP ${prefsRes.status}`)
+      if (!listRes.ok) throw new Error(`List API failed: HTTP ${listRes.status}`)
+      if (!prefsRes.ok) throw new Error(`Preferences API failed: HTTP ${prefsRes.status}`)
 
       const listJson = await listRes.json()
       const prefsJson = await prefsRes.json()
@@ -124,7 +124,7 @@ export default function RingImageManager({ slug, name }: RingImageManagerProps) 
         rose: rawPrefs.rose ?? { thumbnail_url: null, hover_url: null },
       })
     } catch (err) {
-      setLoadError(err instanceof Error ? err.message : "Gagal memuat data")
+      setLoadError(err instanceof Error ? err.message : "Failed to load data")
     } finally {
       setLoadingData(false)
     }
@@ -211,10 +211,10 @@ export default function RingImageManager({ slug, name }: RingImageManagerProps) 
       }))
     } catch (err) {
       console.error("Upload error:", err)
-      alert(`Upload gagal: ${err instanceof Error ? err.message : String(err)}`)
+      alert(`Upload failed: ${err instanceof Error ? err.message : String(err)}`)
     } finally {
       setUploading(false)
-      // Reset file input agar bisa upload file yg sama lagi
+      // Reset file input to allow re-uploading the same file
       if (fileInputRef.current) fileInputRef.current.value = ""
     }
   }
@@ -223,10 +223,10 @@ export default function RingImageManager({ slug, name }: RingImageManagerProps) 
   async function deleteImage(url: string) {
     const path = extractStoragePath(url)
     if (!path) {
-      alert("Tidak dapat menentukan path file.")
+      alert("Unable to determine file path.")
       return
     }
-    if (!confirm(`Hapus foto ini?\n${path}`)) return
+    if (!confirm(`Delete this photo?\n${path}`)) return
 
     setDeletingUrl(url)
     try {
@@ -238,13 +238,13 @@ export default function RingImageManager({ slug, name }: RingImageManagerProps) 
         throw new Error(err.error ?? `HTTP ${res.status}`)
       }
 
-      // Hapus dari local state
+      // Remove from local state
       setImages((prev) => ({
         ...prev,
         [activeColor]: prev[activeColor].filter((u) => u !== url),
       }))
 
-      // Hapus dari prefs jika sedang dipakai
+      // Remove from prefs if currently in use
       setPrefs((prev) => ({
         ...prev,
         [activeColor]: {
@@ -254,7 +254,7 @@ export default function RingImageManager({ slug, name }: RingImageManagerProps) 
       }))
     } catch (err) {
       console.error("Delete error:", err)
-      alert(`Hapus gagal: ${err instanceof Error ? err.message : String(err)}`)
+      alert(`Delete failed: ${err instanceof Error ? err.message : String(err)}`)
     } finally {
       setDeletingUrl(null)
     }
@@ -266,7 +266,7 @@ export default function RingImageManager({ slug, name }: RingImageManagerProps) 
     return (
       <div className="flex items-center justify-center py-8 gap-2">
         <Loader2 className="w-5 h-5 animate-spin text-zinc-500" />
-        <span className="text-zinc-500 text-sm">Memuat data {name}…</span>
+        <span className="text-zinc-500 text-sm">Loading {name}…</span>
       </div>
     )
   }
@@ -282,7 +282,7 @@ export default function RingImageManager({ slug, name }: RingImageManagerProps) 
           onClick={fetchData}
           className="ml-auto border-zinc-700 text-zinc-300 hover:bg-zinc-800"
         >
-          Coba Lagi
+          Try Again
         </Button>
       </div>
     )
@@ -323,25 +323,25 @@ export default function RingImageManager({ slug, name }: RingImageManagerProps) 
 
       {/* ── Preference badges ───────────────────────────────────────────────── */}
       <div className="flex flex-wrap gap-2 items-center text-xs text-zinc-500">
-        <span>Saat ini:</span>
+        <span>Current:</span>
         {currentPrefs.thumbnail_url ? (
           <Badge variant="outline" className="border-yellow-700 text-yellow-400 bg-yellow-950/20 text-xs gap-1">
             <Star className="w-3 h-3" />
-            Thumbnail aktif
+            Thumbnail set
           </Badge>
         ) : (
           <Badge variant="outline" className="border-zinc-800 text-zinc-600 text-xs">
-            Belum ada thumbnail
+            No thumbnail set
           </Badge>
         )}
         {currentPrefs.hover_url ? (
           <Badge variant="outline" className="border-sky-700 text-sky-400 bg-sky-950/20 text-xs gap-1">
             <Eye className="w-3 h-3" />
-            Hover aktif
+            Hover set
           </Badge>
         ) : (
           <Badge variant="outline" className="border-zinc-800 text-zinc-600 text-xs">
-            Belum ada hover
+            No hover set
           </Badge>
         )}
       </div>
@@ -349,10 +349,10 @@ export default function RingImageManager({ slug, name }: RingImageManagerProps) 
       {/* ── Image grid ─────────────────────────────────────────────────────── */}
       {currentImages.length === 0 ? (
         <div className="border border-dashed border-zinc-800 rounded-lg py-10 text-center text-zinc-600 text-sm">
-          Belum ada foto untuk{" "}
+          No photos for{" "}
           {COLORS.find((c) => c.key === activeColor)?.label}.
           <br />
-          Upload foto di bawah.
+          Upload a photo below.
         </div>
       ) : (
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3">
@@ -443,7 +443,7 @@ export default function RingImageManager({ slug, name }: RingImageManagerProps) 
                     className="h-6 text-[10px] px-1.5 w-full justify-start gap-1 bg-red-950/60 border-red-900 text-red-400 hover:bg-red-900 hover:text-white"
                   >
                     <Trash2 className="w-3 h-3 flex-shrink-0" />
-                    Hapus
+                    Delete
                   </Button>
                 </div>
               </div>
@@ -478,7 +478,7 @@ export default function RingImageManager({ slug, name }: RingImageManagerProps) 
             ) : (
               <Upload className="w-3.5 h-3.5" />
             )}
-            {uploading ? "Mengupload…" : "Upload Foto"}
+            {uploading ? "Uploading…" : "Upload Photo"}
           </Button>
         </div>
 
@@ -494,20 +494,20 @@ export default function RingImageManager({ slug, name }: RingImageManagerProps) 
           ) : (
             <Save className="w-3.5 h-3.5" />
           )}
-          {savingColor === activeColor ? "Menyimpan…" : "Simpan Preferensi"}
+          {savingColor === activeColor ? "Saving…" : "Save Preferences"}
         </Button>
 
         {/* Feedback indicator */}
         {feedback[activeColor] === "saved" && (
           <span className="flex items-center gap-1 text-emerald-400 text-sm">
             <CheckCircle className="w-4 h-4" />
-            Tersimpan
+            Saved
           </span>
         )}
         {feedback[activeColor] === "error" && (
           <span className="flex items-center gap-1 text-red-400 text-sm">
             <AlertCircle className="w-4 h-4" />
-            Gagal menyimpan
+            Failed to save
           </span>
         )}
       </div>

@@ -26,7 +26,7 @@ export default function EngagementRingsTab() {
         return r.json()
       })
       .then((json) => setRings(json.data ?? []))
-      .catch((err) => setError(err.message ?? "Gagal memuat data ring"))
+      .catch((err) => setError(err.message ?? "Failed to load ring data"))
       .finally(() => setLoading(false))
   }, [])
 
@@ -49,7 +49,7 @@ export default function EngagementRingsTab() {
     return (
       <div className="flex items-center justify-center h-48">
         <Loader2 className="w-6 h-6 animate-spin text-zinc-500" />
-        <span className="ml-3 text-zinc-400 text-sm">Memuat daftar ring…</span>
+        <span className="ml-3 text-zinc-400 text-sm">Loading rings…</span>
       </div>
     )
   }
@@ -75,7 +75,7 @@ export default function EngagementRingsTab() {
             variant="outline"
             className="text-zinc-400 border-zinc-700 text-xs"
           >
-            {rings.length} ring
+            {rings.length} {rings.length === 1 ? "ring" : "rings"}
           </Badge>
         </div>
       </div>
@@ -86,7 +86,7 @@ export default function EngagementRingsTab() {
         <Input
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          placeholder="Cari berdasarkan nama atau slug…"
+          placeholder="Search by name or slug…"
           className="pl-9 bg-zinc-900 border-zinc-800 text-white placeholder:text-zinc-600 focus-visible:ring-zinc-700"
         />
       </div>
@@ -94,7 +94,7 @@ export default function EngagementRingsTab() {
       {/* ── Ring List ──────────────────────────────────────────────────────── */}
       {filtered.length === 0 ? (
         <div className="text-center py-12 text-zinc-600 text-sm">
-          {search ? `Tidak ada ring dengan kata kunci "${search}"` : "Belum ada data ring"}
+          {search ? `No rings found for "${search}"` : "No ring data available"}
         </div>
       ) : (
         <div className="space-y-1">
@@ -158,7 +158,7 @@ export default function EngagementRingsTab() {
                       variant="outline"
                       className="text-xs border-zinc-700 text-zinc-400"
                     >
-                      {totalImages} foto
+                      {totalImages} {totalImages === 1 ? "photo" : "photos"}
                     </Badge>
                   </div>
                 </button>
