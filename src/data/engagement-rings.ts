@@ -61,7 +61,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -122,7 +121,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -183,7 +181,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -244,7 +241,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -305,7 +301,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -366,7 +361,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -427,7 +421,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -488,7 +481,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -549,7 +541,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -610,7 +601,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -671,7 +661,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -732,7 +721,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -793,7 +781,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -854,7 +841,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -915,7 +901,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -976,7 +961,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -1037,7 +1021,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -1098,7 +1081,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -1159,7 +1141,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -1220,7 +1201,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -1281,7 +1261,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -1342,7 +1321,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -1403,7 +1381,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -1464,7 +1441,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -1525,7 +1501,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -1586,7 +1561,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -1647,7 +1621,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -1708,7 +1681,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -1769,7 +1741,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -1830,7 +1801,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -1891,7 +1861,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -1952,7 +1921,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -2013,7 +1981,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -2074,7 +2041,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -2135,7 +2101,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -2196,7 +2161,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -2257,7 +2221,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -2318,7 +2281,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -2379,7 +2341,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -2440,7 +2401,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -2501,7 +2461,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -2562,7 +2521,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -2623,7 +2581,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -2684,7 +2641,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -2745,7 +2701,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -2806,7 +2761,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -2867,7 +2821,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -2928,7 +2881,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -2989,7 +2941,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -3050,7 +3001,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -3111,7 +3061,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -3172,7 +3121,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -3233,7 +3181,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -3294,7 +3241,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -3355,7 +3301,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -3416,7 +3361,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -3477,7 +3421,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -3538,7 +3481,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -3599,7 +3541,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -3660,7 +3601,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -3721,7 +3661,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -3782,7 +3721,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -3843,7 +3781,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -3904,7 +3841,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -3965,7 +3901,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -4026,7 +3961,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -4087,7 +4021,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -4148,7 +4081,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -4209,7 +4141,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -4270,7 +4201,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -4331,7 +4261,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -4392,7 +4321,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -4453,7 +4381,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -4514,7 +4441,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -4575,7 +4501,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -4636,7 +4561,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -4697,7 +4621,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -4758,7 +4681,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -4819,7 +4741,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -4880,7 +4801,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -4941,7 +4861,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -5000,7 +4919,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -5061,7 +4979,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -5122,7 +5039,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -5183,7 +5099,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -5244,7 +5159,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -5305,7 +5219,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -5366,7 +5279,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -5427,7 +5339,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -5488,7 +5399,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -5549,7 +5459,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -5610,7 +5519,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -5671,7 +5579,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -5732,7 +5639,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -5793,7 +5699,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -5854,7 +5759,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -5915,7 +5819,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -5976,7 +5879,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -6037,7 +5939,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -6098,7 +5999,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -6159,7 +6059,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -6220,7 +6119,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -6281,7 +6179,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -6342,7 +6239,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -6403,7 +6299,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -6464,7 +6359,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -6525,7 +6419,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -6586,7 +6479,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -6647,7 +6539,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -6708,7 +6599,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -6769,7 +6659,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -6830,7 +6719,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -6891,7 +6779,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -6952,7 +6839,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -7013,7 +6899,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -7074,7 +6959,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -7135,7 +7019,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -7196,7 +7079,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -7257,7 +7139,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -7318,7 +7199,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -7379,7 +7259,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -7440,7 +7319,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -7501,7 +7379,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -7562,7 +7439,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -7623,7 +7499,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -7684,7 +7559,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -7745,7 +7619,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -7806,7 +7679,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -7867,7 +7739,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -7928,7 +7799,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -7989,7 +7859,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -8050,7 +7919,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -8111,7 +7979,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -8172,7 +8039,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -8233,7 +8099,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -8294,7 +8159,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -8355,7 +8219,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -8416,7 +8279,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -8477,7 +8339,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -8538,7 +8399,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -8599,7 +8459,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -8660,7 +8519,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -8721,7 +8579,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -8782,7 +8639,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -8843,7 +8699,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -8904,7 +8759,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -8965,7 +8819,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -9026,7 +8879,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -9087,7 +8939,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -9148,7 +8999,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -9209,7 +9059,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -9270,7 +9119,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -9331,7 +9179,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -9392,7 +9239,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -9453,7 +9299,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -9514,7 +9359,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -9575,7 +9419,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -9636,7 +9479,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -9697,7 +9539,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -9758,7 +9599,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -9819,7 +9659,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -9880,7 +9719,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -9941,7 +9779,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -10002,7 +9839,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -10063,7 +9899,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -10124,7 +9959,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -10185,7 +10019,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -10246,7 +10079,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -10307,7 +10139,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -10368,7 +10199,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -10429,7 +10259,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -10490,7 +10319,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -10551,7 +10379,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -10612,7 +10439,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -10673,7 +10499,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -10734,7 +10559,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -10795,7 +10619,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -10856,7 +10679,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -10917,7 +10739,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -10978,7 +10799,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -11039,7 +10859,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -11100,7 +10919,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -11161,7 +10979,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -11222,7 +11039,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -11283,7 +11099,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -11344,7 +11159,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -11405,7 +11219,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -11466,7 +11279,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -11527,7 +11339,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -11588,7 +11399,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -11649,7 +11459,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -11710,7 +11519,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -11771,7 +11579,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -11832,7 +11639,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -11893,7 +11699,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -11954,7 +11759,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -12015,7 +11819,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -12076,7 +11879,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -12137,7 +11939,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -12198,7 +11999,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -12259,7 +12059,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -12320,7 +12119,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -12381,7 +12179,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -12442,7 +12239,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -12503,7 +12299,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -12564,7 +12359,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -12625,7 +12419,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -12686,7 +12479,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -12747,7 +12539,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -12808,7 +12599,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -12869,7 +12659,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -12930,7 +12719,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -12991,7 +12779,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -13052,7 +12839,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -13113,7 +12899,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -13174,7 +12959,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -13235,7 +13019,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -13296,7 +13079,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -13357,7 +13139,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -13418,7 +13199,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -13479,7 +13259,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -13540,7 +13319,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -13601,7 +13379,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -13662,7 +13439,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [
@@ -13723,7 +13499,6 @@ export const engagementRings: Ring[] = [
     ],
     "sideStonesOptions": [
       "Lab Grown Diamond",
-      "Moissanite",
       "Natural Diamond"
     ],
     "ringSizes": [

@@ -27,18 +27,6 @@ const mockGemstones: RecommendedGemstone[] = [
     imageUrl: 'https://example.com/gem2.jpg',
   },
   {
-    id: 'mois-1ct-vs1-d',
-    type: 'moissanite',
-    carat: 1.00,
-    clarity: 'VS1',
-    colour: 'D',
-    dimensions: '6.5 x 4.5mm',
-    price: 290,
-    currency: 'USD',
-    imageUrl: 'https://example.com/gem3.jpg',
-    badge: 'Best Value',
-  },
-  {
     id: 'nat-1ct-vs1-g',
     type: 'natural_diamond',
     carat: 1.02,
@@ -65,7 +53,7 @@ const mockGemstones: RecommendedGemstone[] = [
 describe('filterGemstones', () => {
   it('returns all gemstones when no filters are active', () => {
     const result = filterGemstones(mockGemstones, {})
-    expect(result).toHaveLength(5)
+    expect(result).toHaveLength(4)
   })
 
   it('filters by stone type correctly', () => {
@@ -76,13 +64,13 @@ describe('filterGemstones', () => {
 
   it('filters by clarity correctly', () => {
     const result = filterGemstones(mockGemstones, { clarity: 'VS1' })
-    expect(result).toHaveLength(3)
+    expect(result).toHaveLength(2)
     expect(result.every(g => g.clarity === 'VS1')).toBe(true)
   })
 
   it('filters by colour correctly', () => {
     const result = filterGemstones(mockGemstones, { colour: 'D' })
-    expect(result).toHaveLength(2)
+    expect(result).toHaveLength(1)
     expect(result.every(g => g.colour === 'D')).toBe(true)
   })
 
@@ -143,10 +131,6 @@ describe('formatGemstonePrice', () => {
 describe('getStoneTypeLabel', () => {
   it('returns correct label for lab_grown_diamond', () => {
     expect(getStoneTypeLabel('lab_grown_diamond')).toBe('Lab Grown Diamond')
-  })
-
-  it('returns correct label for moissanite', () => {
-    expect(getStoneTypeLabel('moissanite')).toBe('Moissanite')
   })
 
   it('returns the type itself for unknown types', () => {

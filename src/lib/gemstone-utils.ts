@@ -61,7 +61,6 @@ export function getStoneTypeLabel(type: string): string {
   const labels: Record<string, string> = {
     lab_grown_diamond: 'Lab Grown Diamond',
     natural_diamond: 'Natural Diamond',
-    moissanite: 'Moissanite',
     lab_grown_sapphire: 'Lab Grown Sapphire',
   }
   return labels[type] ?? type
