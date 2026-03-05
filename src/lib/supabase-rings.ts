@@ -40,7 +40,16 @@ function toThumbnailUrl(url: string, width = 640, quality = 75): string {
   )
 }
 
-function mapToRing(
+async function mapToRing(
+  row: any,
+  images: any[],
+  metals: any[],
+  settings: any[],
+  sideStones: any[],
+  sizes: any[],
+  specs: any,
+  prefs?: Record<string, { thumbnail_url: string | null; hover_url: string | null }>
+): Promise<Ring> {
   row: any,
   images: any[],
   metals: any[],
@@ -69,6 +78,22 @@ function mapToRing(
   const orderedImageUrls = orderedImages.map(image => image.image_url)
   const uniqueImageUrls = dedupeImageUrls(orderedImageUrls)
 
+  // Build thumbnails: if DB prefs exist, put preferred thumbnail first
+  let thumbnails = uniqueImageUrls
+  if (prefs) {
+    const colorKeys = ['yellow', 'white', 'rose'] as const
+    for (const color of colorKeys) {
+      const pref = prefs[color]
+      if (pref?.thumbnail_url) {
+        const thumbUrl = pref.thumbnail_url
+        const rest = uniqueImageUrls.filter(u => u !== thumbUrl)
+        thumbnails = [thumbUrl, ...rest]
+        break
+      }
+    }
+  }
+  const uniqueImageUrls = dedupeImageUrls(orderedImageUrls)
+
   return {
     id: row.slug,
     slug: row.slug,
@@ -78,7 +103,7 @@ function mapToRing(
     basePrice: Number(row.base_price_usd),
     currency: row.currency ?? 'USD',
     images: uniqueImageUrls,
-    thumbnails: uniqueImageUrls,
+    thumbnails,
     metalOptions: orderedMetals.map(metal => metal.label),
     settingOptions: orderedSettings.map(setting => setting.label),
     sideStonesOptions: orderedSideStones.map(sideStone => sideStone.label),
@@ -126,7 +151,17 @@ export async function fetchAllRings(): Promise<Ring[]> {
     return []
   }
 
-  return data.map(row =>
+  return Promise.all(data.map(row =>
+    mapToRing(
+      row,
+      row.engagement_ring_images ?? [],
+      row.engagement_ring_metal_options ?? [],
+      row.engagement_ring_setting_options ?? [],
+      row.engagement_ring_side_stone_options ?? [],
+      row.engagement_ring_sizes ?? [],
+      Array.isArray(row.engagement_ring_specs) ? row.engagement_ring_specs[0] ?? null : row.engagement_ring_specs ?? null
+    )
+  ))
     mapToRing(
       row,
       row.engagement_ring_images ?? [],
@@ -153,7 +188,7 @@ export async function fetchRingBySlug(slug: string): Promise<Ring | null> {
     return null
   }
 
-  return mapToRing(
+  return await mapToRing(
     data,
     data.engagement_ring_images ?? [],
     data.engagement_ring_metal_options ?? [],
