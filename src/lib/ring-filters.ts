@@ -25,7 +25,6 @@ export function filterRings(rings: Ring[], filters: ActiveFilters): Ring[] {
         yellow_gold: ['18k Yellow Gold', 'Yellow Gold'],
         rose_gold: ['18k Rose Gold', 'Rose Gold'],
         white_gold: ['18k White Gold', 'White Gold'],
-        two_tone: ['Two Tone'],
       }
       const validMetals = metalMap[filters.metal] ?? []
       if (!ring.metalOptions.some(m => validMetals.includes(m))) return false

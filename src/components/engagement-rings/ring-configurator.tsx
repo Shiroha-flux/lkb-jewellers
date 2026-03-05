@@ -3,7 +3,6 @@
 import { useState } from 'react'
 import Image from 'next/image'
 import { Info, Leaf } from 'lucide-react'
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { Separator } from '@/components/ui/separator'
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip'
 import type { Ring } from '@/data/engagement-rings'
@@ -11,6 +10,8 @@ import { stoneTypes, clarityOptions, caratRanges, colourOptions, recommendedGems
 import type { RecommendedGemstone } from '@/data/gemstone-options'
 import { filterGemstones, formatGemstonePrice, getStoneTypeLabel } from '@/lib/gemstone-utils'
 import type { GemstoneFilter } from '@/lib/gemstone-utils'
+
+const CERTIFICATES = ['GIA', 'IGI', 'AGS', 'SDC'] as const
 
 interface RingConfiguratorProps {
   ring: Ring
@@ -57,6 +58,59 @@ function ConfigRow({ label, tooltip, children }: { label: string; tooltip: strin
   )
 }
 
+function PillButton({
+  label,
+  isSelected,
+  onClick,
+}: {
+  label: string
+  isSelected: boolean
+  onClick: () => void
+}) {
+  return (
+    <button
+      onClick={onClick}
+      className={`
+        px-4 py-2 rounded-full border text-sm font-medium transition-all duration-200 whitespace-nowrap
+        ${isSelected
+          ? 'border-[#D4AF37] text-[#D4AF37] bg-[#D4AF37]/5'
+          : 'border-zinc-800 text-gray-400 bg-zinc-900 hover:border-zinc-600 hover:text-gray-300'
+        }
+      `}
+    >
+      {label}
+    </button>
+  )
+}
+
+function SelectorButton({
+  label,
+  isSelected,
+  onClick,
+  className = '',
+}: {
+  label: string
+  isSelected: boolean
+  onClick: () => void
+  className?: string
+}) {
+  return (
+    <button
+      onClick={onClick}
+      className={`
+        px-3 py-2 rounded border text-sm font-medium transition-all duration-150 whitespace-nowrap
+        ${isSelected
+          ? 'border-[#D4AF37] text-[#D4AF37] bg-[#D4AF37]/10'
+          : 'border-zinc-700 text-gray-400 bg-zinc-900 hover:border-zinc-500 hover:text-gray-200'
+        }
+        ${className}
+      `}
+    >
+      {label}
+    </button>
+  )
+}
+
 export function RingConfigurator({ ring, gemstones, selectedMetal, onMetalChange }: RingConfiguratorProps) {
   // Your Setting state
   const [sideStones, setSideStones] = useState(ring.sideStonesOptions[0] ?? 'Lab Grown Diamond')
@@ -66,6 +120,7 @@ export function RingConfigurator({ ring, gemstones, selectedMetal, onMetalChange
 
   // Your Gemstone state
   const [gemFilter, setGemFilter] = useState<GemstoneFilter>({})
+  const [certificate, setCertificate] = useState('')
 
   const allGemstones = gemstones ?? staticGemstones
   const filteredGemstones = filterGemstones(allGemstones, gemFilter)
@@ -93,72 +148,68 @@ export function RingConfigurator({ ring, gemstones, selectedMetal, onMetalChange
             label="Side & Melee Stones"
             tooltip="The smaller accent stones that complement your centre stone."
           >
-            <Select value={sideStones} onValueChange={setSideStones}>
-              <SelectTrigger className="bg-zinc-900 border-zinc-700 text-white hover:border-zinc-500 focus:ring-[#D4AF37] focus:ring-1">
-                <SelectValue />
-              </SelectTrigger>
-              <SelectContent className="bg-zinc-900 border-zinc-700">
-                {ring.sideStonesOptions.map(opt => (
-                  <SelectItem key={opt} value={opt} className="text-white hover:bg-zinc-800 focus:bg-zinc-800">
-                    {opt}
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
+            <div className="flex flex-wrap gap-2">
+              {ring.sideStonesOptions.map(opt => (
+                <PillButton
+                  key={opt}
+                  label={opt}
+                  isSelected={sideStones === opt}
+                  onClick={() => setSideStones(opt)}
+                />
+              ))}
+            </div>
           </ConfigRow>
 
           <ConfigRow
             label="Metal Type"
             tooltip="The precious metal used for your ring. Each metal has unique properties and appearance."
           >
-            <Select value={metalType} onValueChange={onMetalChange}>
-              <SelectTrigger className="bg-zinc-900 border-zinc-700 text-white hover:border-zinc-500 focus:ring-[#D4AF37] focus:ring-1">
-                <SelectValue />
-              </SelectTrigger>
-              <SelectContent className="bg-zinc-900 border-zinc-700">
-                {ring.metalOptions.map(opt => (
-                  <SelectItem key={opt} value={opt} className="text-white hover:bg-zinc-800 focus:bg-zinc-800">
-                    {opt}
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
+            <div className="flex flex-wrap gap-2">
+              {ring.metalOptions.map(opt => (
+                <PillButton
+                  key={opt}
+                  label={opt}
+                  isSelected={metalType === opt}
+                  onClick={() => onMetalChange(opt)}
+                />
+              ))}
+            </div>
           </ConfigRow>
 
           <ConfigRow
             label="Setting"
             tooltip="How high the centre stone sits above the band. High setting maximises light exposure."
           >
-            <Select value={setting} onValueChange={setSetting}>
-              <SelectTrigger className="bg-zinc-900 border-zinc-700 text-white hover:border-zinc-500 focus:ring-[#D4AF37] focus:ring-1">
-                <SelectValue />
-              </SelectTrigger>
-              <SelectContent className="bg-zinc-900 border-zinc-700">
-                {ring.settingOptions.map(opt => (
-                  <SelectItem key={opt} value={opt} className="text-white hover:bg-zinc-800 focus:bg-zinc-800">
-                    {opt}
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
+            <div className="flex flex-wrap gap-2">
+              {ring.settingOptions.map(opt => (
+                <PillButton
+                  key={opt}
+                  label={opt}
+                  isSelected={setting === opt}
+                  onClick={() => setSetting(opt)}
+                />
+              ))}
+            </div>
           </ConfigRow>
 
           <ConfigRow
             label="Ring Size"
             tooltip="UK ring sizing. Not sure of your size? We offer complimentary resizing."
           >
-            <Select value={ringSize} onValueChange={setRingSize}>
-              <SelectTrigger className="bg-zinc-900 border-zinc-700 text-white hover:border-zinc-500 focus:ring-[#D4AF37] focus:ring-1">
-                <SelectValue placeholder="Select size" />
-              </SelectTrigger>
-              <SelectContent className="bg-zinc-900 border-zinc-700">
-                {ring.ringSizes.map(size => (
-                  <SelectItem key={size} value={size} className="text-white hover:bg-zinc-800 focus:bg-zinc-800">
-                    {size}
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
+            <div className="flex flex-wrap gap-2">
+              {ring.ringSizes.map(size => (
+                <PillButton
+                  key={size}
+                  label={size}
+                  isSelected={ringSize === size}
+                  onClick={() => setRingSize(size)}
+                />
+              ))}
+            </div>
+            <p className="text-gray-600 text-xs mt-2">
+              Not sure of your size?{' '}
+              <span className="text-[#D4AF37] cursor-pointer hover:underline">We offer complimentary resizing.</span>
+            </p>
           </ConfigRow>
         </div>
       </section>
@@ -190,77 +241,82 @@ export function RingConfigurator({ ring, gemstones, selectedMetal, onMetalChange
             label="Stone Type"
             tooltip="Choose between lab grown diamonds, natural diamonds, moissanite, or lab grown sapphires."
           >
-            <Select value={gemFilter.stoneType ?? 'all'} onValueChange={v => updateGemFilter('stoneType', v)}>
-              <SelectTrigger className="bg-zinc-900 border-zinc-700 text-white hover:border-zinc-500 focus:ring-[#D4AF37] focus:ring-1">
-                <SelectValue placeholder="All stone types" />
-              </SelectTrigger>
-              <SelectContent className="bg-zinc-900 border-zinc-700">
-                <SelectItem value="all" className="text-white hover:bg-zinc-800 focus:bg-zinc-800">All stone types</SelectItem>
-                {stoneTypes.map(opt => (
-                  <SelectItem key={opt.value} value={opt.value} className="text-white hover:bg-zinc-800 focus:bg-zinc-800">
-                    {opt.label}
-                    {opt.badge && <span className="ml-2 text-emerald-400 text-xs">({opt.badge})</span>}
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
+            <div className="grid grid-cols-2 gap-2">
+              {stoneTypes.map(opt => (
+                <SelectorButton
+                  key={opt.value}
+                  label={opt.label}
+                  isSelected={(gemFilter.stoneType ?? '') === opt.value}
+                  onClick={() => updateGemFilter('stoneType', gemFilter.stoneType === opt.value ? '' : opt.value)}
+                  className="text-xs"
+                />
+              ))}
+            </div>
           </ConfigRow>
 
           <ConfigRow
             label="Clarity"
             tooltip="Diamond clarity refers to the absence of inclusions and blemishes. IF is the highest grade."
           >
-            <Select value={gemFilter.clarity ?? 'all'} onValueChange={v => updateGemFilter('clarity', v)}>
-              <SelectTrigger className="bg-zinc-900 border-zinc-700 text-white hover:border-zinc-500 focus:ring-[#D4AF37] focus:ring-1">
-                <SelectValue placeholder="All clarities" />
-              </SelectTrigger>
-              <SelectContent className="bg-zinc-900 border-zinc-700">
-                <SelectItem value="all" className="text-white hover:bg-zinc-800 focus:bg-zinc-800">All clarities</SelectItem>
-                {clarityOptions.map(opt => (
-                  <SelectItem key={opt.value} value={opt.value} className="text-white hover:bg-zinc-800 focus:bg-zinc-800">
-                    {opt.label}
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
+            <div className="flex flex-wrap gap-2">
+              {clarityOptions.map(opt => (
+                <SelectorButton
+                  key={opt.value}
+                  label={opt.label}
+                  isSelected={gemFilter.clarity === opt.value}
+                  onClick={() => updateGemFilter('clarity', gemFilter.clarity === opt.value ? '' : opt.value)}
+                />
+              ))}
+            </div>
           </ConfigRow>
 
           <ConfigRow
             label="Carat"
             tooltip="Carat is the unit of measurement for diamond weight. Larger carats appear bigger."
           >
-            <Select value={gemFilter.caratRange ?? 'all'} onValueChange={v => updateGemFilter('caratRange', v)}>
-              <SelectTrigger className="bg-zinc-900 border-zinc-700 text-white hover:border-zinc-500 focus:ring-[#D4AF37] focus:ring-1">
-                <SelectValue placeholder="All carat sizes" />
-              </SelectTrigger>
-              <SelectContent className="bg-zinc-900 border-zinc-700">
-                <SelectItem value="all" className="text-white hover:bg-zinc-800 focus:bg-zinc-800">All carat sizes</SelectItem>
-                {caratRanges.map(opt => (
-                  <SelectItem key={opt.value} value={opt.value} className="text-white hover:bg-zinc-800 focus:bg-zinc-800">
-                    {opt.label}
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
+            <div className="flex flex-wrap gap-2">
+              {caratRanges.map(opt => (
+                <SelectorButton
+                  key={opt.value}
+                  label={opt.label}
+                  isSelected={gemFilter.caratRange === opt.value}
+                  onClick={() => updateGemFilter('caratRange', gemFilter.caratRange === opt.value ? '' : opt.value)}
+                  className="text-xs"
+                />
+              ))}
+            </div>
           </ConfigRow>
 
           <ConfigRow
             label="Colour"
             tooltip="Diamond colour is graded from D (colourless) to Z (light yellow). D is the most prized."
           >
-            <Select value={gemFilter.colour ?? 'all'} onValueChange={v => updateGemFilter('colour', v)}>
-              <SelectTrigger className="bg-zinc-900 border-zinc-700 text-white hover:border-zinc-500 focus:ring-[#D4AF37] focus:ring-1">
-                <SelectValue placeholder="All colours" />
-              </SelectTrigger>
-              <SelectContent className="bg-zinc-900 border-zinc-700">
-                <SelectItem value="all" className="text-white hover:bg-zinc-800 focus:bg-zinc-800">All colours</SelectItem>
-                {colourOptions.map(opt => (
-                  <SelectItem key={opt.value} value={opt.value} className="text-white hover:bg-zinc-800 focus:bg-zinc-800">
-                    {opt.label} — {opt.description.split('—')[0].trim()}
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
+            <div className="flex flex-wrap gap-2">
+              {colourOptions.map(opt => (
+                <SelectorButton
+                  key={opt.value}
+                  label={opt.label}
+                  isSelected={gemFilter.colour === opt.value}
+                  onClick={() => updateGemFilter('colour', gemFilter.colour === opt.value ? '' : opt.value)}
+                />
+              ))}
+            </div>
+          </ConfigRow>
+
+          <ConfigRow
+            label="Certificate"
+            tooltip="Independent certification verifying your diamond's quality and authenticity."
+          >
+            <div className="flex flex-wrap gap-2">
+              {CERTIFICATES.map(cert => (
+                <SelectorButton
+                  key={cert}
+                  label={cert}
+                  isSelected={certificate === cert}
+                  onClick={() => setCertificate(certificate === cert ? '' : cert)}
+                />
+              ))}
+            </div>
           </ConfigRow>
         </div>
 

@@ -1,9 +1,15 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import type { Ring } from '@/data/engagement-rings'
+
+// Tiny dark blur placeholder — 1x1 pixel zinc-900 (#18181b) sebagai base64 JPEG
+const BLUR_PLACEHOLDER =
+  'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAEBAQEBAQEBAQEBAQEB' +
+  'AQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQH/wAALCAABAAEBAREA' +
+  '/8QAFAABAAAAAAAAAAAAAAAAAAAACv/EABQQAQAAAAAAAAAAAAAAAAAAAAD/2gAIAQEAAD8AVIP/2Q=='
 
 interface RingCardProps {
   ring: Ring
@@ -45,9 +51,62 @@ function RingImageFallback({ name }: { name: string }) {
 export function RingCard({ ring, priority = false }: RingCardProps) {
   const [imgError, setImgError] = useState(false)
   const [isHovered, setIsHovered] = useState(false)
+  const [isHoverImageLoaded, setIsHoverImageLoaded] = useState(false)
 
-  const primaryImage = ring.images[0]
-  const hoverImage = ring.images[1] ?? ring.images[0]
+  const orderedImages = useMemo(() => {
+    const seen = new Set<string>()
+    const merged = [...ring.thumbnails, ...ring.images]
+    const result: string[] = []
+
+    for (const url of merged) {
+      const key = url.trim().toLowerCase().split('?')[0]
+      if (seen.has(key)) continue
+      seen.add(key)
+      result.push(url)
+    }
+
+    return result
+  }, [ring.thumbnails, ring.images])
+
+  const getImageNumber = (url: string): number | null => {
+    const filename = url.split('/').pop() ?? ''
+    const match = filename.match(/_(\d+)\.[a-zA-Z0-9]+$/)
+    if (!match) return null
+    const parsed = Number(match[1])
+    return Number.isFinite(parsed) ? parsed : null
+  }
+
+  const preferredHoverNumbers = [2, 5, 3, 1, 6, 4]
+
+  const primaryImage =
+    orderedImages.find(url => {
+      const n = getImageNumber(url)
+      return n !== 2 && n !== 5
+    }) ??
+    orderedImages[0]
+
+  const hoverImage =
+    orderedImages.find(url => {
+      if (url === primaryImage) return false
+      const n = getImageNumber(url)
+      return n !== null && preferredHoverNumbers.includes(n)
+    }) ??
+    orderedImages.find(url => url !== primaryImage) ??
+    primaryImage
+
+  useEffect(() => {
+    setIsHoverImageLoaded(false)
+
+    if (!hoverImage || hoverImage === primaryImage) {
+      setIsHoverImageLoaded(true)
+      return
+    }
+
+    const preload = new window.Image()
+    preload.src = hoverImage
+    preload.onload = () => setIsHoverImageLoaded(true)
+    preload.onerror = () => setIsHoverImageLoaded(false)
+  }, [hoverImage, primaryImage])
 
   return (
     <Link
@@ -66,33 +125,35 @@ export function RingCard({ ring, priority = false }: RingCardProps) {
             <RingImageFallback name={ring.name} />
           ) : (
             <>
-              {/* Primary image */}
-              <Image
-                src={primaryImage}
-                alt={`${ring.name} engagement ring`}
-                fill
-                sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 33vw"
-                className={`object-cover transition-all duration-700 ${
-                  isHovered && hoverImage !== primaryImage
-                    ? 'opacity-0 scale-105'
-                    : 'opacity-100 scale-100 group-hover:scale-105'
-                }`}
-                onError={() => setImgError(true)}
-                priority={priority}
-              />
-              {/* Hover image (second image) */}
+              {/* Hover image — sits behind primary, always rendered & loaded */}
               {hoverImage !== primaryImage && (
                 <Image
                   src={hoverImage}
                   alt={`${ring.name} engagement ring alternate view`}
                   fill
+                  loading="eager"
                   sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 33vw"
-                  className={`object-cover absolute inset-0 transition-all duration-700 ${
-                    isHovered ? 'opacity-100 scale-105' : 'opacity-0 scale-100'
-                  }`}
+                  className="object-cover absolute inset-0"
+                  placeholder="blur"
+                  blurDataURL={BLUR_PLACEHOLDER}
+                  onLoad={() => setIsHoverImageLoaded(true)}
                   onError={() => {}}
                 />
               )}
+              {/* Primary image — fades out on hover, revealing hover image beneath */}
+              <Image
+                src={primaryImage}
+                alt={`${ring.name} engagement ring`}
+                fill
+                sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 33vw"
+                className={`object-cover absolute inset-0 z-10 transition-opacity duration-200 ${
+                  isHovered && isHoverImageLoaded && hoverImage !== primaryImage ? 'opacity-0' : 'opacity-100'
+                }`}
+                placeholder="blur"
+                blurDataURL={BLUR_PLACEHOLDER}
+                onError={() => setImgError(true)}
+                priority={priority}
+              />
             </>
           )}
 

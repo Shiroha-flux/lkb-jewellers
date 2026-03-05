@@ -4,6 +4,8 @@ import { RingDetailContent } from '@/components/engagement-rings/ring-detail-con
 import ShowroomSection from '@/components/showroom-section'
 import { fetchAllSlugs, fetchGemstones, fetchRingBySlug } from '@/lib/supabase-rings'
 
+export const dynamic = 'force-dynamic'
+
 interface PageProps {
   params: Promise<{ slug: string }>
 }
