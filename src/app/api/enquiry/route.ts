@@ -39,7 +39,8 @@ export async function POST(request: NextRequest) {
 			.single();
 
 		if (error) {
-			return NextResponse.json({ error: "Failed to submit enquiry" }, { status: 500 });
+			console.error("Supabase contacts insert error:", error);
+			return NextResponse.json({ error: error.message || "Failed to submit enquiry" }, { status: 500 });
 		}
 
 		// If user didn't opt out, subscribe to newsletter

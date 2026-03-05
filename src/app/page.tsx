@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
+import { toast } from "sonner";
 import ShowroomSection from "@/components/showroom-section";
 import { Marquee } from "@/components/ui/marquee";
 import { videoSections, serviceCards } from "@/data/products";
@@ -32,7 +33,7 @@ export default function HomePage() {
 		setTimeout(() => {
 			setLoading(false);
 			setEmail("");
-			alert("Thanks for subscribing!");
+			toast.success("Thanks for subscribing!");
 		}, 1000);
 	};
 

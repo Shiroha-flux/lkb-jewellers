@@ -7,6 +7,7 @@ import Footer from "@/components/footer";
 import AppShell from "@/components/app-shell";
 import TopBanner from "@/components/top-banner";
 import FloatingButtons from "@/components/floating-buttons";
+import { Toaster } from "@/components/ui/sonner";
 
 export const metadata: Metadata = {
   title:
@@ -86,6 +87,7 @@ export default function RootLayout({
               <Footer />
             </AppShell>
             <FloatingButtons />
+            <Toaster />
           </CartProvider>
         </AuthProvider>
       </body>

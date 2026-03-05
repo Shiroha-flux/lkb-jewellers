@@ -22,7 +22,8 @@ export async function POST(request: NextRequest) {
 			.single();
 
 		if (error) {
-			return NextResponse.json({ error: "Failed to subscribe" }, { status: 500 });
+			console.error("Supabase newsletter upsert error:", error);
+			return NextResponse.json({ error: error.message || "Failed to subscribe" }, { status: 500 });
 		}
 
 		return NextResponse.json({ success: true, data });

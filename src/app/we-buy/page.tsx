@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import { FileText, Clock, MapPin, Wallet, Upload } from "lucide-react";
-import { createSellSubmission } from "@/lib/sell-submissions";
+import { toast } from "sonner";
 import ShowroomSection from "@/components/showroom-section";
 
 export default function WeBuyPage() {
@@ -15,7 +15,7 @@ export default function WeBuyPage() {
 		model: "",
 		referenceNumber: "",
 		yearOfManufacture: "",
-		condition: "Mint",
+		condition: "Excellent",
 		boxAndPapers: "Full Set (Box & Papers)",
 		additionalInfo: "",
 		isInternational: false,
@@ -57,25 +57,31 @@ export default function WeBuyPage() {
 		e.preventDefault();
 		setLoading(true);
 		try {
-			await createSellSubmission({
-				full_name: formData.fullName,
-				email: formData.email,
-				phone: formData.phone,
-				brand: formData.brand,
-				model: formData.model,
-				reference_number: formData.referenceNumber,
-				year_of_manufacture: formData.yearOfManufacture,
-				condition: formData.condition as "Excellent" | "Good" | "Fair" | "Poor",
-				has_box: formData.boxAndPapers.includes("Box"),
-				has_papers: formData.boxAndPapers.includes("Papers"),
-				additional_info: formData.additionalInfo,
-				images,
-				status: "new",
+			const res = await fetch("/api/sell-submission", {
+				method: "POST",
+				headers: { "Content-Type": "application/json" },
+				body: JSON.stringify({
+					fullName: formData.fullName,
+					email: formData.email,
+					phone: formData.phone,
+					brand: formData.brand,
+					model: formData.model,
+					referenceNumber: formData.referenceNumber,
+					yearOfManufacture: formData.yearOfManufacture,
+					condition: formData.condition,
+					hasBox: formData.boxAndPapers.includes("Box"),
+					hasPapers: formData.boxAndPapers.includes("Papers"),
+					additionalInfo: formData.additionalInfo,
+					images,
+					isInternational: formData.isInternational,
+					visitedOthers: formData.visitedOtherJewellers,
+				}),
 			});
+			if (!res.ok) throw new Error("Failed to submit");
 			setSubmitted(true);
 		} catch (err) {
 			console.error("Failed to submit:", err);
-			alert("Failed to submit. Please try again.");
+			toast.error("Failed to submit. Please try again.");
 		} finally {
 			setLoading(false);
 		}
@@ -219,11 +225,10 @@ export default function WeBuyPage() {
 									<div className="space-y-2">
 										<label className="text-xs text-gray-500">Condition</label>
 										<select name="condition" value={formData.condition} onChange={handleChange} className="w-full bg-black border border-gray-700 py-3 px-4 text-white focus:border-white outline-none">
-											<option value="Mint">Mint</option>
 											<option value="Excellent">Excellent</option>
-											<option value="Very Good">Very Good</option>
 											<option value="Good">Good</option>
 											<option value="Fair">Fair</option>
+											<option value="Poor">Poor</option>
 										</select>
 									</div>
 								</div>

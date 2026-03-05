@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import { Phone, Mail, MapPin, Clock, ArrowRight } from "lucide-react";
+import { toast } from "sonner";
 import { createContact } from "@/lib/contacts";
 import ShowroomSection from "@/components/showroom-section";
 
@@ -35,7 +36,7 @@ export default function ContactPage() {
 			setFormData({ firstName: "", lastName: "", email: "", phone: "", interest: "", message: "" });
 		} catch (err) {
 			console.error("Failed to submit contact:", err);
-			alert("Failed to send message. Please try again.");
+			toast.error("Failed to send message. Please try again.");
 		} finally {
 			setLoading(false);
 		}

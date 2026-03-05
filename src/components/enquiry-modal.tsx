@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { X, BadgeCheck } from "lucide-react";
+import { toast } from "sonner";
 import type { Product } from "@/data/products";
 
 export function EnquiryModal({ isOpen, onClose, product }: { isOpen: boolean; onClose: () => void; product: Product }) {
@@ -42,7 +43,7 @@ export function EnquiryModal({ isOpen, onClose, product }: { isOpen: boolean; on
       if (!res.ok) throw new Error("Failed to submit");
       setSubmitted(true);
     } catch {
-      alert("Failed to submit enquiry. Please try again.");
+      toast.error("Failed to submit enquiry. Please try again.");
     } finally {
       setLoading(false);
     }
