@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import type { RingListingItem } from '@/lib/supabase-rings'
@@ -29,7 +29,20 @@ export function RingListingCard({ ring, priority = false }: RingListingCardProps
   const [imgError, setImgError] = useState(false)
   const [hoverLoaded, setHoverLoaded] = useState(false)
 
-  const hasHover = ring.hoverImage && ring.hoverImage !== ring.thumbnail
+  const hasHover = Boolean(ring.hoverImage && ring.hoverImage !== ring.thumbnail)
+
+  useEffect(() => {
+    if (!hasHover) {
+      setHoverLoaded(true)
+      return
+    }
+    const img = new window.Image()
+    const timeout = window.setTimeout(() => setHoverLoaded(true), 1200)
+    img.src = ring.hoverImage
+    img.onload = () => { window.clearTimeout(timeout); setHoverLoaded(true) }
+    img.onerror = () => { window.clearTimeout(timeout); setHoverLoaded(true) }
+    return () => { window.clearTimeout(timeout); img.onload = null; img.onerror = null }
+  }, [ring.hoverImage, hasHover])
 
   return (
     <Link
@@ -59,12 +72,10 @@ export function RingListingCard({ ring, priority = false }: RingListingCardProps
                   src={ring.hoverImage}
                   alt={`${ring.name} alternate view`}
                   fill
-                  loading="lazy"
                   sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 33vw"
                   className={`object-cover absolute inset-0 transition-opacity duration-200 ${isHovered && hoverLoaded ? 'opacity-100' : 'opacity-0'}`}
                   placeholder="blur"
                   blurDataURL={BLUR_PLACEHOLDER}
-                  onLoad={() => setHoverLoaded(true)}
                 />
               )}
               <Image
