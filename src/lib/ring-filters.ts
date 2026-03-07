@@ -19,16 +19,6 @@ export function filterRings(rings: Ring[], filters: ActiveFilters): Ring[] {
     if (filters.settingStyle && ring.settingStyle !== filters.settingStyle) return false
     if (filters.bandType && ring.bandType !== filters.bandType) return false
     if (filters.settingProfile && ring.settingProfile !== filters.settingProfile) return false
-    if (filters.metal) {
-      const metalMap: Record<string, string[]> = {
-        platinum: ['Platinum'],
-        yellow_gold: ['18k Yellow Gold', 'Yellow Gold'],
-        rose_gold: ['18k Rose Gold', 'Rose Gold'],
-        white_gold: ['18k White Gold', 'White Gold'],
-      }
-      const validMetals = metalMap[filters.metal] ?? []
-      if (!ring.metalOptions.some(m => validMetals.includes(m))) return false
-    }
     return true
   })
 }

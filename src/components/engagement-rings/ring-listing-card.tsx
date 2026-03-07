@@ -4,6 +4,18 @@ import { useState, useRef, useCallback } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import type { RingListingItem } from '@/lib/supabase-rings'
+import type { MetalValue } from '@/data/ring-filters'
+
+const METAL_URL_SEGMENT: Record<MetalValue, string> = {
+  platinum: 'White',
+  yellow_gold: 'Yellow',
+  rose_gold: 'Rose',
+  white_gold: 'White',
+}
+
+function swapMetalInUrl(url: string, metal: MetalValue): string {
+  return url.replace(/\/(Yellow|White|Rose)\//, `/${METAL_URL_SEGMENT[metal]}/`)
+}
 
 const BLUR_PLACEHOLDER =
   'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAEBAQEBAQEBAQEBAQEB' +
@@ -22,15 +34,19 @@ function formatPrice(price: number, currency: string): string {
 interface RingListingCardProps {
   ring: RingListingItem
   priority?: boolean
+  selectedMetal?: MetalValue
 }
 
-export function RingListingCard({ ring, priority = false }: RingListingCardProps) {
+export function RingListingCard({ ring, priority = false, selectedMetal }: RingListingCardProps) {
   const [isHovered, setIsHovered] = useState(false)
   const [imgError, setImgError] = useState(false)
   const [hoverLoaded, setHoverLoaded] = useState(false)
   const preloadRef = useRef<{ img: HTMLImageElement; timeout: number } | null>(null)
 
-  const hasHover = Boolean(ring.hoverImage && ring.hoverImage !== ring.thumbnail)
+  const thumbnail = selectedMetal ? swapMetalInUrl(ring.thumbnail, selectedMetal) : ring.thumbnail
+  const hoverImage = selectedMetal ? swapMetalInUrl(ring.hoverImage, selectedMetal) : ring.hoverImage
+
+  const hasHover = Boolean(hoverImage && hoverImage !== thumbnail)
 
   const handleMouseEnter = useCallback(() => {
     setIsHovered(true)
@@ -39,7 +55,7 @@ export function RingListingCard({ ring, priority = false }: RingListingCardProps
     const img = new window.Image()
     const timeout = window.setTimeout(() => setHoverLoaded(true), 1200)
     preloadRef.current = { img, timeout }
-    img.src = ring.hoverImage
+    img.src = hoverImage
     img.onload = () => { window.clearTimeout(timeout); setHoverLoaded(true) }
     img.onerror = () => { window.clearTimeout(timeout); setHoverLoaded(true) }
   }, [hasHover, hoverLoaded, ring.hoverImage])
@@ -73,7 +89,7 @@ export function RingListingCard({ ring, priority = false }: RingListingCardProps
             <>
               {hasHover && (
                 <Image
-                  src={ring.hoverImage}
+                  src={hoverImage}
                   alt={`${ring.name} alternate view`}
                   fill
                   sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 33vw"
@@ -83,7 +99,7 @@ export function RingListingCard({ ring, priority = false }: RingListingCardProps
                 />
               )}
               <Image
-                src={ring.thumbnail}
+                src={thumbnail}
                 alt={`${ring.name} engagement ring`}
                 fill
                 sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 33vw"

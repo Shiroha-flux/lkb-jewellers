@@ -1,6 +1,7 @@
 import { createClient as createSupabaseClient } from '@supabase/supabase-js'
 import type { RecommendedGemstone } from '@/data/gemstone-options'
 import type { Ring, RingSpecs } from '@/data/engagement-rings'
+
 import { createClient } from '@/lib/supabase-server'
 
 type OrderedRow = { _order: number | null }
@@ -43,18 +44,10 @@ function toThumbnailUrl(url: string, width = 640, quality = 75): string {
 async function mapToRing(
   row: any,
   images: any[],
-  metals: any[],
-  settings: any[],
-  sideStones: any[],
-  sizes: any[],
   specs: any,
   prefs?: Record<string, { thumbnail_url: string | null; hover_url: string | null }>
 ): Promise<Ring> {
   const orderedImages = sortByOrder(images)
-  const orderedMetals = sortByOrder(metals)
-  const orderedSettings = sortByOrder(settings)
-  const orderedSideStones = sortByOrder(sideStones)
-  const orderedSizes = sortByOrder(sizes)
 
   const mappedSpecs: RingSpecs = specs
     ? {
@@ -67,10 +60,9 @@ async function mapToRing(
       }
     : {}
 
-  const orderedImageUrls = orderedImages.map(image => image.image_url)
+  const orderedImageUrls = orderedImages.map((image: any) => image.image_url)
   const uniqueImageUrls = dedupeImageUrls(orderedImageUrls)
 
-  // Build thumbnails: if DB prefs exist, put preferred thumbnail first
   let thumbnails = uniqueImageUrls
   if (prefs) {
     const colorKeys = ['yellow', 'white', 'rose'] as const
@@ -78,7 +70,7 @@ async function mapToRing(
       const pref = prefs[color]
       if (pref?.thumbnail_url) {
         const thumbUrl = pref.thumbnail_url
-        const rest = uniqueImageUrls.filter(u => u !== thumbUrl)
+        const rest = uniqueImageUrls.filter((u: string) => u !== thumbUrl)
         thumbnails = [thumbUrl, ...rest]
         break
       }
@@ -95,10 +87,6 @@ async function mapToRing(
     currency: row.currency ?? 'USD',
     images: uniqueImageUrls,
     thumbnails,
-    metalOptions: orderedMetals.map(metal => metal.label),
-    settingOptions: orderedSettings.map(setting => setting.label),
-    sideStonesOptions: orderedSideStones.map(sideStone => sideStone.label),
-    ringSizes: orderedSizes.map(size => size.size),
     specs: mappedSpecs,
     shape: row.shape,
     settingStyle: row.setting_style,
@@ -110,10 +98,6 @@ async function mapToRing(
 const ringRelations = `
   *,
   engagement_ring_images(*),
-  engagement_ring_metal_options(*),
-  engagement_ring_setting_options(*),
-  engagement_ring_side_stone_options(*),
-  engagement_ring_sizes(*),
   engagement_ring_specs!ring_id(*)
 `
 
@@ -253,10 +237,6 @@ export async function fetchAllRings(): Promise<Ring[]> {
     mapToRing(
       row,
       row.engagement_ring_images ?? [],
-      row.engagement_ring_metal_options ?? [],
-      row.engagement_ring_setting_options ?? [],
-      row.engagement_ring_side_stone_options ?? [],
-      row.engagement_ring_sizes ?? [],
       Array.isArray(row.engagement_ring_specs) ? row.engagement_ring_specs[0] ?? null : row.engagement_ring_specs ?? null
     )
   ))
@@ -279,10 +259,6 @@ export async function fetchRingBySlug(slug: string): Promise<Ring | null> {
   return await mapToRing(
     data,
     data.engagement_ring_images ?? [],
-    data.engagement_ring_metal_options ?? [],
-    data.engagement_ring_setting_options ?? [],
-    data.engagement_ring_side_stone_options ?? [],
-    data.engagement_ring_sizes ?? [],
     Array.isArray(data.engagement_ring_specs) ? data.engagement_ring_specs[0] ?? null : data.engagement_ring_specs ?? null
   )
 }

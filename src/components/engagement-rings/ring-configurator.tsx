@@ -6,6 +6,7 @@ import { Info, Leaf } from 'lucide-react'
 import { Separator } from '@/components/ui/separator'
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip'
 import type { Ring } from '@/data/engagement-rings'
+import { RING_METAL_OPTIONS, RING_SETTING_OPTIONS, RING_SIDE_STONE_OPTIONS, RING_SIZES } from '@/data/engagement-rings'
 import { stoneTypes, clarityOptions, caratRanges, colourOptions, recommendedGemstones as staticGemstones } from '@/data/gemstone-options'
 import type { RecommendedGemstone } from '@/data/gemstone-options'
 import { filterGemstones, formatGemstonePrice, getStoneTypeLabel } from '@/lib/gemstone-utils'
@@ -113,9 +114,9 @@ function SelectorButton({
 
 export function RingConfigurator({ ring, gemstones, selectedMetal, onMetalChange }: RingConfiguratorProps) {
   // Your Setting state
-  const [sideStones, setSideStones] = useState(ring.sideStonesOptions[0] ?? 'Lab Grown Diamond')
+  const [sideStones, setSideStones] = useState<string>(RING_SIDE_STONE_OPTIONS[0])
   const metalType = selectedMetal
-  const [setting, setSetting] = useState(ring.settingOptions[0] ?? 'High Setting')
+  const [setting, setSetting] = useState<string>(RING_SETTING_OPTIONS[0])
   const [ringSize, setRingSize] = useState('')
 
   // Your Gemstone state
@@ -149,7 +150,7 @@ export function RingConfigurator({ ring, gemstones, selectedMetal, onMetalChange
             tooltip="The smaller accent stones that complement your centre stone."
           >
             <div className="flex flex-wrap gap-2">
-              {ring.sideStonesOptions.map(opt => (
+              {RING_SIDE_STONE_OPTIONS.map(opt => (
                 <PillButton
                   key={opt}
                   label={opt}
@@ -165,7 +166,7 @@ export function RingConfigurator({ ring, gemstones, selectedMetal, onMetalChange
             tooltip="The precious metal used for your ring. Each metal has unique properties and appearance."
           >
             <div className="flex flex-wrap gap-2">
-              {ring.metalOptions.map(opt => (
+              {RING_METAL_OPTIONS.map(opt => (
                 <PillButton
                   key={opt}
                   label={opt}
@@ -181,7 +182,7 @@ export function RingConfigurator({ ring, gemstones, selectedMetal, onMetalChange
             tooltip="How high the centre stone sits above the band. High setting maximises light exposure."
           >
             <div className="flex flex-wrap gap-2">
-              {ring.settingOptions.map(opt => (
+              {RING_SETTING_OPTIONS.map(opt => (
                 <PillButton
                   key={opt}
                   label={opt}
@@ -197,7 +198,7 @@ export function RingConfigurator({ ring, gemstones, selectedMetal, onMetalChange
             tooltip="UK ring sizing. Not sure of your size? We offer complimentary resizing."
           >
             <div className="flex flex-wrap gap-2">
-              {ring.ringSizes.map(size => (
+              {RING_SIZES.map(size => (
                 <PillButton
                   key={size}
                   label={size}

@@ -189,19 +189,23 @@ export default function Navbar() {
 									{/* Mobile menu items */}
 									<div className="overflow-y-auto h-[calc(100vh-80px)] pb-32">
 										<div className="flex flex-col">
-											{/* HOME */}
-											<SheetClose asChild>
-												<Link href="/" className="text-white text-sm font-semibold tracking-[0.2em] font-body px-6 py-5 border-b border-gray-900 hover:bg-gray-900/50 transition-colors">
-													HOME
-												</Link>
-											</SheetClose>
+										{/* HOME */}
+										<Link
+											href="/"
+											className="text-white text-sm font-semibold tracking-[0.2em] font-body px-6 py-5 border-b border-gray-900 hover:bg-gray-900/50 transition-colors block"
+											onClick={() => setMobileOpen(false)}
+										>
+											HOME
+										</Link>
 
-											{/* ENGAGEMENT RINGS */}
-											<SheetClose asChild>
-												<Link href="/engagement-rings" className="text-white text-sm font-semibold tracking-[0.2em] font-body px-6 py-5 border-b border-gray-900 hover:bg-gray-900/50 transition-colors block">
-													ENGAGEMENT RINGS
-												</Link>
-											</SheetClose>
+										{/* ENGAGEMENT RINGS */}
+										<Link
+											href="/engagement-rings"
+											className="text-white text-sm font-semibold tracking-[0.2em] font-body px-6 py-5 border-b border-gray-900 hover:bg-gray-900/50 transition-colors block"
+											onClick={() => setMobileOpen(false)}
+										>
+											ENGAGEMENT RINGS
+										</Link>
 
 											{/* Accordion items */}
 											<Accordion type="single" collapsible className="w-full">

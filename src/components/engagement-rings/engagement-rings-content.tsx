@@ -8,6 +8,7 @@ import { RingListingCard } from '@/components/engagement-rings/ring-listing-card
 import type { PaginatedRings, RingListingItem } from '@/lib/supabase-rings'
 import { parseFiltersFromURL, filtersToURL, hasActiveFilters } from '@/lib/ring-filters'
 import type { ActiveFilters } from '@/lib/ring-filters'
+import type { MetalValue } from '@/data/ring-filters'
 
 const PAGE_SIZE = 24
 
@@ -40,7 +41,6 @@ export function EngagementRingsContent() {
     params.set('page', String(p))
     params.set('limit', String(PAGE_SIZE))
     if (filters.shape) params.set('shape', filters.shape)
-    if (filters.metal) params.set('metalOption', filters.metal)
     if (filters.settingStyle) params.set('settingStyle', filters.settingStyle)
     if (filters.bandType) params.set('bandType', filters.bandType)
     if (filters.settingProfile) params.set('settingProfile', filters.settingProfile)
@@ -227,7 +227,7 @@ export function EngagementRingsContent() {
             <h2 className="sr-only">Ring Settings</h2>
             <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
               {rings.map((ring, index) => (
-                <RingListingCard key={ring.slug} ring={ring} priority={index < 8} />
+                <RingListingCard key={ring.slug} ring={ring} priority={index < 8} selectedMetal={activeFilters.metal as MetalValue | undefined} />
               ))}
             </div>
 

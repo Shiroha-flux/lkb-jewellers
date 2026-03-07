@@ -21,16 +21,32 @@ export interface Ring {
   currency: string
   images: string[]
   thumbnails: string[]
-  metalOptions: string[]
-  settingOptions: string[]
-  sideStonesOptions: string[]
-  ringSizes: string[]
   specs: RingSpecs
   shape: 'round' | 'oval' | 'emerald' | 'radiant' | 'pear' | 'cushion' | 'elongated_cushion' | 'elongated_hexagon' | 'marquise' | 'princess' | 'asscher' | 'heart'
   settingStyle: 'trilogy' | 'solitaire' | 'halo' | 'toi_et_moi' | 'bezel' | 'east_west'
   bandType: 'plain' | 'pave' | 'accents'
   settingProfile: 'high_set' | 'low_set'
 }
+
+export const RING_METAL_OPTIONS = [
+  'Platinum',
+  '18k Yellow Gold',
+  '18k Rose Gold',
+  '18k White Gold',
+] as const
+
+export const RING_SETTING_OPTIONS = ['High Setting', 'Low Setting'] as const
+
+export const RING_SIDE_STONE_OPTIONS = [
+  'Lab Grown Diamond',
+  'Moissanite',
+  'Natural Diamond',
+] as const
+
+export const RING_SIZES = [
+  'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K',
+  'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S',
+] as const
 
 export const engagementRings: Ring[] = [
   {
@@ -48,38 +64,6 @@ export const engagementRings: Ring[] = [
     ],
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/adelyn/renders/2ct/High%20Setting/Yellow/default"
-    ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
     ],
     "specs": {
       "bandWidth": "1.5mm",
@@ -109,38 +93,6 @@ export const engagementRings: Ring[] = [
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/adina/renders/2ct/High%20Setting/Yellow/default"
     ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
-    ],
     "specs": {
       "bandWidth": "1.5mm",
       "avgSideStones": "16",
@@ -168,38 +120,6 @@ export const engagementRings: Ring[] = [
     ],
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/adrian/renders/2ct/High%20Setting/Yellow/default"
-    ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
     ],
     "specs": {
       "bandWidth": "1.5mm",
@@ -229,38 +149,6 @@ export const engagementRings: Ring[] = [
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/aida/renders/2ct/High%20Setting/Yellow/default"
     ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
-    ],
     "specs": {
       "bandWidth": "1.5mm",
       "avgSideStones": "16",
@@ -288,38 +176,6 @@ export const engagementRings: Ring[] = [
     ],
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/ainsley/renders/2ct/High%20Setting/Yellow/default"
-    ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
     ],
     "specs": {
       "bandWidth": "1.5mm",
@@ -349,38 +205,6 @@ export const engagementRings: Ring[] = [
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/aisha/renders/2ct/High%20Setting/Yellow/default"
     ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
-    ],
     "specs": {
       "bandWidth": "1.5mm",
       "avgSideStones": "16",
@@ -408,38 +232,6 @@ export const engagementRings: Ring[] = [
     ],
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/alessia/renders/2ct/High%20Setting/Yellow/default"
-    ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
     ],
     "specs": {
       "bandWidth": "1.5mm",
@@ -469,38 +261,6 @@ export const engagementRings: Ring[] = [
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/alex/renders/2ct/High%20Setting/Yellow/default"
     ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
-    ],
     "specs": {
       "bandWidth": "1.5mm",
       "avgSideStones": "16",
@@ -528,38 +288,6 @@ export const engagementRings: Ring[] = [
     ],
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/alexandria/renders/2ct/High%20Setting/Yellow/default"
-    ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
     ],
     "specs": {
       "bandWidth": "1.5mm",
@@ -589,38 +317,6 @@ export const engagementRings: Ring[] = [
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/alexia/renders/2ct/High%20Setting/Yellow/default"
     ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
-    ],
     "specs": {
       "bandWidth": "1.5mm",
       "avgSideStones": "16",
@@ -648,38 +344,6 @@ export const engagementRings: Ring[] = [
     ],
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/alia/renders/2ct/High%20Setting/Yellow/default"
-    ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
     ],
     "specs": {
       "bandWidth": "1.5mm",
@@ -709,38 +373,6 @@ export const engagementRings: Ring[] = [
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/alice/renders/2ct/High%20Setting/Yellow/default"
     ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
-    ],
     "specs": {
       "bandWidth": "1.5mm",
       "avgSideStones": "16",
@@ -768,38 +400,6 @@ export const engagementRings: Ring[] = [
     ],
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/alina/renders/2ct/High%20Setting/Yellow/default"
-    ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
     ],
     "specs": {
       "bandWidth": "1.5mm",
@@ -829,38 +429,6 @@ export const engagementRings: Ring[] = [
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/allison/renders/2ct/High%20Setting/Yellow/default"
     ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
-    ],
     "specs": {
       "bandWidth": "1.5mm",
       "avgSideStones": "16",
@@ -888,38 +456,6 @@ export const engagementRings: Ring[] = [
     ],
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/alyssa/renders/2ct/High%20Setting/Yellow/default"
-    ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
     ],
     "specs": {
       "bandWidth": "1.5mm",
@@ -949,38 +485,6 @@ export const engagementRings: Ring[] = [
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/amanda/renders/2ct/High%20Setting/Yellow/default"
     ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
-    ],
     "specs": {
       "bandWidth": "1.5mm",
       "avgSideStones": "16",
@@ -1008,38 +512,6 @@ export const engagementRings: Ring[] = [
     ],
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/amor/renders/2ct/High%20Setting/Yellow/default"
-    ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
     ],
     "specs": {
       "bandWidth": "1.5mm",
@@ -1069,38 +541,6 @@ export const engagementRings: Ring[] = [
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/amy/renders/2ct/High%20Setting/Yellow/default"
     ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
-    ],
     "specs": {
       "bandWidth": "1.5mm",
       "avgSideStones": "16",
@@ -1128,38 +568,6 @@ export const engagementRings: Ring[] = [
     ],
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/analyce/renders/2ct/High%20Setting/Yellow/default"
-    ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
     ],
     "specs": {
       "bandWidth": "1.5mm",
@@ -1189,38 +597,6 @@ export const engagementRings: Ring[] = [
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/angelina/renders/2ct/High%20Setting/Yellow/default"
     ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
-    ],
     "specs": {
       "bandWidth": "1.5mm",
       "avgSideStones": "16",
@@ -1248,38 +624,6 @@ export const engagementRings: Ring[] = [
     ],
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/anna/renders/2ct/High%20Setting/Yellow/default"
-    ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
     ],
     "specs": {
       "bandWidth": "1.5mm",
@@ -1309,38 +653,6 @@ export const engagementRings: Ring[] = [
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/annika/renders/2ct/High%20Setting/Yellow/default"
     ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
-    ],
     "specs": {
       "bandWidth": "1.5mm",
       "avgSideStones": "16",
@@ -1368,38 +680,6 @@ export const engagementRings: Ring[] = [
     ],
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/annie/renders/2ct/High%20Setting/Yellow/default"
-    ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
     ],
     "specs": {
       "bandWidth": "1.5mm",
@@ -1429,38 +709,6 @@ export const engagementRings: Ring[] = [
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/arabella/renders/2ct/High%20Setting/Yellow/default"
     ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
-    ],
     "specs": {
       "bandWidth": "1.5mm",
       "avgSideStones": "16",
@@ -1488,38 +736,6 @@ export const engagementRings: Ring[] = [
     ],
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/ari/renders/2ct/High%20Setting/Yellow/default"
-    ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
     ],
     "specs": {
       "bandWidth": "1.5mm",
@@ -1549,38 +765,6 @@ export const engagementRings: Ring[] = [
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/aria/renders/2ct/High%20Setting/Yellow/default"
     ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
-    ],
     "specs": {
       "bandWidth": "1.5mm",
       "avgSideStones": "16",
@@ -1608,38 +792,6 @@ export const engagementRings: Ring[] = [
     ],
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/arielle/renders/2ct/High%20Setting/Yellow/default"
-    ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
     ],
     "specs": {
       "bandWidth": "1.5mm",
@@ -1669,38 +821,6 @@ export const engagementRings: Ring[] = [
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/arlo/renders/2ct/High%20Setting/Yellow/default"
     ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
-    ],
     "specs": {
       "bandWidth": "1.5mm",
       "avgSideStones": "16",
@@ -1728,38 +848,6 @@ export const engagementRings: Ring[] = [
     ],
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/ashlea/renders/2ct/High%20Setting/Yellow/default"
-    ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
     ],
     "specs": {
       "bandWidth": "1.5mm",
@@ -1789,38 +877,6 @@ export const engagementRings: Ring[] = [
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/aspen/renders/2ct/High%20Setting/Yellow/default"
     ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
-    ],
     "specs": {
       "bandWidth": "1.5mm",
       "avgSideStones": "16",
@@ -1848,38 +904,6 @@ export const engagementRings: Ring[] = [
     ],
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/aster/renders/2ct/High%20Setting/Yellow/default"
-    ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
     ],
     "specs": {
       "bandWidth": "1.5mm",
@@ -1909,38 +933,6 @@ export const engagementRings: Ring[] = [
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/athena/renders/2ct/High%20Setting/Yellow/default"
     ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
-    ],
     "specs": {
       "bandWidth": "1.5mm",
       "avgSideStones": "16",
@@ -1968,38 +960,6 @@ export const engagementRings: Ring[] = [
     ],
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/aubrey/renders/2ct/High%20Setting/Yellow/default"
-    ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
     ],
     "specs": {
       "bandWidth": "1.5mm",
@@ -2029,38 +989,6 @@ export const engagementRings: Ring[] = [
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/aurelie/renders/2ct/High%20Setting/Yellow/default"
     ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
-    ],
     "specs": {
       "bandWidth": "1.5mm",
       "avgSideStones": "16",
@@ -2088,38 +1016,6 @@ export const engagementRings: Ring[] = [
     ],
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/ava/renders/2ct/High%20Setting/Yellow/default"
-    ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
     ],
     "specs": {
       "bandWidth": "1.5mm",
@@ -2149,38 +1045,6 @@ export const engagementRings: Ring[] = [
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/avery/renders/2ct/High%20Setting/Yellow/default"
     ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
-    ],
     "specs": {
       "bandWidth": "1.5mm",
       "avgSideStones": "16",
@@ -2208,38 +1072,6 @@ export const engagementRings: Ring[] = [
     ],
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/ayla/renders/2ct/High%20Setting/Yellow/default"
-    ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
     ],
     "specs": {
       "bandWidth": "1.5mm",
@@ -2269,38 +1101,6 @@ export const engagementRings: Ring[] = [
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/bella/renders/2ct/High%20Setting/Yellow/default"
     ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
-    ],
     "specs": {
       "bandWidth": "1.5mm",
       "avgSideStones": "16",
@@ -2328,38 +1128,6 @@ export const engagementRings: Ring[] = [
     ],
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/bethany/renders/2ct/High%20Setting/Yellow/default"
-    ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
     ],
     "specs": {
       "bandWidth": "1.5mm",
@@ -2389,38 +1157,6 @@ export const engagementRings: Ring[] = [
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/bindi/renders/2ct/High%20Setting/Yellow/default"
     ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
-    ],
     "specs": {
       "bandWidth": "1.5mm",
       "avgSideStones": "16",
@@ -2448,38 +1184,6 @@ export const engagementRings: Ring[] = [
     ],
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/billie/renders/2ct/High%20Setting/Yellow/default"
-    ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
     ],
     "specs": {
       "bandWidth": "1.5mm",
@@ -2509,38 +1213,6 @@ export const engagementRings: Ring[] = [
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/blair/renders/2ct/High%20Setting/Yellow/default"
     ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
-    ],
     "specs": {
       "bandWidth": "1.5mm",
       "avgSideStones": "16",
@@ -2568,38 +1240,6 @@ export const engagementRings: Ring[] = [
     ],
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/blossom/renders/2ct/High%20Setting/Yellow/default"
-    ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
     ],
     "specs": {
       "bandWidth": "1.5mm",
@@ -2629,38 +1269,6 @@ export const engagementRings: Ring[] = [
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/bonnie/renders/2ct/High%20Setting/Yellow/default"
     ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
-    ],
     "specs": {
       "bandWidth": "1.5mm",
       "avgSideStones": "16",
@@ -2688,38 +1296,6 @@ export const engagementRings: Ring[] = [
     ],
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/brandi/renders/2ct/High%20Setting/Yellow/default"
-    ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
     ],
     "specs": {
       "bandWidth": "1.5mm",
@@ -2749,38 +1325,6 @@ export const engagementRings: Ring[] = [
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/bree/renders/2ct/High%20Setting/Yellow/default"
     ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
-    ],
     "specs": {
       "bandWidth": "1.5mm",
       "avgSideStones": "16",
@@ -2808,38 +1352,6 @@ export const engagementRings: Ring[] = [
     ],
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/briar/renders/2ct/High%20Setting/Yellow/default"
-    ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
     ],
     "specs": {
       "bandWidth": "1.5mm",
@@ -2869,38 +1381,6 @@ export const engagementRings: Ring[] = [
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/brooke/renders/2ct/High%20Setting/Yellow/default"
     ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
-    ],
     "specs": {
       "bandWidth": "1.5mm",
       "avgSideStones": "16",
@@ -2928,38 +1408,6 @@ export const engagementRings: Ring[] = [
     ],
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/brooklyn/renders/2ct/High%20Setting/Yellow/default"
-    ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
     ],
     "specs": {
       "bandWidth": "1.5mm",
@@ -2989,38 +1437,6 @@ export const engagementRings: Ring[] = [
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/bronte/renders/2ct/High%20Setting/Yellow/default"
     ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
-    ],
     "specs": {
       "bandWidth": "1.5mm",
       "avgSideStones": "16",
@@ -3048,38 +1464,6 @@ export const engagementRings: Ring[] = [
     ],
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/cali/renders/2ct/High%20Setting/Yellow/default"
-    ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
     ],
     "specs": {
       "bandWidth": "1.5mm",
@@ -3109,38 +1493,6 @@ export const engagementRings: Ring[] = [
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/camilla/renders/2ct/High%20Setting/Yellow/default"
     ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
-    ],
     "specs": {
       "bandWidth": "1.5mm",
       "avgSideStones": "16",
@@ -3168,38 +1520,6 @@ export const engagementRings: Ring[] = [
     ],
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/candice/renders/2ct/High%20Setting/Yellow/default"
-    ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
     ],
     "specs": {
       "bandWidth": "1.5mm",
@@ -3229,38 +1549,6 @@ export const engagementRings: Ring[] = [
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/carly/renders/2ct/High%20Setting/Yellow/default"
     ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
-    ],
     "specs": {
       "bandWidth": "1.5mm",
       "avgSideStones": "16",
@@ -3288,38 +1576,6 @@ export const engagementRings: Ring[] = [
     ],
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/carmella/renders/2ct/High%20Setting/Yellow/default"
-    ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
     ],
     "specs": {
       "bandWidth": "1.5mm",
@@ -3349,38 +1605,6 @@ export const engagementRings: Ring[] = [
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/caroline/renders/2ct/High%20Setting/Yellow/default"
     ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
-    ],
     "specs": {
       "bandWidth": "1.5mm",
       "avgSideStones": "16",
@@ -3408,38 +1632,6 @@ export const engagementRings: Ring[] = [
     ],
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/cartia/renders/2ct/High%20Setting/Yellow/default"
-    ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
     ],
     "specs": {
       "bandWidth": "1.5mm",
@@ -3469,38 +1661,6 @@ export const engagementRings: Ring[] = [
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/casey/renders/2ct/High%20Setting/Yellow/default"
     ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
-    ],
     "specs": {
       "bandWidth": "1.5mm",
       "avgSideStones": "16",
@@ -3528,38 +1688,6 @@ export const engagementRings: Ring[] = [
     ],
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/cataleya/renders/2ct/High%20Setting/Yellow/default"
-    ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
     ],
     "specs": {
       "bandWidth": "1.5mm",
@@ -3589,38 +1717,6 @@ export const engagementRings: Ring[] = [
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/cecilia/renders/2ct/High%20Setting/Yellow/default"
     ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
-    ],
     "specs": {
       "bandWidth": "1.5mm",
       "avgSideStones": "16",
@@ -3648,38 +1744,6 @@ export const engagementRings: Ring[] = [
     ],
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/chantelle/renders/2ct/High%20Setting/Yellow/default"
-    ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
     ],
     "specs": {
       "bandWidth": "1.5mm",
@@ -3709,38 +1773,6 @@ export const engagementRings: Ring[] = [
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/charlie/renders/2ct/High%20Setting/Yellow/default"
     ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
-    ],
     "specs": {
       "bandWidth": "1.5mm",
       "avgSideStones": "16",
@@ -3768,38 +1800,6 @@ export const engagementRings: Ring[] = [
     ],
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/charmaine/renders/2ct/High%20Setting/Yellow/default"
-    ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
     ],
     "specs": {
       "bandWidth": "1.5mm",
@@ -3829,38 +1829,6 @@ export const engagementRings: Ring[] = [
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/claudia/renders/2ct/High%20Setting/Yellow/default"
     ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
-    ],
     "specs": {
       "bandWidth": "1.5mm",
       "avgSideStones": "16",
@@ -3888,38 +1856,6 @@ export const engagementRings: Ring[] = [
     ],
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/cynthia/renders/2ct/High%20Setting/Yellow/default"
-    ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
     ],
     "specs": {
       "bandWidth": "1.5mm",
@@ -3949,38 +1885,6 @@ export const engagementRings: Ring[] = [
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/dahlia/renders/2ct/High%20Setting/Yellow/default"
     ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
-    ],
     "specs": {
       "bandWidth": "1.5mm",
       "avgSideStones": "16",
@@ -4008,38 +1912,6 @@ export const engagementRings: Ring[] = [
     ],
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/dakota/renders/2ct/High%20Setting/Yellow/default"
-    ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
     ],
     "specs": {
       "bandWidth": "1.5mm",
@@ -4069,38 +1941,6 @@ export const engagementRings: Ring[] = [
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/daisy/renders/2ct/High%20Setting/Yellow/default"
     ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
-    ],
     "specs": {
       "bandWidth": "1.5mm",
       "avgSideStones": "16",
@@ -4128,38 +1968,6 @@ export const engagementRings: Ring[] = [
     ],
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/daya/renders/2ct/High%20Setting/Yellow/default"
-    ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
     ],
     "specs": {
       "bandWidth": "1.5mm",
@@ -4189,38 +1997,6 @@ export const engagementRings: Ring[] = [
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/daphne/renders/2ct/High%20Setting/Yellow/default"
     ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
-    ],
     "specs": {
       "bandWidth": "1.5mm",
       "avgSideStones": "16",
@@ -4248,38 +2024,6 @@ export const engagementRings: Ring[] = [
     ],
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/daniela/renders/2ct/High%20Setting/Yellow/default"
-    ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
     ],
     "specs": {
       "bandWidth": "1.5mm",
@@ -4309,38 +2053,6 @@ export const engagementRings: Ring[] = [
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/delilah/renders/2ct/High%20Setting/Yellow/default"
     ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
-    ],
     "specs": {
       "bandWidth": "1.5mm",
       "avgSideStones": "16",
@@ -4368,38 +2080,6 @@ export const engagementRings: Ring[] = [
     ],
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/delta/renders/2ct/High%20Setting/Yellow/default"
-    ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
     ],
     "specs": {
       "bandWidth": "1.5mm",
@@ -4429,38 +2109,6 @@ export const engagementRings: Ring[] = [
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/elena/renders/2ct/High%20Setting/Yellow/default"
     ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
-    ],
     "specs": {
       "bandWidth": "1.5mm",
       "avgSideStones": "16",
@@ -4488,38 +2136,6 @@ export const engagementRings: Ring[] = [
     ],
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/eliana/renders/2ct/High%20Setting/Yellow/default"
-    ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
     ],
     "specs": {
       "bandWidth": "1.5mm",
@@ -4549,38 +2165,6 @@ export const engagementRings: Ring[] = [
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/elise/renders/2ct/High%20Setting/Yellow/default"
     ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
-    ],
     "specs": {
       "bandWidth": "1.5mm",
       "avgSideStones": "16",
@@ -4608,38 +2192,6 @@ export const engagementRings: Ring[] = [
     ],
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/ella/renders/2ct/High%20Setting/Yellow/default"
-    ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
     ],
     "specs": {
       "bandWidth": "1.5mm",
@@ -4669,38 +2221,6 @@ export const engagementRings: Ring[] = [
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/elle/renders/2ct/High%20Setting/Yellow/default"
     ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
-    ],
     "specs": {
       "bandWidth": "1.5mm",
       "avgSideStones": "16",
@@ -4728,38 +2248,6 @@ export const engagementRings: Ring[] = [
     ],
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/ellie/renders/2ct/High%20Setting/Yellow/default"
-    ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
     ],
     "specs": {
       "bandWidth": "1.5mm",
@@ -4789,38 +2277,6 @@ export const engagementRings: Ring[] = [
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/elphie/renders/2ct/High%20Setting/Yellow/default"
     ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
-    ],
     "specs": {
       "bandWidth": "1.5mm",
       "avgSideStones": "16",
@@ -4849,38 +2305,6 @@ export const engagementRings: Ring[] = [
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/elsie/renders/2ct/High%20Setting/Yellow/default"
     ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
-    ],
     "specs": {
       "bandWidth": "1.5mm",
       "avgSideStones": "16",
@@ -4906,38 +2330,6 @@ export const engagementRings: Ring[] = [
     ],
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/ember/renders/2ct/High%20Setting/Yellow/main"
-    ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
     ],
     "specs": {
       "bandWidth": "1.5mm",
@@ -4967,38 +2359,6 @@ export const engagementRings: Ring[] = [
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/emily/renders/2ct/High%20Setting/Yellow/default"
     ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
-    ],
     "specs": {
       "bandWidth": "1.5mm",
       "avgSideStones": "16",
@@ -5026,38 +2386,6 @@ export const engagementRings: Ring[] = [
     ],
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/emma/renders/2ct/High%20Setting/Yellow/default"
-    ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
     ],
     "specs": {
       "bandWidth": "1.5mm",
@@ -5087,38 +2415,6 @@ export const engagementRings: Ring[] = [
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/emmy/renders/2ct/High%20Setting/Yellow/default"
     ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
-    ],
     "specs": {
       "bandWidth": "1.5mm",
       "avgSideStones": "16",
@@ -5146,38 +2442,6 @@ export const engagementRings: Ring[] = [
     ],
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/evangeline/renders/2ct/High%20Setting/Yellow/default"
-    ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
     ],
     "specs": {
       "bandWidth": "1.5mm",
@@ -5207,38 +2471,6 @@ export const engagementRings: Ring[] = [
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/eve/renders/2ct/High%20Setting/Yellow/default"
     ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
-    ],
     "specs": {
       "bandWidth": "1.5mm",
       "avgSideStones": "16",
@@ -5266,38 +2498,6 @@ export const engagementRings: Ring[] = [
     ],
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/evelyn/renders/2ct/High%20Setting/Yellow/default"
-    ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
     ],
     "specs": {
       "bandWidth": "1.5mm",
@@ -5327,38 +2527,6 @@ export const engagementRings: Ring[] = [
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/everleigh/renders/2ct/High%20Setting/Yellow/default"
     ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
-    ],
     "specs": {
       "bandWidth": "1.5mm",
       "avgSideStones": "16",
@@ -5386,38 +2554,6 @@ export const engagementRings: Ring[] = [
     ],
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/fiona/renders/2ct/High%20Setting/Yellow/default"
-    ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
     ],
     "specs": {
       "bandWidth": "1.5mm",
@@ -5447,38 +2583,6 @@ export const engagementRings: Ring[] = [
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/francesca/renders/2ct/High%20Setting/Yellow/default"
     ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
-    ],
     "specs": {
       "bandWidth": "1.5mm",
       "avgSideStones": "16",
@@ -5506,38 +2610,6 @@ export const engagementRings: Ring[] = [
     ],
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/frankie/renders/2ct/High%20Setting/Yellow/default"
-    ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
     ],
     "specs": {
       "bandWidth": "1.5mm",
@@ -5567,38 +2639,6 @@ export const engagementRings: Ring[] = [
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/freya/renders/2ct/High%20Setting/Yellow/default"
     ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
-    ],
     "specs": {
       "bandWidth": "1.5mm",
       "avgSideStones": "16",
@@ -5626,38 +2666,6 @@ export const engagementRings: Ring[] = [
     ],
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/freesia/renders/2ct/High%20Setting/Yellow/default"
-    ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
     ],
     "specs": {
       "bandWidth": "1.5mm",
@@ -5687,38 +2695,6 @@ export const engagementRings: Ring[] = [
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/gabrielle/renders/2ct/High%20Setting/Yellow/default"
     ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
-    ],
     "specs": {
       "bandWidth": "1.5mm",
       "avgSideStones": "16",
@@ -5746,38 +2722,6 @@ export const engagementRings: Ring[] = [
     ],
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/gemma/renders/2ct/High%20Setting/Yellow/default"
-    ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
     ],
     "specs": {
       "bandWidth": "1.5mm",
@@ -5807,38 +2751,6 @@ export const engagementRings: Ring[] = [
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/genevieve/renders/2ct/High%20Setting/Yellow/default"
     ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
-    ],
     "specs": {
       "bandWidth": "1.5mm",
       "avgSideStones": "16",
@@ -5866,38 +2778,6 @@ export const engagementRings: Ring[] = [
     ],
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/georgia/renders/2ct/High%20Setting/Yellow/default"
-    ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
     ],
     "specs": {
       "bandWidth": "1.5mm",
@@ -5927,38 +2807,6 @@ export const engagementRings: Ring[] = [
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/gigi/renders/2ct/High%20Setting/Yellow/default"
     ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
-    ],
     "specs": {
       "bandWidth": "1.5mm",
       "avgSideStones": "16",
@@ -5986,38 +2834,6 @@ export const engagementRings: Ring[] = [
     ],
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/ginny/renders/2ct/High%20Setting/Yellow/default"
-    ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
     ],
     "specs": {
       "bandWidth": "1.5mm",
@@ -6047,38 +2863,6 @@ export const engagementRings: Ring[] = [
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/giselle/renders/2ct/High%20Setting/Yellow/default"
     ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
-    ],
     "specs": {
       "bandWidth": "1.5mm",
       "avgSideStones": "16",
@@ -6106,38 +2890,6 @@ export const engagementRings: Ring[] = [
     ],
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/glinda/renders/2ct/High%20Setting/Yellow/default"
-    ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
     ],
     "specs": {
       "bandWidth": "1.5mm",
@@ -6167,38 +2919,6 @@ export const engagementRings: Ring[] = [
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/grace/renders/2ct/High%20Setting/Yellow/default"
     ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
-    ],
     "specs": {
       "bandWidth": "1.5mm",
       "avgSideStones": "16",
@@ -6226,38 +2946,6 @@ export const engagementRings: Ring[] = [
     ],
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/greta/renders/2ct/High%20Setting/Yellow/default"
-    ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
     ],
     "specs": {
       "bandWidth": "1.5mm",
@@ -6287,38 +2975,6 @@ export const engagementRings: Ring[] = [
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/gwyneth/renders/2ct/High%20Setting/Yellow/default"
     ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
-    ],
     "specs": {
       "bandWidth": "1.5mm",
       "avgSideStones": "16",
@@ -6346,38 +3002,6 @@ export const engagementRings: Ring[] = [
     ],
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/halle/renders/2ct/High%20Setting/Yellow/default"
-    ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
     ],
     "specs": {
       "bandWidth": "1.5mm",
@@ -6407,38 +3031,6 @@ export const engagementRings: Ring[] = [
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/hannah/renders/2ct/High%20Setting/Yellow/default"
     ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
-    ],
     "specs": {
       "bandWidth": "1.5mm",
       "avgSideStones": "16",
@@ -6466,38 +3058,6 @@ export const engagementRings: Ring[] = [
     ],
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/hayley/renders/2ct/High%20Setting/Yellow/default"
-    ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
     ],
     "specs": {
       "bandWidth": "1.5mm",
@@ -6527,38 +3087,6 @@ export const engagementRings: Ring[] = [
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/hilary/renders/2ct/High%20Setting/Yellow/default"
     ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
-    ],
     "specs": {
       "bandWidth": "1.5mm",
       "avgSideStones": "16",
@@ -6586,38 +3114,6 @@ export const engagementRings: Ring[] = [
     ],
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/iris/renders/2ct/High%20Setting/Yellow/default"
-    ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
     ],
     "specs": {
       "bandWidth": "1.5mm",
@@ -6647,38 +3143,6 @@ export const engagementRings: Ring[] = [
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/isla/renders/2ct/High%20Setting/Yellow/default"
     ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
-    ],
     "specs": {
       "bandWidth": "1.5mm",
       "avgSideStones": "16",
@@ -6706,38 +3170,6 @@ export const engagementRings: Ring[] = [
     ],
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/ivy/renders/2ct/High%20Setting/Yellow/default"
-    ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
     ],
     "specs": {
       "bandWidth": "1.5mm",
@@ -6767,38 +3199,6 @@ export const engagementRings: Ring[] = [
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/jacinta/renders/2ct/High%20Setting/Yellow/default"
     ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
-    ],
     "specs": {
       "bandWidth": "1.5mm",
       "avgSideStones": "16",
@@ -6826,38 +3226,6 @@ export const engagementRings: Ring[] = [
     ],
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/jackie/renders/2ct/High%20Setting/Yellow/default"
-    ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
     ],
     "specs": {
       "bandWidth": "1.5mm",
@@ -6887,38 +3255,6 @@ export const engagementRings: Ring[] = [
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/jana/renders/2ct/High%20Setting/Yellow/default"
     ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
-    ],
     "specs": {
       "bandWidth": "1.5mm",
       "avgSideStones": "16",
@@ -6946,38 +3282,6 @@ export const engagementRings: Ring[] = [
     ],
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/jane/renders/2ct/High%20Setting/Yellow/default"
-    ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
     ],
     "specs": {
       "bandWidth": "1.5mm",
@@ -7007,38 +3311,6 @@ export const engagementRings: Ring[] = [
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/jayden/renders/2ct/High%20Setting/Yellow/default"
     ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
-    ],
     "specs": {
       "bandWidth": "1.5mm",
       "avgSideStones": "16",
@@ -7066,38 +3338,6 @@ export const engagementRings: Ring[] = [
     ],
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/jaylene/renders/2ct/High%20Setting/Yellow/default"
-    ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
     ],
     "specs": {
       "bandWidth": "1.5mm",
@@ -7127,38 +3367,6 @@ export const engagementRings: Ring[] = [
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/jennifer/renders/2ct/High%20Setting/Yellow/default"
     ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
-    ],
     "specs": {
       "bandWidth": "1.5mm",
       "avgSideStones": "16",
@@ -7186,38 +3394,6 @@ export const engagementRings: Ring[] = [
     ],
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/josephine/renders/2ct/High%20Setting/Yellow/default"
-    ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
     ],
     "specs": {
       "bandWidth": "1.5mm",
@@ -7247,38 +3423,6 @@ export const engagementRings: Ring[] = [
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/journee/renders/2ct/High%20Setting/Yellow/default"
     ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
-    ],
     "specs": {
       "bandWidth": "1.5mm",
       "avgSideStones": "16",
@@ -7306,38 +3450,6 @@ export const engagementRings: Ring[] = [
     ],
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/judy/renders/2ct/High%20Setting/Yellow/default"
-    ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
     ],
     "specs": {
       "bandWidth": "1.5mm",
@@ -7367,38 +3479,6 @@ export const engagementRings: Ring[] = [
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/julia/renders/2ct/High%20Setting/Yellow/default"
     ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
-    ],
     "specs": {
       "bandWidth": "1.5mm",
       "avgSideStones": "16",
@@ -7426,38 +3506,6 @@ export const engagementRings: Ring[] = [
     ],
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/juliette/renders/2ct/High%20Setting/Yellow/default"
-    ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
     ],
     "specs": {
       "bandWidth": "1.5mm",
@@ -7487,38 +3535,6 @@ export const engagementRings: Ring[] = [
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/kala/renders/2ct/High%20Setting/Yellow/default"
     ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
-    ],
     "specs": {
       "bandWidth": "1.5mm",
       "avgSideStones": "16",
@@ -7546,38 +3562,6 @@ export const engagementRings: Ring[] = [
     ],
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/kate/renders/2ct/High%20Setting/Yellow/default"
-    ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
     ],
     "specs": {
       "bandWidth": "1.5mm",
@@ -7607,38 +3591,6 @@ export const engagementRings: Ring[] = [
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/kelsey/renders/2ct/High%20Setting/Yellow/default"
     ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
-    ],
     "specs": {
       "bandWidth": "1.5mm",
       "avgSideStones": "16",
@@ -7666,38 +3618,6 @@ export const engagementRings: Ring[] = [
     ],
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/kiana/renders/2ct/High%20Setting/Yellow/default"
-    ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
     ],
     "specs": {
       "bandWidth": "1.5mm",
@@ -7727,38 +3647,6 @@ export const engagementRings: Ring[] = [
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/kimia/renders/2ct/High%20Setting/Yellow/default"
     ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
-    ],
     "specs": {
       "bandWidth": "1.5mm",
       "avgSideStones": "16",
@@ -7786,38 +3674,6 @@ export const engagementRings: Ring[] = [
     ],
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/kirsten/renders/2ct/High%20Setting/Yellow/default"
-    ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
     ],
     "specs": {
       "bandWidth": "1.5mm",
@@ -7847,38 +3703,6 @@ export const engagementRings: Ring[] = [
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/kyla/renders/2ct/High%20Setting/Yellow/default"
     ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
-    ],
     "specs": {
       "bandWidth": "1.5mm",
       "avgSideStones": "16",
@@ -7906,38 +3730,6 @@ export const engagementRings: Ring[] = [
     ],
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/lara/renders/2ct/High%20Setting/Yellow/default"
-    ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
     ],
     "specs": {
       "bandWidth": "1.5mm",
@@ -7967,38 +3759,6 @@ export const engagementRings: Ring[] = [
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/leila/renders/2ct/High%20Setting/Yellow/default"
     ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
-    ],
     "specs": {
       "bandWidth": "1.5mm",
       "avgSideStones": "16",
@@ -8026,38 +3786,6 @@ export const engagementRings: Ring[] = [
     ],
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/leslie/renders/2ct/High%20Setting/Yellow/default"
-    ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
     ],
     "specs": {
       "bandWidth": "1.5mm",
@@ -8087,38 +3815,6 @@ export const engagementRings: Ring[] = [
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/lexie/renders/2ct/High%20Setting/Yellow/default"
     ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
-    ],
     "specs": {
       "bandWidth": "1.5mm",
       "avgSideStones": "16",
@@ -8146,38 +3842,6 @@ export const engagementRings: Ring[] = [
     ],
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/liberty/renders/2ct/High%20Setting/Yellow/default"
-    ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
     ],
     "specs": {
       "bandWidth": "1.5mm",
@@ -8207,38 +3871,6 @@ export const engagementRings: Ring[] = [
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/lilly/renders/2ct/High%20Setting/Yellow/default"
     ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
-    ],
     "specs": {
       "bandWidth": "1.5mm",
       "avgSideStones": "16",
@@ -8266,38 +3898,6 @@ export const engagementRings: Ring[] = [
     ],
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/lorelai/renders/2ct/High%20Setting/Yellow/default"
-    ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
     ],
     "specs": {
       "bandWidth": "1.5mm",
@@ -8327,38 +3927,6 @@ export const engagementRings: Ring[] = [
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/lorena/renders/2ct/High%20Setting/Yellow/default"
     ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
-    ],
     "specs": {
       "bandWidth": "1.5mm",
       "avgSideStones": "16",
@@ -8386,38 +3954,6 @@ export const engagementRings: Ring[] = [
     ],
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/louise/renders/2ct/High%20Setting/Yellow/default"
-    ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
     ],
     "specs": {
       "bandWidth": "1.5mm",
@@ -8447,38 +3983,6 @@ export const engagementRings: Ring[] = [
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/luna/renders/2ct/High%20Setting/Yellow/default"
     ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
-    ],
     "specs": {
       "bandWidth": "1.5mm",
       "avgSideStones": "16",
@@ -8506,38 +4010,6 @@ export const engagementRings: Ring[] = [
     ],
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/mabeline/renders/2ct/High%20Setting/Yellow/default"
-    ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
     ],
     "specs": {
       "bandWidth": "1.5mm",
@@ -8567,38 +4039,6 @@ export const engagementRings: Ring[] = [
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/madeline/renders/2ct/High%20Setting/Yellow/default"
     ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
-    ],
     "specs": {
       "bandWidth": "1.5mm",
       "avgSideStones": "16",
@@ -8626,38 +4066,6 @@ export const engagementRings: Ring[] = [
     ],
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/maeve/renders/2ct/High%20Setting/Yellow/default"
-    ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
     ],
     "specs": {
       "bandWidth": "1.5mm",
@@ -8687,38 +4095,6 @@ export const engagementRings: Ring[] = [
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/mahlia/renders/2ct/High%20Setting/Yellow/default"
     ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
-    ],
     "specs": {
       "bandWidth": "1.5mm",
       "avgSideStones": "16",
@@ -8746,38 +4122,6 @@ export const engagementRings: Ring[] = [
     ],
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/maisy/renders/2ct/High%20Setting/Yellow/default"
-    ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
     ],
     "specs": {
       "bandWidth": "1.5mm",
@@ -8807,38 +4151,6 @@ export const engagementRings: Ring[] = [
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/mariah/renders/2ct/High%20Setting/Yellow/default"
     ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
-    ],
     "specs": {
       "bandWidth": "1.5mm",
       "avgSideStones": "16",
@@ -8866,38 +4178,6 @@ export const engagementRings: Ring[] = [
     ],
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/matisse/renders/2ct/High%20Setting/Yellow/default"
-    ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
     ],
     "specs": {
       "bandWidth": "1.5mm",
@@ -8927,38 +4207,6 @@ export const engagementRings: Ring[] = [
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/meghan/renders/2ct/High%20Setting/Yellow/default"
     ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
-    ],
     "specs": {
       "bandWidth": "1.5mm",
       "avgSideStones": "16",
@@ -8986,38 +4234,6 @@ export const engagementRings: Ring[] = [
     ],
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/meesha/renders/2ct/High%20Setting/Yellow/default"
-    ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
     ],
     "specs": {
       "bandWidth": "1.5mm",
@@ -9047,38 +4263,6 @@ export const engagementRings: Ring[] = [
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/melody/renders/2ct/High%20Setting/Yellow/default"
     ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
-    ],
     "specs": {
       "bandWidth": "1.5mm",
       "avgSideStones": "16",
@@ -9106,38 +4290,6 @@ export const engagementRings: Ring[] = [
     ],
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/merida/renders/2ct/High%20Setting/Yellow/default"
-    ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
     ],
     "specs": {
       "bandWidth": "1.5mm",
@@ -9167,38 +4319,6 @@ export const engagementRings: Ring[] = [
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/mia/renders/2ct/High%20Setting/Yellow/default"
     ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
-    ],
     "specs": {
       "bandWidth": "1.5mm",
       "avgSideStones": "16",
@@ -9226,38 +4346,6 @@ export const engagementRings: Ring[] = [
     ],
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/miller/renders/2ct/High%20Setting/Yellow/default"
-    ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
     ],
     "specs": {
       "bandWidth": "1.5mm",
@@ -9287,38 +4375,6 @@ export const engagementRings: Ring[] = [
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/molly/renders/2ct/High%20Setting/Yellow/default"
     ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
-    ],
     "specs": {
       "bandWidth": "1.5mm",
       "avgSideStones": "16",
@@ -9346,38 +4402,6 @@ export const engagementRings: Ring[] = [
     ],
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/morgan/renders/2ct/High%20Setting/Yellow/default"
-    ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
     ],
     "specs": {
       "bandWidth": "1.5mm",
@@ -9407,38 +4431,6 @@ export const engagementRings: Ring[] = [
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/myrtle/renders/2ct/High%20Setting/Yellow/default"
     ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
-    ],
     "specs": {
       "bandWidth": "1.5mm",
       "avgSideStones": "16",
@@ -9466,38 +4458,6 @@ export const engagementRings: Ring[] = [
     ],
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/naomi/renders/2ct/High%20Setting/Yellow/default"
-    ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
     ],
     "specs": {
       "bandWidth": "1.5mm",
@@ -9527,38 +4487,6 @@ export const engagementRings: Ring[] = [
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/nara/renders/2ct/High%20Setting/Yellow/default"
     ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
-    ],
     "specs": {
       "bandWidth": "1.5mm",
       "avgSideStones": "16",
@@ -9586,38 +4514,6 @@ export const engagementRings: Ring[] = [
     ],
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/natalie/renders/2ct/High%20Setting/Yellow/default"
-    ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
     ],
     "specs": {
       "bandWidth": "1.5mm",
@@ -9647,38 +4543,6 @@ export const engagementRings: Ring[] = [
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/nienna/renders/2ct/High%20Setting/Yellow/default"
     ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
-    ],
     "specs": {
       "bandWidth": "1.5mm",
       "avgSideStones": "16",
@@ -9706,38 +4570,6 @@ export const engagementRings: Ring[] = [
     ],
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/nina/renders/2ct/High%20Setting/Yellow/default"
-    ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
     ],
     "specs": {
       "bandWidth": "1.5mm",
@@ -9767,38 +4599,6 @@ export const engagementRings: Ring[] = [
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/noelle/renders/2ct/High%20Setting/Yellow/default"
     ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
-    ],
     "specs": {
       "bandWidth": "1.5mm",
       "avgSideStones": "16",
@@ -9826,38 +4626,6 @@ export const engagementRings: Ring[] = [
     ],
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/nola/renders/2ct/High%20Setting/Yellow/default"
-    ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
     ],
     "specs": {
       "bandWidth": "1.5mm",
@@ -9887,38 +4655,6 @@ export const engagementRings: Ring[] = [
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/noor/renders/2ct/High%20Setting/Yellow/default"
     ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
-    ],
     "specs": {
       "bandWidth": "1.5mm",
       "avgSideStones": "16",
@@ -9946,38 +4682,6 @@ export const engagementRings: Ring[] = [
     ],
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/nora/renders/2ct/High%20Setting/Yellow/default"
-    ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
     ],
     "specs": {
       "bandWidth": "1.5mm",
@@ -10007,38 +4711,6 @@ export const engagementRings: Ring[] = [
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/octavia/renders/2ct/High%20Setting/Yellow/default"
     ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
-    ],
     "specs": {
       "bandWidth": "1.5mm",
       "avgSideStones": "16",
@@ -10066,38 +4738,6 @@ export const engagementRings: Ring[] = [
     ],
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/olive/renders/2ct/High%20Setting/Yellow/default"
-    ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
     ],
     "specs": {
       "bandWidth": "1.5mm",
@@ -10127,38 +4767,6 @@ export const engagementRings: Ring[] = [
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/olivia/renders/2ct/High%20Setting/Yellow/default"
     ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
-    ],
     "specs": {
       "bandWidth": "1.5mm",
       "avgSideStones": "16",
@@ -10186,38 +4794,6 @@ export const engagementRings: Ring[] = [
     ],
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/paige/renders/2ct/High%20Setting/Yellow/default"
-    ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
     ],
     "specs": {
       "bandWidth": "1.5mm",
@@ -10247,38 +4823,6 @@ export const engagementRings: Ring[] = [
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/parker/renders/2ct/High%20Setting/Yellow/default"
     ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
-    ],
     "specs": {
       "bandWidth": "1.5mm",
       "avgSideStones": "16",
@@ -10306,38 +4850,6 @@ export const engagementRings: Ring[] = [
     ],
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/penelope/renders/2ct/High%20Setting/Yellow/default"
-    ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
     ],
     "specs": {
       "bandWidth": "1.5mm",
@@ -10367,38 +4879,6 @@ export const engagementRings: Ring[] = [
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/phoebe/renders/2ct/High%20Setting/Yellow/default"
     ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
-    ],
     "specs": {
       "bandWidth": "1.5mm",
       "avgSideStones": "16",
@@ -10426,38 +4906,6 @@ export const engagementRings: Ring[] = [
     ],
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/pia/renders/2ct/High%20Setting/Yellow/default"
-    ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
     ],
     "specs": {
       "bandWidth": "1.5mm",
@@ -10487,38 +4935,6 @@ export const engagementRings: Ring[] = [
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/polly/renders/2ct/High%20Setting/Yellow/default"
     ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
-    ],
     "specs": {
       "bandWidth": "1.5mm",
       "avgSideStones": "16",
@@ -10546,38 +4962,6 @@ export const engagementRings: Ring[] = [
     ],
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/poppy/renders/2ct/High%20Setting/Yellow/default"
-    ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
     ],
     "specs": {
       "bandWidth": "1.5mm",
@@ -10607,38 +4991,6 @@ export const engagementRings: Ring[] = [
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/racquel/renders/2ct/High%20Setting/Yellow/default"
     ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
-    ],
     "specs": {
       "bandWidth": "1.5mm",
       "avgSideStones": "16",
@@ -10666,38 +5018,6 @@ export const engagementRings: Ring[] = [
     ],
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/raleigh/renders/2ct/High%20Setting/Yellow/default"
-    ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
     ],
     "specs": {
       "bandWidth": "1.5mm",
@@ -10727,38 +5047,6 @@ export const engagementRings: Ring[] = [
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/rachel/renders/2ct/High%20Setting/Yellow/default"
     ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
-    ],
     "specs": {
       "bandWidth": "1.5mm",
       "avgSideStones": "16",
@@ -10786,38 +5074,6 @@ export const engagementRings: Ring[] = [
     ],
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/rita/renders/2ct/High%20Setting/Yellow/default"
-    ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
     ],
     "specs": {
       "bandWidth": "1.5mm",
@@ -10847,38 +5103,6 @@ export const engagementRings: Ring[] = [
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/river/renders/2ct/High%20Setting/Yellow/default"
     ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
-    ],
     "specs": {
       "bandWidth": "1.5mm",
       "avgSideStones": "16",
@@ -10906,38 +5130,6 @@ export const engagementRings: Ring[] = [
     ],
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/rosalia/renders/2ct/High%20Setting/Yellow/default"
-    ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
     ],
     "specs": {
       "bandWidth": "1.5mm",
@@ -10967,38 +5159,6 @@ export const engagementRings: Ring[] = [
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/rose/renders/2ct/High%20Setting/Yellow/default"
     ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
-    ],
     "specs": {
       "bandWidth": "1.5mm",
       "avgSideStones": "16",
@@ -11026,38 +5186,6 @@ export const engagementRings: Ring[] = [
     ],
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/rosie/renders/2ct/High%20Setting/Yellow/default"
-    ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
     ],
     "specs": {
       "bandWidth": "1.5mm",
@@ -11087,38 +5215,6 @@ export const engagementRings: Ring[] = [
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/rowena/renders/2ct/High%20Setting/Yellow/default"
     ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
-    ],
     "specs": {
       "bandWidth": "1.5mm",
       "avgSideStones": "16",
@@ -11146,38 +5242,6 @@ export const engagementRings: Ring[] = [
     ],
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/sadie/renders/2ct/High%20Setting/Yellow/default"
-    ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
     ],
     "specs": {
       "bandWidth": "1.5mm",
@@ -11207,38 +5271,6 @@ export const engagementRings: Ring[] = [
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/sage/renders/2ct/High%20Setting/Yellow/default"
     ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
-    ],
     "specs": {
       "bandWidth": "1.5mm",
       "avgSideStones": "16",
@@ -11266,38 +5298,6 @@ export const engagementRings: Ring[] = [
     ],
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/salma/renders/2ct/High%20Setting/Yellow/default"
-    ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
     ],
     "specs": {
       "bandWidth": "1.5mm",
@@ -11327,38 +5327,6 @@ export const engagementRings: Ring[] = [
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/sasha/renders/2ct/High%20Setting/Yellow/default"
     ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
-    ],
     "specs": {
       "bandWidth": "1.5mm",
       "avgSideStones": "16",
@@ -11386,38 +5354,6 @@ export const engagementRings: Ring[] = [
     ],
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/savannah/renders/2ct/High%20Setting/Yellow/default"
-    ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
     ],
     "specs": {
       "bandWidth": "1.5mm",
@@ -11447,38 +5383,6 @@ export const engagementRings: Ring[] = [
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/scarlett/renders/2ct/High%20Setting/Yellow/default"
     ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
-    ],
     "specs": {
       "bandWidth": "1.5mm",
       "avgSideStones": "16",
@@ -11506,38 +5410,6 @@ export const engagementRings: Ring[] = [
     ],
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/selena/renders/2ct/High%20Setting/Yellow/default"
-    ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
     ],
     "specs": {
       "bandWidth": "1.5mm",
@@ -11567,38 +5439,6 @@ export const engagementRings: Ring[] = [
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/sena/renders/2ct/High%20Setting/Yellow/default"
     ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
-    ],
     "specs": {
       "bandWidth": "1.5mm",
       "avgSideStones": "16",
@@ -11626,38 +5466,6 @@ export const engagementRings: Ring[] = [
     ],
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/shai/renders/2ct/High%20Setting/Yellow/default"
-    ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
     ],
     "specs": {
       "bandWidth": "1.5mm",
@@ -11687,38 +5495,6 @@ export const engagementRings: Ring[] = [
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/sharon/renders/2ct/High%20Setting/Yellow/default"
     ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
-    ],
     "specs": {
       "bandWidth": "1.5mm",
       "avgSideStones": "16",
@@ -11746,38 +5522,6 @@ export const engagementRings: Ring[] = [
     ],
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/shelly/renders/2ct/High%20Setting/Yellow/default"
-    ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
     ],
     "specs": {
       "bandWidth": "1.5mm",
@@ -11807,38 +5551,6 @@ export const engagementRings: Ring[] = [
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/sheridan/renders/2ct/High%20Setting/Yellow/default"
     ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
-    ],
     "specs": {
       "bandWidth": "1.5mm",
       "avgSideStones": "16",
@@ -11866,38 +5578,6 @@ export const engagementRings: Ring[] = [
     ],
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/sherry/renders/2ct/High%20Setting/Yellow/default"
-    ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
     ],
     "specs": {
       "bandWidth": "1.5mm",
@@ -11927,38 +5607,6 @@ export const engagementRings: Ring[] = [
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/sierra/renders/2ct/High%20Setting/Yellow/default"
     ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
-    ],
     "specs": {
       "bandWidth": "1.5mm",
       "avgSideStones": "16",
@@ -11986,38 +5634,6 @@ export const engagementRings: Ring[] = [
     ],
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/silvana/renders/2ct/High%20Setting/Yellow/default"
-    ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
     ],
     "specs": {
       "bandWidth": "1.5mm",
@@ -12047,38 +5663,6 @@ export const engagementRings: Ring[] = [
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/siobhan/renders/2ct/High%20Setting/Yellow/default"
     ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
-    ],
     "specs": {
       "bandWidth": "1.5mm",
       "avgSideStones": "16",
@@ -12106,38 +5690,6 @@ export const engagementRings: Ring[] = [
     ],
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/sophia/renders/2ct/High%20Setting/Yellow/default"
-    ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
     ],
     "specs": {
       "bandWidth": "1.5mm",
@@ -12167,38 +5719,6 @@ export const engagementRings: Ring[] = [
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/soraya/renders/2ct/High%20Setting/Yellow/default"
     ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
-    ],
     "specs": {
       "bandWidth": "1.5mm",
       "avgSideStones": "16",
@@ -12226,38 +5746,6 @@ export const engagementRings: Ring[] = [
     ],
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/stephanie/renders/2ct/High%20Setting/Yellow/default"
-    ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
     ],
     "specs": {
       "bandWidth": "1.5mm",
@@ -12287,38 +5775,6 @@ export const engagementRings: Ring[] = [
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/suki/renders/2ct/High%20Setting/Yellow/default"
     ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
-    ],
     "specs": {
       "bandWidth": "1.5mm",
       "avgSideStones": "16",
@@ -12346,38 +5802,6 @@ export const engagementRings: Ring[] = [
     ],
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/svea/renders/2ct/High%20Setting/Yellow/default"
-    ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
     ],
     "specs": {
       "bandWidth": "1.5mm",
@@ -12407,38 +5831,6 @@ export const engagementRings: Ring[] = [
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/tahlia/renders/2ct/High%20Setting/Yellow/default"
     ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
-    ],
     "specs": {
       "bandWidth": "1.5mm",
       "avgSideStones": "16",
@@ -12466,38 +5858,6 @@ export const engagementRings: Ring[] = [
     ],
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/tanya/renders/2ct/High%20Setting/Yellow/default"
-    ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
     ],
     "specs": {
       "bandWidth": "1.5mm",
@@ -12527,38 +5887,6 @@ export const engagementRings: Ring[] = [
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/taylor/renders/2ct/High%20Setting/Yellow/default"
     ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
-    ],
     "specs": {
       "bandWidth": "1.5mm",
       "avgSideStones": "16",
@@ -12586,38 +5914,6 @@ export const engagementRings: Ring[] = [
     ],
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/tessa/renders/2ct/High%20Setting/Yellow/default"
-    ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
     ],
     "specs": {
       "bandWidth": "1.5mm",
@@ -12647,38 +5943,6 @@ export const engagementRings: Ring[] = [
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/thea/renders/2ct/High%20Setting/Yellow/default"
     ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
-    ],
     "specs": {
       "bandWidth": "1.5mm",
       "avgSideStones": "16",
@@ -12706,38 +5970,6 @@ export const engagementRings: Ring[] = [
     ],
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/tilly/renders/2ct/High%20Setting/Yellow/default"
-    ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
     ],
     "specs": {
       "bandWidth": "1.5mm",
@@ -12767,38 +5999,6 @@ export const engagementRings: Ring[] = [
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/trinity/renders/2ct/High%20Setting/Yellow/default"
     ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
-    ],
     "specs": {
       "bandWidth": "1.5mm",
       "avgSideStones": "16",
@@ -12826,38 +6026,6 @@ export const engagementRings: Ring[] = [
     ],
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/valeria/renders/2ct/High%20Setting/Yellow/default"
-    ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
     ],
     "specs": {
       "bandWidth": "1.5mm",
@@ -12887,38 +6055,6 @@ export const engagementRings: Ring[] = [
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/violetta/renders/2ct/High%20Setting/Yellow/default"
     ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
-    ],
     "specs": {
       "bandWidth": "1.5mm",
       "avgSideStones": "16",
@@ -12946,38 +6082,6 @@ export const engagementRings: Ring[] = [
     ],
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/wanda/renders/2ct/High%20Setting/Yellow/default"
-    ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
     ],
     "specs": {
       "bandWidth": "1.5mm",
@@ -13007,38 +6111,6 @@ export const engagementRings: Ring[] = [
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/wendy/renders/2ct/High%20Setting/Yellow/default"
     ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
-    ],
     "specs": {
       "bandWidth": "1.5mm",
       "avgSideStones": "16",
@@ -13066,38 +6138,6 @@ export const engagementRings: Ring[] = [
     ],
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/willow/renders/2ct/High%20Setting/Yellow/default"
-    ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
     ],
     "specs": {
       "bandWidth": "1.5mm",
@@ -13127,38 +6167,6 @@ export const engagementRings: Ring[] = [
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/winnie/renders/2ct/High%20Setting/Yellow/default"
     ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
-    ],
     "specs": {
       "bandWidth": "1.5mm",
       "avgSideStones": "16",
@@ -13186,38 +6194,6 @@ export const engagementRings: Ring[] = [
     ],
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/yasmine/renders/2ct/High%20Setting/Yellow/default"
-    ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
     ],
     "specs": {
       "bandWidth": "1.5mm",
@@ -13247,38 +6223,6 @@ export const engagementRings: Ring[] = [
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/zara/renders/2ct/High%20Setting/Yellow/default"
     ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
-    ],
     "specs": {
       "bandWidth": "1.5mm",
       "avgSideStones": "16",
@@ -13306,38 +6250,6 @@ export const engagementRings: Ring[] = [
     ],
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/zariyah/renders/2ct/High%20Setting/Yellow/default"
-    ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
     ],
     "specs": {
       "bandWidth": "1.5mm",
@@ -13367,38 +6279,6 @@ export const engagementRings: Ring[] = [
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/zelda/renders/2ct/High%20Setting/Yellow/default"
     ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
-    ],
     "specs": {
       "bandWidth": "1.5mm",
       "avgSideStones": "16",
@@ -13427,38 +6307,6 @@ export const engagementRings: Ring[] = [
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/zoe/renders/2ct/High%20Setting/Yellow/default"
     ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
-    ],
     "specs": {
       "bandWidth": "1.5mm",
       "avgSideStones": "16",
@@ -13486,38 +6334,6 @@ export const engagementRings: Ring[] = [
     ],
     "thumbnails": [
       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/zya/renders/2ct/High%20Setting/Yellow/default"
-    ],
-    "metalOptions": [
-      "Platinum",
-      "18k Yellow Gold",
-      "18k Rose Gold",
-      "18k White Gold"
-    ],
-    "settingOptions": [
-      "High Setting",
-      "Low Setting"
-    ],
-    "sideStonesOptions": [
-      "Lab Grown Diamond",
-      "Natural Diamond"
-    ],
-    "ringSizes": [
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S"
     ],
     "specs": {
       "bandWidth": "1.5mm",
