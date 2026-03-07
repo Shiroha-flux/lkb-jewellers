@@ -6,15 +6,15 @@ import Link from 'next/link'
 import type { RingListingItem } from '@/lib/supabase-rings'
 import type { MetalValue } from '@/data/ring-filters'
 
-const METAL_URL_SEGMENT: Record<MetalValue, string> = {
-  platinum: 'White',
-  yellow_gold: 'Yellow',
-  rose_gold: 'Rose',
-  white_gold: 'White',
+const METAL_COLOR_PREFIX: Record<MetalValue, string> = {
+  platinum: 'white',
+  yellow_gold: 'yellow',
+  rose_gold: 'rose',
+  white_gold: 'white',
 }
 
 function swapMetalInUrl(url: string, metal: MetalValue): string {
-  return url.replace(/\/(Yellow|White|Rose)\//, `/${METAL_URL_SEGMENT[metal]}/`)
+  return url.replace(/(yellow|white|rose)(_\d+\.jpg)/, `${METAL_COLOR_PREFIX[metal]}$2`)
 }
 
 const BLUR_PLACEHOLDER =
