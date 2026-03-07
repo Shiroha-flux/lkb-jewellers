@@ -7,6 +7,7 @@ import { Separator } from '@/components/ui/separator'
 import { ImageGallery } from '@/components/engagement-rings/image-gallery'
 import { RingConfigurator } from '@/components/engagement-rings/ring-configurator'
 import type { Ring } from '@/data/engagement-rings'
+import { RING_METAL_OPTIONS } from '@/data/engagement-rings'
 import type { RecommendedGemstone } from '@/data/gemstone-options'
 
 interface RingDetailContentProps {
@@ -57,7 +58,7 @@ function dedupeUrls(urls: string[]): string[] {
 }
 
 export function RingDetailContent({ ring, gemstones }: RingDetailContentProps) {
-  const [selectedMetal, setSelectedMetal] = useState(ring.metalOptions[0] ?? 'Platinum')
+  const [selectedMetal, setSelectedMetal] = useState<string>(RING_METAL_OPTIONS[0])
 
   // Filter images & thumbnails based on selected metal color
   const colorKey = metalToColorKey(selectedMetal)
