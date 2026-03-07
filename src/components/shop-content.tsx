@@ -134,7 +134,6 @@ export default function ShopContent({ defaultCategory }: ShopContentProps) {
         "chains": "chains",
         "bracelets": "bracelets",
         "rings": "ring",
-        "engagement-rings": "ring",
         "pendants": "pendants",
         "earrings": "earrings",
         "flagship caps": "caps",
