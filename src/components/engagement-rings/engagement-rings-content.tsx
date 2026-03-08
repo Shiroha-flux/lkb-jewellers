@@ -9,15 +9,30 @@ import type { PaginatedRings, RingListingItem } from '@/lib/supabase-rings'
 import { parseFiltersFromURL, filtersToURL, hasActiveFilters } from '@/lib/ring-filters'
 import type { ActiveFilters } from '@/lib/ring-filters'
 import type { MetalValue } from '@/data/ring-filters'
+import { shapeOptions, metalOptions, settingStyleOptions, bandTypeOptions, settingProfileOptions } from '@/data/ring-filters'
 
 const PAGE_SIZE = 24
 
+const FILTER_LABEL_MAP: Record<string, Record<string, string>> = {
+  shape: Object.fromEntries(shapeOptions.map(o => [o.value, o.label])),
+  metal: Object.fromEntries(metalOptions.map(o => [o.value, o.label])),
+  settingStyle: Object.fromEntries(settingStyleOptions.map(o => [o.value, o.label])),
+  bandType: Object.fromEntries(bandTypeOptions.map(o => [o.value, o.label])),
+  settingProfile: Object.fromEntries(settingProfileOptions.map(o => [o.value, o.label])),
+}
+
+const FILTER_KEY_LABEL: Record<string, string> = {
+  shape: 'Shape',
+  metal: 'Metal',
+  settingStyle: 'Setting Style',
+  bandType: 'Band Type',
+  settingProfile: 'Setting Profile',
+}
+
 function formatFilterLabel(key: string, value: string): string {
-  const label = key
-    .replace(/([A-Z])/g, ' $1')
-    .trim()
-    .replace(/^(.)/, c => c.toUpperCase())
-  return `${label}: ${value}`
+  const keyLabel = FILTER_KEY_LABEL[key] ?? key.replace(/([A-Z])/g, ' $1').trim()
+  const valueLabel = FILTER_LABEL_MAP[key]?.[value] ?? value.replace(/_/g, ' ')
+  return `${keyLabel}: ${valueLabel}`
 }
 
 export function EngagementRingsContent() {
