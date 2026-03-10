@@ -5702,7 +5702,7 @@ export const engagementRings: Ring[] = [
       "estimatedWeight": "2.8g",
       "resizing": "Complimentary"
     },
-    "shape": "round",
+    "shape": "princess",
     "settingStyle": "solitaire",
     "bandType": "plain",
     "settingProfile": "high_set"
