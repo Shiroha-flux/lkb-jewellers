@@ -1756,7 +1756,7 @@ export const engagementRings: Ring[] = [
       "estimatedWeight": "2.8g",
       "resizing": "Complimentary"
     },
-    "shape": "pear",
+    "shape": "marquise",
     "settingStyle": "trilogy",
     "bandType": "plain",
     "settingProfile": "high_set"
@@ -4330,9 +4330,9 @@ export const engagementRings: Ring[] = [
       "estimatedWeight": "2.8g",
       "resizing": "Complimentary"
     },
-    "shape": "pear",
+    "shape": "marquise",
     "settingStyle": "trilogy",
-    "bandType": "pave",
+    "bandType": "plain",
     "settingProfile": "high_set"
   },
   {
@@ -5310,7 +5310,7 @@ export const engagementRings: Ring[] = [
       "estimatedWeight": "2.8g",
       "resizing": "Complimentary"
     },
-    "shape": "pear",
+    "shape": "marquise",
     "settingStyle": "toi_et_moi",
     "bandType": "plain",
     "settingProfile": "high_set"

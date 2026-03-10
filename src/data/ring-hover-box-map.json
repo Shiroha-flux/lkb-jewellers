@@ -1,7 +1,8 @@
 {
   "ring-adelyn": {
     "rose": "https://ttiwmcrfahbczzehmyds.supabase.co/storage/v1/object/public/engagement-rings/rings/adelyn/rose_2.jpg",
-    "white": "https://ttiwmcrfahbczzehmyds.supabase.co/storage/v1/object/public/engagement-rings/rings/adelyn/white_2.jpg"
+    "white": "https://ttiwmcrfahbczzehmyds.supabase.co/storage/v1/object/public/engagement-rings/rings/adelyn/white_2.jpg",
+    "yellow": "https://ttiwmcrfahbczzehmyds.supabase.co/storage/v1/object/public/engagement-rings/rings/adelyn/yellow_2b.jpg"
   },
   "ring-adina": {
     "rose": "https://ttiwmcrfahbczzehmyds.supabase.co/storage/v1/object/public/engagement-rings/rings/adina/rose_2.jpg",
@@ -129,6 +130,7 @@
     "yellow": "https://ttiwmcrfahbczzehmyds.supabase.co/storage/v1/object/public/engagement-rings/rings/arielle/yellow_2.jpg"
   },
   "ring-arlo": {
+    "rose": "https://ttiwmcrfahbczzehmyds.supabase.co/storage/v1/object/public/engagement-rings/rings/arlo/rose_2.jpg",
     "white": "https://ttiwmcrfahbczzehmyds.supabase.co/storage/v1/object/public/engagement-rings/rings/arlo/white_2.jpg",
     "yellow": "https://ttiwmcrfahbczzehmyds.supabase.co/storage/v1/object/public/engagement-rings/rings/arlo/yellow_2.jpg"
   },
@@ -168,6 +170,7 @@
     "yellow": "https://ttiwmcrfahbczzehmyds.supabase.co/storage/v1/object/public/engagement-rings/rings/avery/yellow_3.jpg"
   },
   "ring-ayla": {
+    "rose": "https://ttiwmcrfahbczzehmyds.supabase.co/storage/v1/object/public/engagement-rings/rings/ayla/rose_2.jpg",
     "white": "https://ttiwmcrfahbczzehmyds.supabase.co/storage/v1/object/public/engagement-rings/rings/ayla/white_2.jpg",
     "yellow": "https://ttiwmcrfahbczzehmyds.supabase.co/storage/v1/object/public/engagement-rings/rings/ayla/yellow_2.jpg"
   },
@@ -288,6 +291,7 @@
   },
   "ring-chantelle": {
     "rose": "https://ttiwmcrfahbczzehmyds.supabase.co/storage/v1/object/public/engagement-rings/rings/chantelle/rose_1.jpg",
+    "white": "https://ttiwmcrfahbczzehmyds.supabase.co/storage/v1/object/public/engagement-rings/rings/chantelle/white_1.jpg",
     "yellow": "https://ttiwmcrfahbczzehmyds.supabase.co/storage/v1/object/public/engagement-rings/rings/chantelle/yellow_1.jpg"
   },
   "ring-charlie": {
@@ -337,6 +341,7 @@
   },
   "ring-daya": {
     "rose": "https://ttiwmcrfahbczzehmyds.supabase.co/storage/v1/object/public/engagement-rings/rings/daya/rose_2.jpg",
+    "white": "https://ttiwmcrfahbczzehmyds.supabase.co/storage/v1/object/public/engagement-rings/rings/daya/white_2.jpg",
     "yellow": "https://ttiwmcrfahbczzehmyds.supabase.co/storage/v1/object/public/engagement-rings/rings/daya/yellow_2.jpg"
   },
   "ring-delilah": {
@@ -366,6 +371,7 @@
   },
   "ring-ella": {
     "rose": "https://ttiwmcrfahbczzehmyds.supabase.co/storage/v1/object/public/engagement-rings/rings/ella/rose_2.jpg",
+    "white": "https://ttiwmcrfahbczzehmyds.supabase.co/storage/v1/object/public/engagement-rings/rings/ella/white_2.jpg",
     "yellow": "https://ttiwmcrfahbczzehmyds.supabase.co/storage/v1/object/public/engagement-rings/rings/ella/yellow_2.jpg"
   },
   "ring-elle": {
@@ -835,7 +841,8 @@
   },
   "ring-penelope": {
     "rose": "https://ttiwmcrfahbczzehmyds.supabase.co/storage/v1/object/public/engagement-rings/rings/penelope/rose_2.jpg",
-    "white": "https://ttiwmcrfahbczzehmyds.supabase.co/storage/v1/object/public/engagement-rings/rings/penelope/white_2.jpg"
+    "white": "https://ttiwmcrfahbczzehmyds.supabase.co/storage/v1/object/public/engagement-rings/rings/penelope/white_2.jpg",
+    "yellow": "https://ttiwmcrfahbczzehmyds.supabase.co/storage/v1/object/public/engagement-rings/rings/penelope/yellow_2.jpg"
   },
   "ring-phoebe": {
     "rose": "https://ttiwmcrfahbczzehmyds.supabase.co/storage/v1/object/public/engagement-rings/rings/phoebe/rose_2.jpg",
@@ -854,6 +861,7 @@
   },
   "ring-poppy": {
     "rose": "https://ttiwmcrfahbczzehmyds.supabase.co/storage/v1/object/public/engagement-rings/rings/poppy/rose_2.jpg",
+    "white": "https://ttiwmcrfahbczzehmyds.supabase.co/storage/v1/object/public/engagement-rings/rings/poppy/white_2.jpg",
     "yellow": "https://ttiwmcrfahbczzehmyds.supabase.co/storage/v1/object/public/engagement-rings/rings/poppy/yellow_2.jpg"
   },
   "ring-rachel": {
@@ -938,6 +946,7 @@
   },
   "ring-shai": {
     "rose": "https://ttiwmcrfahbczzehmyds.supabase.co/storage/v1/object/public/engagement-rings/rings/shai/rose_2.jpg",
+    "white": "https://ttiwmcrfahbczzehmyds.supabase.co/storage/v1/object/public/engagement-rings/rings/shai/white_2.jpg",
     "yellow": "https://ttiwmcrfahbczzehmyds.supabase.co/storage/v1/object/public/engagement-rings/rings/shai/yellow_2.jpg"
   },
   "ring-sharon": {
