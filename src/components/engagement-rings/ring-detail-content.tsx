@@ -217,7 +217,8 @@ export function RingDetailContent({ ring, gemstones }: RingDetailContentProps) {
                 {clarityOptions.map((option) => (
                   <div key={option.value} className="border border-zinc-800 rounded-lg p-3 text-center">
                     <div className="text-[#D4AF37] font-medium text-sm mb-1">{option.label}</div>
-                    <div className="text-gray-500 text-xs leading-tight">{option.description.split(' — ')[0]}</div>
+                    <div className="text-white text-xs leading-tight mb-1">{option.description.split(' — ')[0]}</div>
+                    <div className="text-gray-500 text-xs leading-tight">{option.description.split(' — ')[1]}</div>
                   </div>
                 ))}
               </div>
