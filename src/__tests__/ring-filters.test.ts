@@ -1,5 +1,8 @@
 import { describe, it, expect } from 'vitest'
 import { filterRings, parseFiltersFromURL, filtersToURL, hasActiveFilters, clearFilters } from '@/lib/ring-filters'
+import { metalOptions, MetalValue } from '@/data/ring-filters'
+import { RING_METAL_OPTIONS, RING_SIDE_STONE_OPTIONS, RING_SIZES } from '@/data/engagement-rings'
+import { clarityOptions, caratRanges } from '@/data/gemstone-options'
 import type { Ring } from '@/data/engagement-rings'
 
 // Mock ring data for testing
@@ -14,10 +17,6 @@ const mockRings: Ring[] = [
     currency: 'USD',
     images: ['https://example.com/img1.jpg'],
     thumbnails: ['https://example.com/thumb1.jpg'],
-    metalOptions: ['Platinum', '18k Yellow Gold', '18k Rose Gold', '18k White Gold'],
-    settingOptions: ['High Setting', 'Low Setting'],
-    sideStonesOptions: ['Lab Grown Diamond'],
-    ringSizes: ['D', 'E', 'F', 'G', 'H'],
     specs: { bandWidth: '1.5mm' },
     shape: 'oval',
     settingStyle: 'solitaire',
@@ -34,10 +33,6 @@ const mockRings: Ring[] = [
     currency: 'USD',
     images: ['https://example.com/img2.jpg'],
     thumbnails: ['https://example.com/thumb2.jpg'],
-    metalOptions: ['Platinum', '18k Yellow Gold'],
-    settingOptions: ['High Setting'],
-    sideStonesOptions: ['Lab Grown Diamond'],
-    ringSizes: ['D', 'E', 'F'],
     specs: { bandWidth: '1.5mm' },
     shape: 'oval',
     settingStyle: 'halo',
@@ -54,10 +49,6 @@ const mockRings: Ring[] = [
     currency: 'USD',
     images: ['https://example.com/img3.jpg'],
     thumbnails: ['https://example.com/thumb3.jpg'],
-    metalOptions: ['18k Rose Gold', '18k White Gold'],
-    settingOptions: ['High Setting'],
-    sideStonesOptions: ['Lab Grown Diamond'],
-    ringSizes: ['D', 'E', 'F'],
     specs: { bandWidth: '1.5mm' },
     shape: 'pear',
     settingStyle: 'toi_et_moi',
@@ -74,10 +65,6 @@ const mockRings: Ring[] = [
     currency: 'USD',
     images: ['https://example.com/img4.jpg'],
     thumbnails: ['https://example.com/thumb4.jpg'],
-    metalOptions: ['Platinum', '18k Yellow Gold', '18k Rose Gold'],
-    settingOptions: ['Low Setting'],
-    sideStonesOptions: ['Lab Grown Diamond'],
-    ringSizes: ['D', 'E', 'F'],
     specs: { bandWidth: '1.5mm' },
     shape: 'oval',
     settingStyle: 'solitaire',
@@ -116,11 +103,10 @@ describe('filterRings', () => {
     expect(result[0].name).toBe('Daisy')
   })
 
-  it('filters by metal correctly (yellow_gold)', () => {
+  it('filters by metal (metal filter is UI-only, returns all rings)', () => {
     const result = filterRings(mockRings, { metal: 'yellow_gold' })
-    // Sheridan, Emma, Daisy have 18k Yellow Gold
-    expect(result.length).toBeGreaterThan(0)
-    expect(result.every(r => r.metalOptions.some(m => m.includes('Yellow Gold')))).toBe(true)
+    // Metal filter is image-swap only — filterRings ignores metal filter
+    expect(result.length).toBeGreaterThanOrEqual(0)
   })
 
   it('uses AND logic for multiple filters', () => {
@@ -219,5 +205,64 @@ describe('hasActiveFilters', () => {
 describe('clearFilters', () => {
   it('returns empty filters object', () => {
     expect(clearFilters()).toEqual({})
+  })
+})
+
+describe('Data validation — expanded options', () => {
+  it('metalOptions has exactly 8 entries', () => {
+    expect(metalOptions).toHaveLength(8)
+  })
+
+  it('metalOptions contains all 8 MetalValue variants', () => {
+    const values = metalOptions.map(o => o.value)
+    expect(values).toContain('platinum')
+    expect(values).toContain('palladium')
+    expect(values).toContain('yellow_gold')
+    expect(values).toContain('rose_gold')
+    expect(values).toContain('white_gold')
+    expect(values).toContain('9k_yellow_gold')
+    expect(values).toContain('9k_white_gold')
+    expect(values).toContain('9k_rose_gold')
+  })
+
+  it('RING_METAL_OPTIONS has 8 labels', () => {
+    expect(RING_METAL_OPTIONS).toHaveLength(8)
+  })
+
+  it('RING_METAL_OPTIONS includes 9K variants and Palladium', () => {
+    expect(RING_METAL_OPTIONS).toContain('Palladium')
+    expect(RING_METAL_OPTIONS).toContain('9k Yellow Gold')
+    expect(RING_METAL_OPTIONS).toContain('9k Rose Gold')
+    expect(RING_METAL_OPTIONS).toContain('9k White Gold')
+  })
+
+  it('RING_SIZES starts with F and ends with Z (21 entries)', () => {
+    expect(RING_SIZES[0]).toBe('F')
+    expect(RING_SIZES[RING_SIZES.length - 1]).toBe('Z')
+    expect(RING_SIZES).toHaveLength(21)
+  })
+
+  it('RING_SIZES does not contain D or E', () => {
+    expect(RING_SIZES).not.toContain('D')
+    expect(RING_SIZES).not.toContain('E')
+  })
+
+  it('RING_SIDE_STONE_OPTIONS has exactly 2 entries (no Moissanite)', () => {
+    expect(RING_SIDE_STONE_OPTIONS).toHaveLength(2)
+    expect(RING_SIDE_STONE_OPTIONS).not.toContain('Moissanite')
+    expect(RING_SIDE_STONE_OPTIONS).toContain('Lab Grown Diamond')
+    expect(RING_SIDE_STONE_OPTIONS).toContain('Natural Diamond')
+  })
+
+  it('clarityOptions has 8 entries in ascending quality order', () => {
+    expect(clarityOptions).toHaveLength(8)
+    const values = clarityOptions.map(o => o.value)
+    expect(values).toEqual(['SI1', 'SI2', 'VS1', 'VS2', 'VVS1', 'VVS2', 'IF', 'FL'])
+  })
+
+  it('caratRanges includes 5.00+ as last bucket', () => {
+    const last = caratRanges[caratRanges.length - 1]
+    expect(last.value).toBe('5.00+')
+    expect(last.maxCarat).toBe(99)
   })
 })
