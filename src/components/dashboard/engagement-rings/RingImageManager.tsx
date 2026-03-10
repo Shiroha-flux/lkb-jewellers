@@ -4,7 +4,18 @@ import { useState, useEffect, useRef, useCallback } from "react"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
-import { Upload, Trash2, Star, Eye, Loader2, CheckCircle, AlertCircle, Save } from "lucide-react"
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "@/components/ui/alert-dialog"
+import { Upload, Trash2, Star, Eye, Loader2, CheckCircle, AlertCircle, Save, ChevronUp, ChevronDown } from "lucide-react"
 
 // ─── Types ─────────────────────────────────────────────────────────────────────
 
@@ -155,6 +166,17 @@ export default function RingImageManager({ slug, name }: RingImageManagerProps) 
     }))
   }
 
+  // ── Reorder images (local state only) ─────────────────────────────────────
+  function moveImage(color: ColorKey, fromIndex: number, direction: "up" | "down") {
+    const toIndex = direction === "up" ? fromIndex - 1 : fromIndex + 1
+    setImages((prev) => {
+      const arr = [...prev[color]]
+      const [item] = arr.splice(fromIndex, 1)
+      arr.splice(toIndex, 0, item)
+      return { ...prev, [color]: arr }
+    })
+  }
+
   // ── Save prefs ke API ─────────────────────────────────────────────────────
   async function savePrefs(color: ColorKey) {
     setSavingColor(color)
@@ -226,7 +248,6 @@ export default function RingImageManager({ slug, name }: RingImageManagerProps) 
       alert("Unable to determine file path.")
       return
     }
-    if (!confirm(`Delete this photo?\n${path}`)) return
 
     setDeletingUrl(url)
     try {
@@ -356,7 +377,7 @@ export default function RingImageManager({ slug, name }: RingImageManagerProps) 
         </div>
       ) : (
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3">
-          {currentImages.map((url) => {
+          {currentImages.map((url, index) => {
             const isThumbnail = currentPrefs.thumbnail_url === url
             const isHover = currentPrefs.hover_url === url
             const isDeleting = deletingUrl === url
@@ -405,6 +426,28 @@ export default function RingImageManager({ slug, name }: RingImageManagerProps) 
                   )}
                 </div>
 
+                {/* Reorder arrows — top right, show on hover */}
+                <div className="absolute top-1 right-1 flex flex-col gap-0.5 opacity-0 group-hover:opacity-100 transition-opacity">
+                  <Button
+                    size="icon"
+                    variant="outline"
+                    onClick={() => moveImage(activeColor, index, "up")}
+                    disabled={index === 0}
+                    className="h-5 w-5 bg-zinc-900/80 border-zinc-700 text-zinc-300 hover:bg-zinc-800 disabled:opacity-25"
+                  >
+                    <ChevronUp className="w-3 h-3" />
+                  </Button>
+                  <Button
+                    size="icon"
+                    variant="outline"
+                    onClick={() => moveImage(activeColor, index, "down")}
+                    disabled={index === currentImages.length - 1}
+                    className="h-5 w-5 bg-zinc-900/80 border-zinc-700 text-zinc-300 hover:bg-zinc-800 disabled:opacity-25"
+                  >
+                    <ChevronDown className="w-3 h-3" />
+                  </Button>
+                </div>
+
                 {/* Action buttons — show on hover */}
                 <div className="absolute inset-0 flex flex-col justify-end p-1 gap-1 opacity-0 group-hover:opacity-100 transition-opacity bg-gradient-to-t from-zinc-950/80 via-transparent to-transparent">
                   <Button
@@ -435,16 +478,40 @@ export default function RingImageManager({ slug, name }: RingImageManagerProps) 
                     <Eye className="w-3 h-3 flex-shrink-0" />
                     {isHover ? "Unset HV" : "Set Hover"}
                   </Button>
-                  <Button
-                    size="sm"
-                    variant="outline"
-                    onClick={() => deleteImage(url)}
-                    disabled={isDeleting}
-                    className="h-6 text-[10px] px-1.5 w-full justify-start gap-1 bg-red-950/60 border-red-900 text-red-400 hover:bg-red-900 hover:text-white"
-                  >
-                    <Trash2 className="w-3 h-3 flex-shrink-0" />
-                    Delete
-                  </Button>
+                  <AlertDialog>
+                    <AlertDialogTrigger asChild>
+                      <Button
+                        size="sm"
+                        variant="outline"
+                        disabled={isDeleting}
+                        className="h-6 text-[10px] px-1.5 w-full justify-start gap-1 bg-red-950/60 border-red-900 text-red-400 hover:bg-red-900 hover:text-white"
+                      >
+                        <Trash2 className="w-3 h-3 flex-shrink-0" />
+                        Delete
+                      </Button>
+                    </AlertDialogTrigger>
+                    <AlertDialogContent className="bg-zinc-900 border-zinc-800">
+                      <AlertDialogHeader>
+                        <AlertDialogTitle className="text-white">
+                          Delete Photo?
+                        </AlertDialogTitle>
+                        <AlertDialogDescription className="text-zinc-400">
+                          Foto ini akan dihapus permanen dari storage. Tindakan ini tidak dapat dibatalkan.
+                        </AlertDialogDescription>
+                      </AlertDialogHeader>
+                      <AlertDialogFooter>
+                        <AlertDialogCancel className="border-zinc-700 text-zinc-300 bg-transparent hover:bg-zinc-800">
+                          Cancel
+                        </AlertDialogCancel>
+                        <AlertDialogAction
+                          onClick={() => deleteImage(url)}
+                          className="bg-red-900 hover:bg-red-800 text-white border-0"
+                        >
+                          Delete
+                        </AlertDialogAction>
+                      </AlertDialogFooter>
+                    </AlertDialogContent>
+                  </AlertDialog>
                 </div>
               </div>
             )

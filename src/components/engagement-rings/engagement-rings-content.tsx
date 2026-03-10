@@ -6,6 +6,7 @@ import { X, Loader2, ChevronDown } from 'lucide-react'
 import { FilterBar } from '@/components/engagement-rings/filter-bar'
 import { RingListingCard } from '@/components/engagement-rings/ring-listing-card'
 import type { PaginatedRings, RingListingItem } from '@/lib/supabase-rings'
+import type { RingColorPreference, RingPreferencesMap } from '@/lib/ring-preferences'
 import { parseFiltersFromURL, filtersToURL, hasActiveFilters } from '@/lib/ring-filters'
 import type { ActiveFilters } from '@/lib/ring-filters'
 import type { MetalValue } from '@/data/ring-filters'
@@ -35,7 +36,40 @@ function formatFilterLabel(key: string, value: string): string {
   return `${keyLabel}: ${valueLabel}`
 }
 
-export function EngagementRingsContent() {
+interface EngagementRingsContentProps {
+  allRingPreferences?: RingPreferencesMap
+}
+
+function resolveColorKeyFromMetal(metal?: MetalValue): 'yellow' | 'white' | 'rose' | null {
+  if (!metal) return null
+  if (metal === 'yellow_gold') return 'yellow'
+  if (metal === 'rose_gold') return 'rose'
+  return 'white'
+}
+
+function resolveColorKeyFromUrl(url: string): 'yellow' | 'white' | 'rose' | null {
+  const filename = (url.split('/').pop() ?? '').toLowerCase()
+  if (filename.startsWith('yellow_')) return 'yellow'
+  if (filename.startsWith('white_')) return 'white'
+  if (filename.startsWith('rose_')) return 'rose'
+  return null
+}
+
+function resolveDbPreference(
+  allRingPreferences: RingPreferencesMap,
+  ring: RingListingItem,
+  selectedMetal?: MetalValue
+): RingColorPreference | null {
+  const colorKey =
+    resolveColorKeyFromMetal(selectedMetal) ??
+    resolveColorKeyFromUrl(ring.thumbnail) ??
+    resolveColorKeyFromUrl(ring.hoverImage)
+
+  if (!colorKey) return null
+  return allRingPreferences[ring.slug]?.[colorKey] ?? null
+}
+
+export function EngagementRingsContent({ allRingPreferences = {} }: EngagementRingsContentProps) {
   const searchParams = useSearchParams()
   const router = useRouter()
 
@@ -252,7 +286,13 @@ export function EngagementRingsContent() {
             <h2 className="sr-only">Ring Settings</h2>
             <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
               {rings.map((ring, index) => (
-                <RingListingCard key={ring.slug} ring={ring} priority={index < 8} selectedMetal={activeFilters.metal as MetalValue | undefined} />
+                <RingListingCard
+                  key={ring.slug}
+                  ring={ring}
+                  priority={index < 8}
+                  selectedMetal={activeFilters.metal as MetalValue | undefined}
+                  dbPreferences={resolveDbPreference(allRingPreferences, ring, activeFilters.metal as MetalValue | undefined)}
+                />
               ))}
             </div>
 

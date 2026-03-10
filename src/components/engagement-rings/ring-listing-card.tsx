@@ -5,6 +5,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import type { RingListingItem } from '@/lib/supabase-rings'
 import type { MetalValue } from '@/data/ring-filters'
+import type { RingColorPreference } from '@/lib/ring-preferences'
 
 const METAL_COLOR_PREFIX: Record<MetalValue, string> = {
   platinum: 'white',
@@ -35,9 +36,10 @@ interface RingListingCardProps {
   ring: RingListingItem
   priority?: boolean
   selectedMetal?: MetalValue
+  dbPreferences?: RingColorPreference | null
 }
 
-export function RingListingCard({ ring, priority = false, selectedMetal }: RingListingCardProps) {
+export function RingListingCard({ ring, priority = false, selectedMetal, dbPreferences = null }: RingListingCardProps) {
   const [isHovered, setIsHovered] = useState(false)
   const [imgError, setImgError] = useState(false)
   const [hoverLoaded, setHoverLoaded] = useState(false)
@@ -56,13 +58,15 @@ export function RingListingCard({ ring, priority = false, selectedMetal }: RingL
   }
 
   const thumbnail =
-    selectedMetal && !thumbSwapFailed
+    dbPreferences?.thumbnail_url ??
+    (selectedMetal && !thumbSwapFailed
       ? swapMetalInUrl(ring.thumbnail, selectedMetal)
-      : ring.thumbnail
+      : ring.thumbnail)
   const hoverImage =
-    selectedMetal && !hoverSwapFailed
+    dbPreferences?.hover_url ??
+    (selectedMetal && !hoverSwapFailed
       ? swapMetalInUrl(ring.hoverImage, selectedMetal)
-      : ring.hoverImage
+      : ring.hoverImage)
 
   const hasHover = Boolean(hoverImage && hoverImage !== thumbnail)
 

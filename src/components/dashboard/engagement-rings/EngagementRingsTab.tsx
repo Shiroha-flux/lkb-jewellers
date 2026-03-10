@@ -12,23 +12,46 @@ type RingListItem = {
   images: Record<string, string[]>
 }
 
+type ColorPref = {
+  thumbnail_url: string | null
+  hover_url: string | null
+}
+
+type AllPreferences = Record<string, Record<string, ColorPref>>
+
 export default function EngagementRingsTab() {
   const [rings, setRings] = useState<RingListItem[]>([])
+  const [allPreferences, setAllPreferences] = useState<AllPreferences>({})
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
   const [search, setSearch] = useState("")
   const [expandedSlug, setExpandedSlug] = useState<string | null>(null)
 
   useEffect(() => {
-    fetch("/api/rings/list")
-      .then((r) => {
-        if (!r.ok) throw new Error(`HTTP ${r.status}`)
-        return r.json()
+    Promise.all([
+      fetch("/api/rings/list"),
+      fetch("/api/rings/preferences"),
+    ])
+      .then(async ([listRes, prefsRes]) => {
+        if (!listRes.ok) throw new Error(`HTTP ${listRes.status}`)
+        const listJson = await listRes.json()
+        setRings(listJson.data ?? [])
+        if (prefsRes.ok) {
+          const prefsJson = await prefsRes.json()
+          setAllPreferences(prefsJson.data ?? {})
+        }
       })
-      .then((json) => setRings(json.data ?? []))
       .catch((err) => setError(err.message ?? "Failed to load ring data"))
       .finally(() => setLoading(false))
   }, [])
+
+  function ringHasPreferences(slug: string): boolean {
+    const ringPrefs = allPreferences[slug]
+    if (!ringPrefs) return false
+    return Object.values(ringPrefs).some(
+      (pref) => pref.thumbnail_url !== null || pref.hover_url !== null
+    )
+  }
 
   const filtered = rings.filter(
     (r) =>
@@ -133,6 +156,21 @@ export default function EngagementRingsTab() {
                       <span className="text-zinc-600 text-xs font-mono">
                         {ring.slug}
                       </span>
+                      {ringHasPreferences(ring.slug) ? (
+                        <Badge
+                          variant="outline"
+                          className="text-[10px] px-1.5 py-0 border-green-800 text-green-400 bg-green-950/20"
+                        >
+                          ✓ prefs
+                        </Badge>
+                      ) : (
+                        <Badge
+                          variant="outline"
+                          className="text-[10px] px-1.5 py-0 border-yellow-800 text-yellow-600 bg-yellow-950/20"
+                        >
+                          ⚠ no prefs
+                        </Badge>
+                      )}
                     </div>
                   </div>
 

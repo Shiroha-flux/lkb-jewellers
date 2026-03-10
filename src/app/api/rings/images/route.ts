@@ -22,21 +22,16 @@ function extractImageNumber(imageUrl: string, color: string): number {
 function createStorageClient() {
   const url = process.env.NEXT_PUBLIC_SUPABASE_URL
   const serviceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY
-  const anonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
 
   if (!url) {
     throw new Error('NEXT_PUBLIC_SUPABASE_URL is not configured')
   }
 
-  if (!serviceRoleKey && !anonKey) {
-    throw new Error('SUPABASE keys are not configured')
+  if (!serviceRoleKey) {
+    throw new Error('SUPABASE_SERVICE_ROLE_KEY is required for storage operations')
   }
 
-  if (!serviceRoleKey && anonKey) {
-    console.warn('SUPABASE_SERVICE_ROLE_KEY is missing, using anon key fallback for rings image route')
-  }
-
-  return createSupabaseClient(url, serviceRoleKey ?? anonKey!)
+  return createSupabaseClient(url, serviceRoleKey)
 }
 
 export async function POST(request: NextRequest) {
