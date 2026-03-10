@@ -265,9 +265,6 @@ export function RingCard({ ring, priority = false, dbPreferences = null }: RingC
           <h3 className="font-heading text-white text-base font-medium tracking-wide uppercase mb-1 group-hover:text-[#D4AF37] transition-colors duration-200">
             {ring.name}
           </h3>
-          <p className="text-[#D4AF37] text-sm font-medium uppercase tracking-widest">
-            Starting {formatPrice(ring.basePrice, ring.currency)} {ring.currency}
-          </p>
         </div>
       </div>
     </Link>
