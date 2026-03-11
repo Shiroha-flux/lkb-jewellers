@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { createClient } from '@/lib/supabase'
+import { createClient as createSupabaseClient } from '@supabase/supabase-js'
 
 type PreferenceRow = {
   ring_slug: string
@@ -11,6 +12,14 @@ type PreferenceRow = {
 function isAuthenticated(request: NextRequest): boolean {
   const cookieHeader = request.headers.get('cookie') || ''
   return cookieHeader.includes('admin_session=authenticated')
+}
+
+/** Service-role client for write operations (RLS bypass) */
+function createServiceClient() {
+  return createSupabaseClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.SUPABASE_SERVICE_ROLE_KEY!
+  )
 }
 
 function formatPreferences(rows: PreferenceRow[]) {
@@ -75,7 +84,7 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: 'slug and color are required' }, { status: 400 })
   }
 
-  const supabase = createClient()
+  const supabase = createServiceClient()
   const { error } = await supabase.from('ring_image_preferences').upsert(
     {
       ring_slug: slug,
@@ -105,7 +114,7 @@ export async function DELETE(request: NextRequest) {
     return NextResponse.json({ error: 'slug and color are required' }, { status: 400 })
   }
 
-  const supabase = createClient()
+  const supabase = createServiceClient()
   const { error } = await supabase
     .from('ring_image_preferences')
     .delete()

@@ -137,12 +137,45 @@ export interface PaginatedRings {
   hasMore: boolean
 }
 
-function mapToListingItem(row: any): RingListingItem {
+type RingImagePreference = {
+  thumbnail_url: string | null
+  hover_url: string | null
+}
+
+type RingColorKey = 'yellow' | 'white' | 'rose'
+
+function resolveColorFromMetal(metal?: string): RingColorKey {
+  if (!metal) return 'yellow'
+
+  if (metal === 'yellow_gold' || metal === '9k_yellow_gold') return 'yellow'
+  if (metal === 'rose_gold' || metal === '9k_rose_gold') return 'rose'
+  return 'white'
+}
+
+function pickColorMatchedUrls(urls: string[], color: RingColorKey): string[] {
+  return urls.filter((url) => {
+    const normalized = url.toLowerCase()
+    const filename = normalized.split('/').pop() ?? ''
+    return normalized.includes(`/${color}_`) || filename.startsWith(`${color}_`)
+  })
+}
+
+function mapToListingItem(
+  row: any,
+  preference: RingImagePreference | undefined,
+  preferredColor: RingColorKey,
+  isMetalSpecified: boolean
+): RingListingItem {
   const images: { image_url: string; _order: number | null }[] = row.engagement_ring_images ?? []
   const sorted = [...images].sort((a, b) => (a._order ?? 0) - (b._order ?? 0))
   const urls = dedupeImageUrls(sorted.map(i => i.image_url))
-  const thumbnail = urls[0] ?? ''
-  const hoverImage = urls[1] ?? thumbnail
+
+  const metalMatchedUrls = isMetalSpecified ? pickColorMatchedUrls(urls, preferredColor) : []
+  const fallbackThumbnail = (metalMatchedUrls[0] ?? urls[0]) ?? ''
+  const fallbackHover = (metalMatchedUrls[1] ?? urls[1] ?? metalMatchedUrls[0] ?? urls[0]) ?? fallbackThumbnail
+
+  const thumbnail = preference?.thumbnail_url ?? fallbackThumbnail
+  const hoverImage = preference?.hover_url ?? fallbackHover
 
   return {
     id: row.slug,
@@ -180,7 +213,7 @@ export async function fetchRingsPaginated(
     settingStyle?: string
     bandType?: string
     settingProfile?: string
-    metalOption?: string
+    metal?: string
     minPrice?: number
     maxPrice?: number
   } = {}
@@ -210,9 +243,28 @@ export async function fetchRingsPaginated(
     return { rings: [], total: 0, page, pageSize, hasMore: false }
   }
 
+  const preferredColor = resolveColorFromMetal(filters.metal)
+  const slugs = data.map(row => row.slug).filter(Boolean)
+  const preferencesBySlug = new Map<string, RingImagePreference>()
+
+  if (slugs.length > 0) {
+    const { data: preferences } = await supabase
+      .from('ring_image_preferences')
+      .select('ring_slug, thumbnail_url, hover_url')
+      .in('ring_slug', slugs)
+      .eq('color', preferredColor)
+
+    for (const preference of preferences ?? []) {
+      preferencesBySlug.set(preference.ring_slug, {
+        thumbnail_url: preference.thumbnail_url,
+        hover_url: preference.hover_url,
+      })
+    }
+  }
+
   const total = count ?? 0
   return {
-    rings: data.map(mapToListingItem),
+    rings: data.map(row => mapToListingItem(row, preferencesBySlug.get(row.slug), preferredColor, Boolean(filters.metal))),
     total,
     page,
     pageSize,

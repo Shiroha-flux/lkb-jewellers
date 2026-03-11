@@ -4,23 +4,6 @@ import { useState, useRef, useCallback } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import type { RingListingItem } from '@/lib/supabase-rings'
-import type { MetalValue } from '@/data/ring-filters'
-import type { RingColorPreference } from '@/lib/ring-preferences'
-
-const METAL_COLOR_PREFIX: Record<MetalValue, string> = {
-  platinum: 'white',
-  palladium: 'white',
-  yellow_gold: 'yellow',
-  rose_gold: 'rose',
-  white_gold: 'white',
-  '9k_yellow_gold': 'yellow',
-  '9k_white_gold': 'white',
-  '9k_rose_gold': 'rose',
-}
-
-function swapMetalInUrl(url: string, metal: MetalValue): string {
-  return url.replace(/(yellow|white|rose)(_\d+\.jpg)/, `${METAL_COLOR_PREFIX[metal]}$2`)
-}
 
 const BLUR_PLACEHOLDER =
   'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAEBAQEBAQEBAQEBAQEB' +
@@ -39,38 +22,16 @@ function formatPrice(price: number, currency: string): string {
 interface RingListingCardProps {
   ring: RingListingItem
   priority?: boolean
-  selectedMetal?: MetalValue
-  dbPreferences?: RingColorPreference | null
 }
 
-export function RingListingCard({ ring, priority = false, selectedMetal, dbPreferences = null }: RingListingCardProps) {
+export function RingListingCard({ ring, priority = false }: RingListingCardProps) {
   const [isHovered, setIsHovered] = useState(false)
   const [imgError, setImgError] = useState(false)
   const [hoverLoaded, setHoverLoaded] = useState(false)
-  const [thumbSwapFailed, setThumbSwapFailed] = useState(false)
-  const [hoverSwapFailed, setHoverSwapFailed] = useState(false)
   const preloadRef = useRef<{ img: HTMLImageElement; timeout: number } | null>(null)
 
-  // Reset swap failure state ketika metal berubah
-  const prevMetalRef = useRef(selectedMetal)
-  if (prevMetalRef.current !== selectedMetal) {
-    prevMetalRef.current = selectedMetal
-    setThumbSwapFailed(false)
-    setHoverSwapFailed(false)
-    setImgError(false)
-    setHoverLoaded(false)
-  }
-
-  const thumbnail =
-    dbPreferences?.thumbnail_url ??
-    (selectedMetal && !thumbSwapFailed
-      ? swapMetalInUrl(ring.thumbnail, selectedMetal)
-      : ring.thumbnail)
-  const hoverImage =
-    dbPreferences?.hover_url ??
-    (selectedMetal && !hoverSwapFailed
-      ? swapMetalInUrl(ring.hoverImage, selectedMetal)
-      : ring.hoverImage)
+  const thumbnail = ring.thumbnail
+  const hoverImage = ring.hoverImage
 
   const hasHover = Boolean(hoverImage && hoverImage !== thumbnail)
 
@@ -85,13 +46,9 @@ export function RingListingCard({ ring, priority = false, selectedMetal, dbPrefe
     img.onload = () => { window.clearTimeout(timeout); setHoverLoaded(true) }
     img.onerror = () => {
       window.clearTimeout(timeout)
-      if (selectedMetal && !hoverSwapFailed) {
-        setHoverSwapFailed(true)
-      } else {
-        setHoverLoaded(true)
-      }
+      setHoverLoaded(true)
     }
-  }, [hasHover, hoverLoaded, hoverImage, selectedMetal, hoverSwapFailed])
+  }, [hasHover, hoverLoaded, hoverImage])
 
   const handleMouseLeave = useCallback(() => {
     setIsHovered(false)
@@ -110,13 +67,14 @@ export function RingListingCard({ ring, priority = false, selectedMetal, dbPrefe
       >
         <div className="relative aspect-square overflow-hidden bg-zinc-900">
           {imgError ? (
-            <div className="w-full h-full flex flex-col items-center justify-center bg-zinc-900 text-zinc-600">
-              <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                <circle cx="12" cy="12" r="8" />
-                <circle cx="12" cy="12" r="4" />
-                <path d="M12 4v2M12 18v2M4 12h2M18 12h2" />
+            <div className="w-full h-full flex flex-col items-center justify-center bg-zinc-900/80 text-zinc-500">
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <path d="M12 2L2 7l10 5 10-5-10-5z" />
+                <path d="M2 17l10 5 10-5" />
+                <path d="M2 12l10 5 10-5" />
               </svg>
-              <span className="mt-2 text-xs text-zinc-700">{ring.name}</span>
+              <span className="mt-3 text-xs font-medium tracking-wide text-zinc-500">{ring.name}</span>
+              <span className="mt-1 text-[10px] text-zinc-600">Image unavailable</span>
             </div>
           ) : (
             <>
@@ -139,13 +97,7 @@ export function RingListingCard({ ring, priority = false, selectedMetal, dbPrefe
                 className={`object-cover absolute inset-0 z-10 transition-opacity duration-200 ${isHovered && hoverLoaded && hasHover ? 'opacity-0' : 'opacity-100'}`}
                 placeholder="blur"
                 blurDataURL={BLUR_PLACEHOLDER}
-                onError={() => {
-                  if (selectedMetal && !thumbSwapFailed) {
-                    setThumbSwapFailed(true)
-                  } else {
-                    setImgError(true)
-                  }
-                }}
+                onError={() => setImgError(true)}
                 priority={priority}
               />
             </>

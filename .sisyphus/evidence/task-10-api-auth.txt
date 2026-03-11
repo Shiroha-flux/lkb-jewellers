@@ -1,0 +1,12 @@
+endpoint: http://localhost:3000/api/rings/preferences
+
+unauthenticated_request:
+command: curl -s -o /dev/null -w '%{http_code}' http://localhost:3000/api/rings/preferences
+status_code: 401
+
+authenticated_request:
+command: curl -s -o /dev/null -w '%{http_code}' http://localhost:3000/api/rings/preferences -H 'Cookie: admin_session=authenticated'
+status_code: 200
+
+authenticated_body_preview:
+{"data":{"ring-adelyn":{"rose":{"thumbnail_url":null,"hover_url":"https://ttiwmcrfahbczzehmyds.supabase.co/storage/v1/object/public/engagement-rings/rings/adelyn/rose_2.jpg"},"white":{"thumbnail_url":null,"hover_url":"https://ttiwmcrfahbczzehmyds.supabase.co/storage/v1/object/public/engagement-rings"

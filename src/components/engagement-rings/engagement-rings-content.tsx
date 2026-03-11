@@ -6,10 +6,8 @@ import { X, Loader2, ChevronDown } from 'lucide-react'
 import { FilterBar } from '@/components/engagement-rings/filter-bar'
 import { RingListingCard } from '@/components/engagement-rings/ring-listing-card'
 import type { PaginatedRings, RingListingItem } from '@/lib/supabase-rings'
-import type { RingColorPreference, RingPreferencesMap } from '@/lib/ring-preferences'
 import { parseFiltersFromURL, filtersToURL, hasActiveFilters } from '@/lib/ring-filters'
 import type { ActiveFilters } from '@/lib/ring-filters'
-import type { MetalValue } from '@/data/ring-filters'
 import { shapeOptions, metalOptions, settingStyleOptions, bandTypeOptions, settingProfileOptions } from '@/data/ring-filters'
 
 const PAGE_SIZE = 24
@@ -36,40 +34,7 @@ function formatFilterLabel(key: string, value: string): string {
   return `${keyLabel}: ${valueLabel}`
 }
 
-interface EngagementRingsContentProps {
-  allRingPreferences?: RingPreferencesMap
-}
-
-function resolveColorKeyFromMetal(metal?: MetalValue): 'yellow' | 'white' | 'rose' | null {
-  if (!metal) return null
-  if (metal === 'yellow_gold') return 'yellow'
-  if (metal === 'rose_gold') return 'rose'
-  return 'white'
-}
-
-function resolveColorKeyFromUrl(url: string): 'yellow' | 'white' | 'rose' | null {
-  const filename = (url.split('/').pop() ?? '').toLowerCase()
-  if (filename.startsWith('yellow_')) return 'yellow'
-  if (filename.startsWith('white_')) return 'white'
-  if (filename.startsWith('rose_')) return 'rose'
-  return null
-}
-
-function resolveDbPreference(
-  allRingPreferences: RingPreferencesMap,
-  ring: RingListingItem,
-  selectedMetal?: MetalValue
-): RingColorPreference | null {
-  const colorKey =
-    resolveColorKeyFromMetal(selectedMetal) ??
-    resolveColorKeyFromUrl(ring.thumbnail) ??
-    resolveColorKeyFromUrl(ring.hoverImage)
-
-  if (!colorKey) return null
-  return allRingPreferences[ring.slug]?.[colorKey] ?? null
-}
-
-export function EngagementRingsContent({ allRingPreferences = {} }: EngagementRingsContentProps) {
+export function EngagementRingsContent() {
   const searchParams = useSearchParams()
   const router = useRouter()
 
@@ -83,13 +48,16 @@ export function EngagementRingsContent({ allRingPreferences = {} }: EngagementRi
   const [hasMore, setHasMore] = useState(false)
   const [loadingMore, setLoadingMore] = useState(false)
   const [loading, setLoading] = useState(true)
+  const [initialLoaded, setInitialLoaded] = useState(false)
   const filterVersion = useRef(0)
+  const abortRef = useRef<AbortController | null>(null)
 
   const buildQuery = useCallback((filters: ActiveFilters, p: number, sort: typeof sortBy) => {
     const params = new URLSearchParams()
     params.set('page', String(p))
     params.set('limit', String(PAGE_SIZE))
     if (filters.shape) params.set('shape', filters.shape)
+    if (filters.metal) params.set('metal', filters.metal)
     if (filters.settingStyle) params.set('settingStyle', filters.settingStyle)
     if (filters.bandType) params.set('bandType', filters.bandType)
     if (filters.settingProfile) params.set('settingProfile', filters.settingProfile)
@@ -103,7 +71,11 @@ export function EngagementRingsContent({ allRingPreferences = {} }: EngagementRi
     const version = filterVersion.current
     setLoading(true)
 
-    fetch(buildQuery(activeFilters, 1, sortBy))
+    abortRef.current?.abort()
+    const controller = new AbortController()
+    abortRef.current = controller
+
+    fetch(buildQuery(activeFilters, 1, sortBy), { signal: controller.signal })
       .then(r => r.json())
       .then((data: PaginatedRings) => {
         if (filterVersion.current !== version) return
@@ -112,30 +84,29 @@ export function EngagementRingsContent({ allRingPreferences = {} }: EngagementRi
         setHasMore(data.hasMore)
         setPage(1)
         setLoading(false)
+        setInitialLoaded(true)
       })
-      .catch(() => setLoading(false))
+      .catch((err) => {
+        if (err instanceof DOMException && err.name === 'AbortError') return
+        setLoading(false)
+        setInitialLoaded(true)
+      })
   }, [])
 
   const handleFilterChange = useCallback((filters: ActiveFilters) => {
-    const prev = activeFilters
     setActiveFilters(filters)
     router.push(`/engagement-rings${filtersToURL(filters)}`, { scroll: false })
-
-    const onlyMetalChanged =
-      prev.shape === filters.shape &&
-      prev.settingStyle === filters.settingStyle &&
-      prev.bandType === filters.bandType &&
-      prev.settingProfile === filters.settingProfile &&
-      prev.metal !== filters.metal
-
-    if (onlyMetalChanged) return
 
     setPage(1)
     setLoading(true)
     filterVersion.current += 1
     const version = filterVersion.current
 
-    fetch(buildQuery(filters, 1, sortBy))
+    abortRef.current?.abort()
+    const controller = new AbortController()
+    abortRef.current = controller
+
+    fetch(buildQuery(filters, 1, sortBy), { signal: controller.signal })
       .then(r => r.json())
       .then((data: PaginatedRings) => {
         if (filterVersion.current !== version) return
@@ -144,8 +115,11 @@ export function EngagementRingsContent({ allRingPreferences = {} }: EngagementRi
         setHasMore(data.hasMore)
         setLoading(false)
       })
-      .catch(() => setLoading(false))
-  }, [router, buildQuery, sortBy, activeFilters])
+      .catch((err) => {
+        if (err instanceof DOMException && err.name === 'AbortError') return
+        setLoading(false)
+      })
+  }, [router, buildQuery, sortBy])
 
   const handleSortChange = useCallback((newSort: typeof sortBy) => {
     setSortBy(newSort)
@@ -154,7 +128,11 @@ export function EngagementRingsContent({ allRingPreferences = {} }: EngagementRi
     filterVersion.current += 1
     const version = filterVersion.current
 
-    fetch(buildQuery(activeFilters, 1, newSort))
+    abortRef.current?.abort()
+    const controller = new AbortController()
+    abortRef.current = controller
+
+    fetch(buildQuery(activeFilters, 1, newSort), { signal: controller.signal })
       .then(r => r.json())
       .then((data: PaginatedRings) => {
         if (filterVersion.current !== version) return
@@ -163,7 +141,10 @@ export function EngagementRingsContent({ allRingPreferences = {} }: EngagementRi
         setHasMore(data.hasMore)
         setLoading(false)
       })
-      .catch(() => setLoading(false))
+      .catch((err) => {
+        if (err instanceof DOMException && err.name === 'AbortError') return
+        setLoading(false)
+      })
   }, [buildQuery, activeFilters])
 
   const handleLoadMore = useCallback(() => {
@@ -203,7 +184,7 @@ export function EngagementRingsContent({ allRingPreferences = {} }: EngagementRi
         </div>
       </div>
 
-      <FilterBar activeFilters={activeFilters} onFilterChange={handleFilterChange} disabled={loading} />
+      <FilterBar activeFilters={activeFilters} onFilterChange={handleFilterChange} disabled={!initialLoaded} />
 
       {hasActiveFilters(activeFilters) && (
         <div className="container mx-auto px-4 py-4">
@@ -290,8 +271,6 @@ export function EngagementRingsContent({ allRingPreferences = {} }: EngagementRi
                   key={ring.slug}
                   ring={ring}
                   priority={index < 8}
-                  selectedMetal={activeFilters.metal as MetalValue | undefined}
-                  dbPreferences={resolveDbPreference(allRingPreferences, ring, activeFilters.metal as MetalValue | undefined)}
                 />
               ))}
             </div>

@@ -1,0 +1,32 @@
+Task 4: Ring Shape Misclassification Fixes
+==========================================
+Date: 2026-03-10
+File: src/data/engagement-rings.ts
+
+Fixes Applied (10 rings):
+--------------------------
+1. ring-ainsley  (line 191)  → "round" → "pear"     (title: "Ainsley - Pear 5 Claw Solitaire...")
+2. ring-brooke   (line 1395) → "round" → "pear"     (title: "Brooke - Pear 3 Claw Solitaire...")
+3. ring-brooklyn (line 1423) → "round" → "princess"  (title: "Brooklyn - Princess 4 Claw Solitaire...")
+4. ring-jacinta  (line 3213) → "round" → "pear"     (title: "Jacinta - Pear 5 Claw Solitaire...")
+5. ring-kyla     (line 3717) → "round" → "radiant"  (title: "Kyla - Radiant Claw Solitaire...")
+6. ring-miller   (line 4361) → "round" → "emerald"  (title: "Miller - Emerald 4 Claw Solitaire...")
+7. ring-parker   (line 4837) → "round" → "emerald"  (title: "Parker - Emerald 4 Claw Solitaire...")
+8. ring-polly    (line 4949) → "round" → "pear"     (title: "Polly - Pear 5 Claw Solitaire...")
+9. ring-raleigh  (line 5033) → "round" → "emerald"  (title: "Raleigh - Emerald 4 Claw Solitaire...")
+10. ring-willow  (line 6153) → "round" → "radiant"  (title: "Willow - Radiant 4 Claw Solitaire...")
+
+TypeScript Check (bunx tsc --noEmit):
+--------------------------------------
+Pre-existing errors only (NOT related to shape changes):
+
+src/__tests__/ring-filters.test.ts(17,5): error TS2353: Object literal may only specify known properties, and 'metalOptions' does not exist in type 'Ring'.
+src/__tests__/ring-filters.test.ts(37,5): error TS2353: Object literal may only specify known properties, and 'metalOptions' does not exist in type 'Ring'.
+src/__tests__/ring-filters.test.ts(57,5): error TS2353: Object literal may only specify known properties, and 'metalOptions' does not exist in type 'Ring'.
+src/__tests__/ring-filters.test.ts(77,5): error TS2353: Object literal may only specify known properties, and 'metalOptions' does not exist in type 'Ring'.
+src/__tests__/ring-filters.test.ts(123,32): error TS2339: Property 'metalOptions' does not exist on type 'Ring'.
+src/__tests__/ring-filters.test.ts(123,50): error TS7006: Parameter 'm' implicitly has an 'any' type.
+src/components/engagement-rings/ring-listing-card.tsx(10,7): error TS2739: Type '{ platinum: string; yellow_gold: string; rose_gold: string; white_gold: string; }' is missing the following properties from type 'Record<MetalValue, string>': "9k_yellow_gold", "9k_white_gold", "9k_rose_gold", palladium
+
+RESULT: Zero new errors from shape fixes. All errors are pre-existing in test/component files (metalOptions).
+No errors in src/data/engagement-rings.ts.

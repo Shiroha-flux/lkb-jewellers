@@ -1,7 +1,6 @@
 import { Suspense } from 'react'
 import type { Metadata } from 'next'
 import { EngagementRingsContent } from '@/components/engagement-rings/engagement-rings-content'
-import { getAllRingPreferences } from '@/lib/ring-preferences'
 import ShowroomSection from '@/components/showroom-section'
 
 export const metadata: Metadata = {
@@ -10,18 +9,10 @@ export const metadata: Metadata = {
 }
 
 export default async function EngagementRingsPage() {
-  let allRingPreferences = {}
-
-  try {
-    allRingPreferences = await getAllRingPreferences()
-  } catch {
-    allRingPreferences = {}
-  }
-
   return (
     <>
       <Suspense>
-        <EngagementRingsContent allRingPreferences={allRingPreferences} />
+        <EngagementRingsContent />
       </Suspense>
       <ShowroomSection />
     </>

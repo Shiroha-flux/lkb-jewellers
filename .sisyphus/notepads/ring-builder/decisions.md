@@ -14,3 +14,11 @@
 - Supabase: rejected (user explicit "local only")
 - Enquiry form: rejected (user explicit "no contact mechanism")
 - Carousel library: rejected (CSS scroll-snap instead)
+
+## [2026-02-27] Supabase migration engagement-rings
+
+### Architecture Decisions
+- Sumber data page listing/detail engagement-rings dipindah ke Supabase lewat `src/lib/supabase-rings.ts`, interface `Ring` tetap dipertahankan 1:1 untuk kompatibilitas komponen existing.
+- `id` ring tetap diisi `slug` saat mapping agar kompatibel dengan komponen/UI yang pakai key/id berbasis slug.
+- `RingConfigurator` menerima prop `gemstones` optional dari server; fallback ke static data dipertahankan untuk backward compatibility.
+- `tsconfig.json` ditambah `types: ["vitest/globals"]` supaya `npx tsc --noEmit` tetap hijau tanpa ubah file test.

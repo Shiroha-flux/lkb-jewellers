@@ -22,7 +22,7 @@ export interface Ring {
   images: string[]
   thumbnails: string[]
   specs: RingSpecs
-  shape: 'round' | 'oval' | 'emerald' | 'radiant' | 'pear' | 'cushion' | 'elongated_cushion' | 'elongated_hexagon' | 'marquise' | 'princess' | 'asscher' | 'heart'
+  shape: 'round' | 'oval' | 'emerald' | 'radiant' | 'pear' | 'cushion' | 'elongated_cushion' | 'elongated_hexagon' | 'marquise' | 'princess' | 'asscher'
   settingStyle: 'trilogy' | 'solitaire' | 'halo' | 'toi_et_moi' | 'bezel' | 'east_west'
   bandType: 'plain' | 'pave' | 'accents'
   settingProfile: 'high_set' | 'low_set'

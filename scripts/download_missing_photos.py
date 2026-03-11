@@ -17,6 +17,17 @@ import json
 import math
 import re
 import sys
+import uuid
+from collections import defaultdict
+from pathlib import Path
+from typing import Any
+
+import argparse
+import io
+import json
+import math
+import re
+import sys
 from collections import defaultdict
 from pathlib import Path
 from typing import Any
@@ -269,6 +280,21 @@ def parse_existing_color_counts(rows: list[dict[str, Any]]) -> tuple[dict[str, i
 
 
 def insert_image_row(ring_id: str, order_value: int, image_url: str) -> bool:
+    insert_url = f"{SUPABASE_URL}/rest/v1/engagement_ring_images"
+    payload = {
+        "id": str(uuid.uuid4()),
+        "_parent_id": ring_id,
+        "_order": order_value,
+        "image_url": image_url,
+        "thumbnail_url": image_url,
+    }
+    resp = requests.post(
+        insert_url,
+        json=payload,
+        headers={**HEADERS, "Prefer": "return=minimal"},
+        timeout=30,
+    )
+    return resp.status_code in (200, 201)
     insert_url = f"{SUPABASE_URL}/rest/v1/engagement_ring_images"
     payload = {
         "_parent_id": ring_id,

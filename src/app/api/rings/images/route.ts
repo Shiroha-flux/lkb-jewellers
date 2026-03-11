@@ -5,6 +5,14 @@ type RingRow = {
   id: string
 }
 
+const ALLOWED_CONTENT_TYPES: Record<string, string> = {
+  'image/jpeg': '.jpg',
+  'image/png': '.png',
+  'image/webp': '.webp',
+}
+
+const MAX_FILE_SIZE = 5 * 1024 * 1024
+
 function isAuthenticated(request: NextRequest): boolean {
   const cookieHeader = request.headers.get('cookie') || ''
   return cookieHeader.includes('admin_session=authenticated')
@@ -12,10 +20,9 @@ function isAuthenticated(request: NextRequest): boolean {
 
 function extractImageNumber(imageUrl: string, color: string): number {
   const escapedColor = color.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
-  const pattern = new RegExp(`${escapedColor}_(\\d+)\\.jpg`, 'i')
+  const pattern = new RegExp(`${escapedColor}_(\\d+)\\.(jpe?g|png|webp)`, 'i')
   const match = imageUrl.match(pattern)
   if (!match) return 0
-
   return Number(match[1]) || 0
 }
 
@@ -49,6 +56,24 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: 'file, slug, and color are required' }, { status: 400 })
     }
 
+    const ext = ALLOWED_CONTENT_TYPES[file.type]
+    if (!ext) {
+      return NextResponse.json(
+        {
+          error: `File type "${file.type}" is not allowed. Only JPEG, PNG, and WebP images are accepted.`,
+        },
+        { status: 400 },
+      )
+    }
+
+    if (file.size > MAX_FILE_SIZE) {
+      const sizeMB = (file.size / (1024 * 1024)).toFixed(1)
+      return NextResponse.json(
+        { error: `File is too large (${sizeMB} MB). Maximum allowed size is 5 MB.` },
+        { status: 400 },
+      )
+    }
+
     const supabase = createStorageClient()
 
     const { data: ring, error: ringError } = await supabase
@@ -79,10 +104,11 @@ export async function POST(request: NextRequest) {
 
     const nextNumber = maxNumber + 1
     const slugWithoutPrefix = slug.replace(/^ring-/, '')
-    const path = `rings/${slugWithoutPrefix}/${color}_${nextNumber}.jpg`
+
+    const path = `rings/${slugWithoutPrefix}/${color}_${nextNumber}${ext}`
 
     const fileBuffer = new Uint8Array(await file.arrayBuffer())
-    const contentType = file.type || 'image/jpeg'
+    const contentType = file.type
 
     const { error: uploadError } = await supabase.storage
       .from('engagement-rings')
@@ -111,7 +137,7 @@ export async function POST(request: NextRequest) {
   } catch (error) {
     return NextResponse.json(
       { error: error instanceof Error ? error.message : 'Failed to upload image' },
-      { status: 500 }
+      { status: 500 },
     )
   }
 }
@@ -152,7 +178,7 @@ export async function DELETE(request: NextRequest) {
   } catch (error) {
     return NextResponse.json(
       { error: error instanceof Error ? error.message : 'Failed to delete image' },
-      { status: 500 }
+      { status: 500 },
     )
   }
 }

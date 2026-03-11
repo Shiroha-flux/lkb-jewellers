@@ -1,0 +1,6 @@
+src/__tests__/ring-filters.test.ts(17,5): error TS2353: Object literal may only specify known properties, and 'metalOptions' does not exist in type 'Ring'.
+src/__tests__/ring-filters.test.ts(37,5): error TS2353: Object literal may only specify known properties, and 'metalOptions' does not exist in type 'Ring'.
+src/__tests__/ring-filters.test.ts(57,5): error TS2353: Object literal may only specify known properties, and 'metalOptions' does not exist in type 'Ring'.
+src/__tests__/ring-filters.test.ts(77,5): error TS2353: Object literal may only specify known properties, and 'metalOptions' does not exist in type 'Ring'.
+src/__tests__/ring-filters.test.ts(123,32): error TS2339: Property 'metalOptions' does not exist on type 'Ring'.
+src/__tests__/ring-filters.test.ts(123,50): error TS7006: Parameter 'm' implicitly has an 'any' type.

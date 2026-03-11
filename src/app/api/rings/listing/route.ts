@@ -12,7 +12,7 @@ export async function GET(request: NextRequest) {
     settingStyle: searchParams.get('settingStyle') ?? undefined,
     bandType: searchParams.get('bandType') ?? undefined,
     settingProfile: searchParams.get('settingProfile') ?? undefined,
-    metalOption: searchParams.get('metalOption') ?? undefined,
+    metal: searchParams.get('metal') ?? undefined,
     minPrice: searchParams.get('minPrice') ? Number(searchParams.get('minPrice')) : undefined,
     maxPrice: searchParams.get('maxPrice') ? Number(searchParams.get('maxPrice')) : undefined,
   }

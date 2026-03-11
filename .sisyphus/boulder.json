@@ -1,9 +1,11 @@
 {
-  "active_plan": "C:\\Users\\Imam\\Documents\\project\\KERJAAN\\flux\\lkb-jewellers\\.sisyphus\\plans\\ring-builder.md",
-  "started_at": "2026-02-26T14:42:09.449Z",
+  "active_plan": "C:\\Users\\Imam\\Documents\\project\\KERJAAN\\flux\\lkb-jewellers\\.sisyphus\\plans\\ring-image-dashboard.md",
+  "started_at": "2026-03-05T12:49:14.711Z",
   "session_ids": [
-    "ses_3660c0af5ffeubV0C4ZnkbLmnJ"
+    "ses_3660c0af5ffeubV0C4ZnkbLmnJ",
+    "ses_32999daaeffeUfX1F4CeoznZSs"
   ],
-  "plan_name": "ring-builder",
-  "agent": "atlas"
+  "plan_name": "ring-image-dashboard",
+  "agent": "atlas",
+  "worktree_path": "C:\\Users\\Imam\\Documents\\project\\KERJAAN\\flux\\lkb-jewellers-ring-dashboard"
 }

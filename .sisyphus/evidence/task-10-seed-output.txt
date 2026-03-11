@@ -1,0 +1,19 @@
+command: npx dotenvx run -f .env.local -- npx tsx scripts/seed-ring-preferences.ts
+
+[dotenvx@1.52.0] injecting env (2) from .env.local
+Seeding 654 preferences...
+  ✓ 50/654
+  ✓ 100/654
+  ✓ 150/654
+  ✓ 200/654
+  ✓ 250/654
+  ✓ 300/654
+  ✓ 350/654
+  ✓ 400/654
+  ✓ 450/654
+  ✓ 500/654
+  ✓ 550/654
+  ✓ 600/654
+  ✓ 650/654
+  ✓ 654/654
+Done! 654 preferences seeded.
