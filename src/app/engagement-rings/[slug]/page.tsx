@@ -11,8 +11,14 @@ interface PageProps {
 }
 
 export async function generateStaticParams() {
-  const slugs = await fetchAllSlugs()
-  return slugs.map(slug => ({ slug }))
+  try {
+    const slugs = await fetchAllSlugs()
+    return slugs.map(slug => ({ slug }))
+  } catch {
+    // Env vars may be missing at build time (e.g. Vercel first deploy)
+    // Return empty so pages are generated on-demand instead
+    return []
+  }
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {

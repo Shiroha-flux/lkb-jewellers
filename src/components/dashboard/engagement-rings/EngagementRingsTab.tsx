@@ -22,7 +22,6 @@ import {
   TableHead,
   TableCell,
 } from "@/components/ui/table"
-import { ScrollArea } from "@/components/ui/scroll-area"
 import { Skeleton } from "@/components/ui/skeleton"
 import { Badge } from "@/components/ui/badge"
 import { Input } from "@/components/ui/input"
@@ -307,9 +306,8 @@ export default function EngagementRingsTab() {
           )}
         </div>
       ) : (
-        <div className="border border-zinc-800 rounded-lg overflow-hidden">
-          <ScrollArea className="h-[600px]">
-            <Table>
+        <div className="border border-zinc-800 rounded-lg overflow-hidden h-[600px] overflow-y-auto">
+            <table className="w-full caption-bottom text-sm">
               <TableHeader className="sticky top-0 z-10 bg-zinc-900">
                 <TableRow className="border-zinc-800 hover:bg-transparent">
                   <TableHead className="w-10" />
@@ -434,8 +432,7 @@ export default function EngagementRingsTab() {
                   )
                 })}
               </TableBody>
-            </Table>
-          </ScrollArea>
+            </table>
         </div>
       )}
     </div>

@@ -82,13 +82,6 @@ export function RingDetailContent({ ring, gemstones }: RingDetailContentProps) {
     return dedupeUrls(source)
   }, [ring.thumbnails, colorKey])
 
-  const formattedPrice = new Intl.NumberFormat('en-US', {
-    style: 'currency',
-    currency: ring.currency,
-    minimumFractionDigits: 0,
-    maximumFractionDigits: 0,
-  }).format(ring.basePrice)
-
   return (
     <div className="min-h-screen bg-black">
       <div className="container mx-auto px-4 py-8">
@@ -125,14 +118,6 @@ export function RingDetailContent({ ring, gemstones }: RingDetailContentProps) {
               <p className="text-gray-400 text-sm leading-relaxed">
                 {ring.title.replace(`${ring.name} - `, '')}
               </p>
-            </div>
-
-            {/* Price */}
-            <div>
-              <p className="text-[#D4AF37] text-2xl font-medium tracking-wide">
-                {formattedPrice} {ring.currency}
-              </p>
-              <p className="text-gray-600 text-xs mt-1">Setting only — gemstone sold separately</p>
             </div>
 
             {/* Reviews badge */}

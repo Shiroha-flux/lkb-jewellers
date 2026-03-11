@@ -124,17 +124,17 @@ export function ImageGallery({ images, thumbnails, alt }: ImageGalleryProps) {
           <>
             <button
               onClick={goPrev}
-              className="absolute left-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-black/60 hover:bg-black/80 flex items-center justify-center text-white transition-all duration-200 backdrop-blur-sm"
+              className="absolute left-3 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-black/70 hover:bg-black/90 flex items-center justify-center transition-all duration-200 backdrop-blur-sm border border-white/10"
               aria-label="Previous image"
             >
-              <ChevronLeft size={18} />
+              <ChevronLeft size={22} className="text-white" />
             </button>
             <button
               onClick={goNext}
-              className="absolute right-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-black/60 hover:bg-black/80 flex items-center justify-center text-white transition-all duration-200 backdrop-blur-sm"
+              className="absolute right-3 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-black/70 hover:bg-black/90 flex items-center justify-center transition-all duration-200 backdrop-blur-sm border border-white/10"
               aria-label="Next image"
             >
-              <ChevronRight size={18} />
+              <ChevronRight size={22} className="text-white" />
             </button>
           </>
         )}
