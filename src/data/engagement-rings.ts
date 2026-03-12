@@ -23,7 +23,7 @@ export interface Ring {
   thumbnails: string[]
   specs: RingSpecs
   shape: 'round' | 'oval' | 'emerald' | 'radiant' | 'pear' | 'cushion' | 'elongated_cushion' | 'elongated_hexagon' | 'marquise' | 'princess' | 'asscher'
-  settingStyle: 'trilogy' | 'solitaire' | 'halo' | 'toi_et_moi' | 'bezel' | 'east_west'
+  settingStyle: 'trilogy' | 'solitaire' | 'halo' | 'toi_et_moi'
   bandType: 'plain' | 'pave' | 'accents'
   settingProfile: 'high_set' | 'low_set'
 }
@@ -105,7 +105,7 @@ export const engagementRings: Ring[] = [
       "resizing": "Complimentary"
     },
     "shape": "radiant",
-    "settingStyle": "halo",
+    "settingStyle": "solitaire",
     "bandType": "plain",
     "settingProfile": "low_set"
   },
@@ -133,7 +133,7 @@ export const engagementRings: Ring[] = [
       "resizing": "Complimentary"
     },
     "shape": "emerald",
-    "settingStyle": "bezel",
+    "settingStyle": "solitaire",
     "bandType": "plain",
     "settingProfile": "high_set"
   },
@@ -161,7 +161,7 @@ export const engagementRings: Ring[] = [
       "resizing": "Complimentary"
     },
     "shape": "radiant",
-    "settingStyle": "halo",
+    "settingStyle": "solitaire",
     "bandType": "plain",
     "settingProfile": "high_set"
   },
@@ -189,7 +189,7 @@ export const engagementRings: Ring[] = [
       "resizing": "Complimentary"
     },
     "shape": "pear",
-    "settingStyle": "halo",
+    "settingStyle": "solitaire",
     "bandType": "plain",
     "settingProfile": "high_set"
   },
@@ -217,7 +217,7 @@ export const engagementRings: Ring[] = [
       "resizing": "Complimentary"
     },
     "shape": "marquise",
-    "settingStyle": "halo",
+    "settingStyle": "solitaire",
     "bandType": "plain",
     "settingProfile": "high_set"
   },
@@ -245,7 +245,7 @@ export const engagementRings: Ring[] = [
       "resizing": "Complimentary"
     },
     "shape": "round",
-    "settingStyle": "bezel",
+    "settingStyle": "solitaire",
     "bandType": "plain",
     "settingProfile": "high_set"
   },
@@ -273,7 +273,7 @@ export const engagementRings: Ring[] = [
       "resizing": "Complimentary"
     },
     "shape": "round",
-    "settingStyle": "halo",
+    "settingStyle": "solitaire",
     "bandType": "pave",
     "settingProfile": "high_set"
   },
@@ -385,7 +385,7 @@ export const engagementRings: Ring[] = [
       "resizing": "Complimentary"
     },
     "shape": "emerald",
-    "settingStyle": "halo",
+    "settingStyle": "solitaire",
     "bandType": "plain",
     "settingProfile": "high_set"
   },
@@ -441,7 +441,7 @@ export const engagementRings: Ring[] = [
       "resizing": "Complimentary"
     },
     "shape": "oval",
-    "settingStyle": "east_west",
+    "settingStyle": "solitaire",
     "bandType": "plain",
     "settingProfile": "high_set"
   },
@@ -497,37 +497,37 @@ export const engagementRings: Ring[] = [
       "resizing": "Complimentary"
     },
     "shape": "round",
-    "settingStyle": "halo",
+    "settingStyle": "solitaire",
     "bandType": "pave",
     "settingProfile": "high_set"
   },
-  {
-    "id": "ring-amor",
-    "slug": "ring-amor",
-    "name": "Amor",
-    "title": "Amor - Pear and Emerald Claw Toi et Moi Engagement Ring",
-    "description": "The Amor toi et moi engagement ring presents the striking balance between a pear and emerald cut stone, emphasised by a sleek and minimal band. Schedule an appointment with Cullen US today.",
-    "basePrice": 1500,
-    "currency": "USD",
-    "images": [
-      "https://media.cullenjewellery.com/cdn-cgi/image/width=800,height=800/products/rings/amor/renders/2ct/High%20Setting/Yellow/default",
-      "https://media.cullenjewellery.com/cdn-cgi/image/width=800,height=800/products/rings/amor/renders/2ct/High%20Setting/White/default",
-      "https://media.cullenjewellery.com/cdn-cgi/image/width=800,height=800/products/rings/amor/renders/2ct/High%20Setting/Rose/default"
-    ],
-    "thumbnails": [
-      "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/amor/renders/2ct/High%20Setting/Yellow/default"
-    ],
-    "specs": {
-      "bandWidth": "1.5mm",
-      "avgSideStones": "16",
-      "centerStoneSize": "6.5 x 4.5mm",
-      "estimatedWeight": "2.8g",
-      "resizing": "Complimentary"
-    },
-    "shape": "emerald",
-    "settingStyle": "toi_et_moi",
-    "bandType": "plain",
-    "settingProfile": "high_set"
+   {
+     "id": "ring-amor",
+     "slug": "ring-amor",
+     "name": "Amor",
+     "title": "Amor - Pear and Emerald Claw Toi et Moi Engagement Ring",
+     "description": "The Amor toi et moi engagement ring presents the striking balance between a pear and emerald cut stone, emphasised by a sleek and minimal band. Schedule an appointment with Cullen US today.",
+     "basePrice": 1500,
+     "currency": "USD",
+     "images": [
+       "https://media.cullenjewellery.com/cdn-cgi/image/width=800,height=800/products/rings/amor/renders/2ct/High%20Setting/Yellow/default",
+       "https://media.cullenjewellery.com/cdn-cgi/image/width=800,height=800/products/rings/amor/renders/2ct/High%20Setting/White/default",
+       "https://media.cullenjewellery.com/cdn-cgi/image/width=800,height=800/products/rings/amor/renders/2ct/High%20Setting/Rose/default"
+     ],
+     "thumbnails": [
+       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/amor/renders/2ct/High%20Setting/Yellow/default"
+     ],
+     "specs": {
+       "bandWidth": "1.5mm",
+       "avgSideStones": "16",
+       "centerStoneSize": "6.5 x 4.5mm",
+       "estimatedWeight": "2.8g",
+       "resizing": "Complimentary"
+     },
+     "shape": "pear",
+     "settingStyle": "toi_et_moi",
+     "bandType": "plain",
+     "settingProfile": "high_set"
   },
   {
     "id": "ring-amy",
@@ -609,7 +609,7 @@ export const engagementRings: Ring[] = [
       "resizing": "Complimentary"
     },
     "shape": "radiant",
-    "settingStyle": "halo",
+    "settingStyle": "solitaire",
     "bandType": "plain",
     "settingProfile": "high_set"
   },
@@ -637,7 +637,7 @@ export const engagementRings: Ring[] = [
       "resizing": "Complimentary"
     },
     "shape": "round",
-    "settingStyle": "halo",
+    "settingStyle": "solitaire",
     "bandType": "plain",
     "settingProfile": "high_set"
   },
@@ -665,7 +665,7 @@ export const engagementRings: Ring[] = [
       "resizing": "Complimentary"
     },
     "shape": "elongated_cushion",
-    "settingStyle": "halo",
+    "settingStyle": "solitaire",
     "bandType": "pave",
     "settingProfile": "high_set"
   },
@@ -693,7 +693,7 @@ export const engagementRings: Ring[] = [
       "resizing": "Complimentary"
     },
     "shape": "princess",
-    "settingStyle": "halo",
+    "settingStyle": "solitaire",
     "bandType": "pave",
     "settingProfile": "high_set"
   },
@@ -749,7 +749,7 @@ export const engagementRings: Ring[] = [
       "resizing": "Complimentary"
     },
     "shape": "radiant",
-    "settingStyle": "halo",
+    "settingStyle": "solitaire",
     "bandType": "plain",
     "settingProfile": "high_set"
   },
@@ -777,7 +777,7 @@ export const engagementRings: Ring[] = [
       "resizing": "Complimentary"
     },
     "shape": "round",
-    "settingStyle": "halo",
+    "settingStyle": "solitaire",
     "bandType": "plain",
     "settingProfile": "high_set"
   },
@@ -833,7 +833,7 @@ export const engagementRings: Ring[] = [
       "resizing": "Complimentary"
     },
     "shape": "oval",
-    "settingStyle": "bezel",
+    "settingStyle": "solitaire",
     "bandType": "plain",
     "settingProfile": "high_set"
   },
@@ -861,7 +861,7 @@ export const engagementRings: Ring[] = [
       "resizing": "Complimentary"
     },
     "shape": "round",
-    "settingStyle": "halo",
+    "settingStyle": "solitaire",
     "bandType": "pave",
     "settingProfile": "high_set"
   },
@@ -973,7 +973,7 @@ export const engagementRings: Ring[] = [
       "resizing": "Complimentary"
     },
     "shape": "elongated_cushion",
-    "settingStyle": "halo",
+    "settingStyle": "solitaire",
     "bandType": "plain",
     "settingProfile": "high_set"
   },
@@ -1029,7 +1029,7 @@ export const engagementRings: Ring[] = [
       "resizing": "Complimentary"
     },
     "shape": "elongated_cushion",
-    "settingStyle": "halo",
+    "settingStyle": "solitaire",
     "bandType": "plain",
     "settingProfile": "high_set"
   },
@@ -1057,7 +1057,7 @@ export const engagementRings: Ring[] = [
       "resizing": "Complimentary"
     },
     "shape": "oval",
-    "settingStyle": "halo",
+    "settingStyle": "solitaire",
     "bandType": "plain",
     "settingProfile": "high_set"
   },
@@ -1141,7 +1141,7 @@ export const engagementRings: Ring[] = [
       "resizing": "Complimentary"
     },
     "shape": "oval",
-    "settingStyle": "halo",
+    "settingStyle": "solitaire",
     "bandType": "plain",
     "settingProfile": "high_set"
   },
@@ -1169,7 +1169,7 @@ export const engagementRings: Ring[] = [
       "resizing": "Complimentary"
     },
     "shape": "round",
-    "settingStyle": "halo",
+    "settingStyle": "solitaire",
     "bandType": "plain",
     "settingProfile": "high_set"
   },
@@ -1197,7 +1197,7 @@ export const engagementRings: Ring[] = [
       "resizing": "Complimentary"
     },
     "shape": "elongated_cushion",
-    "settingStyle": "bezel",
+    "settingStyle": "solitaire",
     "bandType": "plain",
     "settingProfile": "high_set"
   },
@@ -1281,7 +1281,7 @@ export const engagementRings: Ring[] = [
       "resizing": "Complimentary"
     },
     "shape": "round",
-    "settingStyle": "halo",
+    "settingStyle": "solitaire",
     "bandType": "plain",
     "settingProfile": "high_set"
   },
@@ -1309,7 +1309,7 @@ export const engagementRings: Ring[] = [
       "resizing": "Complimentary"
     },
     "shape": "oval",
-    "settingStyle": "halo",
+    "settingStyle": "solitaire",
     "bandType": "accents",
     "settingProfile": "high_set"
   },
@@ -1421,7 +1421,7 @@ export const engagementRings: Ring[] = [
       "resizing": "Complimentary"
     },
     "shape": "princess",
-    "settingStyle": "halo",
+    "settingStyle": "solitaire",
     "bandType": "pave",
     "settingProfile": "high_set"
   },
@@ -1449,7 +1449,7 @@ export const engagementRings: Ring[] = [
       "resizing": "Complimentary"
     },
     "shape": "oval",
-    "settingStyle": "halo",
+    "settingStyle": "solitaire",
     "bandType": "plain",
     "settingProfile": "high_set"
   },
@@ -1477,7 +1477,7 @@ export const engagementRings: Ring[] = [
       "resizing": "Complimentary"
     },
     "shape": "elongated_cushion",
-    "settingStyle": "halo",
+    "settingStyle": "solitaire",
     "bandType": "accents",
     "settingProfile": "high_set"
   },
@@ -1505,7 +1505,7 @@ export const engagementRings: Ring[] = [
       "resizing": "Complimentary"
     },
     "shape": "elongated_cushion",
-    "settingStyle": "halo",
+    "settingStyle": "solitaire",
     "bandType": "pave",
     "settingProfile": "high_set"
   },
@@ -1561,7 +1561,7 @@ export const engagementRings: Ring[] = [
       "resizing": "Complimentary"
     },
     "shape": "radiant",
-    "settingStyle": "halo",
+    "settingStyle": "solitaire",
     "bandType": "plain",
     "settingProfile": "high_set"
   },
@@ -1589,7 +1589,7 @@ export const engagementRings: Ring[] = [
       "resizing": "Complimentary"
     },
     "shape": "emerald",
-    "settingStyle": "halo",
+    "settingStyle": "solitaire",
     "bandType": "plain",
     "settingProfile": "high_set"
   },
@@ -1645,7 +1645,7 @@ export const engagementRings: Ring[] = [
       "resizing": "Complimentary"
     },
     "shape": "round",
-    "settingStyle": "bezel",
+    "settingStyle": "solitaire",
     "bandType": "accents",
     "settingProfile": "high_set"
   },
@@ -1673,7 +1673,7 @@ export const engagementRings: Ring[] = [
       "resizing": "Complimentary"
     },
     "shape": "oval",
-    "settingStyle": "east_west",
+    "settingStyle": "solitaire",
     "bandType": "plain",
     "settingProfile": "high_set"
   },
@@ -1729,7 +1729,7 @@ export const engagementRings: Ring[] = [
       "resizing": "Complimentary"
     },
     "shape": "oval",
-    "settingStyle": "halo",
+    "settingStyle": "solitaire",
     "bandType": "plain",
     "settingProfile": "high_set"
   },
@@ -1785,7 +1785,7 @@ export const engagementRings: Ring[] = [
       "resizing": "Complimentary"
     },
     "shape": "round",
-    "settingStyle": "halo",
+    "settingStyle": "solitaire",
     "bandType": "pave",
     "settingProfile": "high_set"
   },
@@ -1841,7 +1841,7 @@ export const engagementRings: Ring[] = [
       "resizing": "Complimentary"
     },
     "shape": "cushion",
-    "settingStyle": "halo",
+    "settingStyle": "solitaire",
     "bandType": "pave",
     "settingProfile": "high_set"
   },
@@ -1981,7 +1981,7 @@ export const engagementRings: Ring[] = [
       "resizing": "Complimentary"
     },
     "shape": "elongated_cushion",
-    "settingStyle": "bezel",
+    "settingStyle": "solitaire",
     "bandType": "plain",
     "settingProfile": "high_set"
   },
@@ -2009,7 +2009,7 @@ export const engagementRings: Ring[] = [
       "resizing": "Complimentary"
     },
     "shape": "oval",
-    "settingStyle": "bezel",
+    "settingStyle": "solitaire",
     "bandType": "plain",
     "settingProfile": "high_set"
   },
@@ -2093,7 +2093,7 @@ export const engagementRings: Ring[] = [
       "resizing": "Complimentary"
     },
     "shape": "elongated_hexagon",
-    "settingStyle": "halo",
+    "settingStyle": "solitaire",
     "bandType": "plain",
     "settingProfile": "high_set"
   },
@@ -2125,33 +2125,33 @@ export const engagementRings: Ring[] = [
     "bandType": "plain",
     "settingProfile": "high_set"
   },
-  {
-    "id": "ring-eliana",
-    "slug": "ring-eliana",
-    "name": "Eliana",
-    "title": "Eliana - Emerald 4 Claw Solitaire with Wrap Around Hidden Halo and Pave Band Engagement Ring",
-    "description": "Eliana makes a statement with a striking high-set 4-claw emerald cut centre stone, wrap-around hidden halo and 2/3 pavé band. Schedule an appointment with Cullen US today.",
-    "basePrice": 1500,
-    "currency": "USD",
-    "images": [
-      "https://media.cullenjewellery.com/cdn-cgi/image/width=800,height=800/products/rings/eliana/renders/2ct/High%20Setting/Yellow/default",
-      "https://media.cullenjewellery.com/cdn-cgi/image/width=800,height=800/products/rings/eliana/renders/2ct/High%20Setting/White/default",
-      "https://media.cullenjewellery.com/cdn-cgi/image/width=800,height=800/products/rings/eliana/renders/2ct/High%20Setting/Rose/default"
-    ],
-    "thumbnails": [
-      "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/eliana/renders/2ct/High%20Setting/Yellow/default"
-    ],
-    "specs": {
-      "bandWidth": "1.5mm",
-      "avgSideStones": "16",
-      "centerStoneSize": "6.5 x 4.5mm",
-      "estimatedWeight": "2.8g",
-      "resizing": "Complimentary"
-    },
-    "shape": "round",
-    "settingStyle": "halo",
-    "bandType": "pave",
-    "settingProfile": "high_set"
+   {
+     "id": "ring-eliana",
+     "slug": "ring-eliana",
+     "name": "Eliana",
+     "title": "Eliana - Emerald 4 Claw Solitaire with Wrap Around Hidden Halo and Pave Band Engagement Ring",
+     "description": "Eliana makes a statement with a striking high-set 4-claw emerald cut centre stone, wrap-around hidden halo and 2/3 pavé band. Schedule an appointment with Cullen US today.",
+     "basePrice": 1500,
+     "currency": "USD",
+     "images": [
+       "https://media.cullenjewellery.com/cdn-cgi/image/width=800,height=800/products/rings/eliana/renders/2ct/High%20Setting/Yellow/default",
+       "https://media.cullenjewellery.com/cdn-cgi/image/width=800,height=800/products/rings/eliana/renders/2ct/High%20Setting/White/default",
+       "https://media.cullenjewellery.com/cdn-cgi/image/width=800,height=800/products/rings/eliana/renders/2ct/High%20Setting/Rose/default"
+     ],
+     "thumbnails": [
+       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/eliana/renders/2ct/High%20Setting/Yellow/default"
+     ],
+     "specs": {
+       "bandWidth": "1.5mm",
+       "avgSideStones": "16",
+       "centerStoneSize": "6.5 x 4.5mm",
+       "estimatedWeight": "2.8g",
+       "resizing": "Complimentary"
+     },
+     "shape": "emerald",
+     "settingStyle": "solitaire",
+     "bandType": "pave",
+     "settingProfile": "high_set"
   },
   {
     "id": "ring-elise",
@@ -2177,7 +2177,7 @@ export const engagementRings: Ring[] = [
       "resizing": "Complimentary"
     },
     "shape": "oval",
-    "settingStyle": "halo",
+    "settingStyle": "solitaire",
     "bandType": "accents",
     "settingProfile": "high_set"
   },
@@ -2233,37 +2233,37 @@ export const engagementRings: Ring[] = [
       "resizing": "Complimentary"
     },
     "shape": "elongated_cushion",
-    "settingStyle": "halo",
+    "settingStyle": "solitaire",
     "bandType": "accents",
     "settingProfile": "high_set"
   },
-  {
-    "id": "ring-ellie",
-    "slug": "ring-ellie",
-    "name": "Ellie",
-    "title": "Ellie - Radiant 4 Claw Solitaire with Wrap Around Hidden Halo and Pave Band Engagement Ring",
-    "description": "With a stunning radiant cut centre stone, the Ellie engagement ring is elevated by a wrap-around hidden halo and 2/3 pavé band. Schedule an appointment with Cullen US today.",
-    "basePrice": 1500,
-    "currency": "USD",
-    "images": [
-      "https://media.cullenjewellery.com/cdn-cgi/image/width=800,height=800/products/rings/ellie/renders/2ct/High%20Setting/Yellow/default",
-      "https://media.cullenjewellery.com/cdn-cgi/image/width=800,height=800/products/rings/ellie/renders/2ct/High%20Setting/White/default",
-      "https://media.cullenjewellery.com/cdn-cgi/image/width=800,height=800/products/rings/ellie/renders/2ct/High%20Setting/Rose/default"
-    ],
-    "thumbnails": [
-      "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/ellie/renders/2ct/High%20Setting/Yellow/default"
-    ],
-    "specs": {
-      "bandWidth": "1.5mm",
-      "avgSideStones": "16",
-      "centerStoneSize": "6.5 x 4.5mm",
-      "estimatedWeight": "2.8g",
-      "resizing": "Complimentary"
-    },
-    "shape": "round",
-    "settingStyle": "halo",
-    "bandType": "pave",
-    "settingProfile": "high_set"
+   {
+     "id": "ring-ellie",
+     "slug": "ring-ellie",
+     "name": "Ellie",
+     "title": "Ellie - Radiant 4 Claw Solitaire with Wrap Around Hidden Halo and Pave Band Engagement Ring",
+     "description": "With a stunning radiant cut centre stone, the Ellie engagement ring is elevated by a wrap-around hidden halo and 2/3 pavé band. Schedule an appointment with Cullen US today.",
+     "basePrice": 1500,
+     "currency": "USD",
+     "images": [
+       "https://media.cullenjewellery.com/cdn-cgi/image/width=800,height=800/products/rings/ellie/renders/2ct/High%20Setting/Yellow/default",
+       "https://media.cullenjewellery.com/cdn-cgi/image/width=800,height=800/products/rings/ellie/renders/2ct/High%20Setting/White/default",
+       "https://media.cullenjewellery.com/cdn-cgi/image/width=800,height=800/products/rings/ellie/renders/2ct/High%20Setting/Rose/default"
+     ],
+     "thumbnails": [
+       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/ellie/renders/2ct/High%20Setting/Yellow/default"
+     ],
+     "specs": {
+       "bandWidth": "1.5mm",
+       "avgSideStones": "16",
+       "centerStoneSize": "6.5 x 4.5mm",
+       "estimatedWeight": "2.8g",
+       "resizing": "Complimentary"
+     },
+     "shape": "radiant",
+     "settingStyle": "solitaire",
+     "bandType": "pave",
+     "settingProfile": "high_set"
   },
   {
     "id": "ring-elphie",
@@ -2317,7 +2317,7 @@ export const engagementRings: Ring[] = [
       "resizing": "Complimentary"
     },
     "shape": "marquise",
-    "settingStyle": "halo",
+    "settingStyle": "solitaire",
     "bandType": "accents",
     "settingProfile": "high_set"
   },
@@ -2399,7 +2399,7 @@ export const engagementRings: Ring[] = [
       "resizing": "Complimentary"
     },
     "shape": "oval",
-    "settingStyle": "halo",
+    "settingStyle": "solitaire",
     "bandType": "plain",
     "settingProfile": "high_set"
   },
@@ -2455,7 +2455,7 @@ export const engagementRings: Ring[] = [
       "resizing": "Complimentary"
     },
     "shape": "oval",
-    "settingStyle": "halo",
+    "settingStyle": "solitaire",
     "bandType": "pave",
     "settingProfile": "high_set"
   },
@@ -2511,7 +2511,7 @@ export const engagementRings: Ring[] = [
       "resizing": "Complimentary"
     },
     "shape": "emerald",
-    "settingStyle": "east_west",
+    "settingStyle": "solitaire",
     "bandType": "plain",
     "settingProfile": "high_set"
   },
@@ -2539,7 +2539,7 @@ export const engagementRings: Ring[] = [
       "resizing": "Complimentary"
     },
     "shape": "elongated_cushion",
-    "settingStyle": "halo",
+    "settingStyle": "solitaire",
     "bandType": "plain",
     "settingProfile": "high_set"
   },
@@ -2567,7 +2567,7 @@ export const engagementRings: Ring[] = [
       "resizing": "Complimentary"
     },
     "shape": "elongated_cushion",
-    "settingStyle": "east_west",
+    "settingStyle": "solitaire",
     "bandType": "plain",
     "settingProfile": "high_set"
   },
@@ -2623,7 +2623,7 @@ export const engagementRings: Ring[] = [
       "resizing": "Complimentary"
     },
     "shape": "radiant",
-    "settingStyle": "bezel",
+    "settingStyle": "solitaire",
     "bandType": "plain",
     "settingProfile": "high_set"
   },
@@ -2735,7 +2735,7 @@ export const engagementRings: Ring[] = [
       "resizing": "Complimentary"
     },
     "shape": "oval",
-    "settingStyle": "bezel",
+    "settingStyle": "solitaire",
     "bandType": "plain",
     "settingProfile": "high_set"
   },
@@ -2819,7 +2819,7 @@ export const engagementRings: Ring[] = [
       "resizing": "Complimentary"
     },
     "shape": "marquise",
-    "settingStyle": "halo",
+    "settingStyle": "solitaire",
     "bandType": "plain",
     "settingProfile": "high_set"
   },
@@ -2987,7 +2987,7 @@ export const engagementRings: Ring[] = [
       "resizing": "Complimentary"
     },
     "shape": "emerald",
-    "settingStyle": "halo",
+    "settingStyle": "solitaire",
     "bandType": "pave",
     "settingProfile": "high_set"
   },
@@ -3019,33 +3019,33 @@ export const engagementRings: Ring[] = [
     "bandType": "plain",
     "settingProfile": "high_set"
   },
-  {
-    "id": "ring-hannah",
-    "slug": "ring-hannah",
-    "name": "Hannah",
-    "title": "Hannah - Marquise Claw Trilogy with Pear Side Stones and Hidden Halo Engagement Ring",
-    "description": "The Hannah engagement ring is a unique marquise trilogy ring, complete with two pear cut side stones and a hidden halo held within a cathedral setting on a slim tapered band. Schedule an appointment with Cullen US today.",
-    "basePrice": 1500,
-    "currency": "USD",
-    "images": [
-      "https://media.cullenjewellery.com/cdn-cgi/image/width=800,height=800/products/rings/hannah/renders/2ct/High%20Setting/Yellow/default",
-      "https://media.cullenjewellery.com/cdn-cgi/image/width=800,height=800/products/rings/hannah/renders/2ct/High%20Setting/White/default",
-      "https://media.cullenjewellery.com/cdn-cgi/image/width=800,height=800/products/rings/hannah/renders/2ct/High%20Setting/Rose/default"
-    ],
-    "thumbnails": [
-      "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/hannah/renders/2ct/High%20Setting/Yellow/default"
-    ],
-    "specs": {
-      "bandWidth": "1.5mm",
-      "avgSideStones": "16",
-      "centerStoneSize": "6.5 x 4.5mm",
-      "estimatedWeight": "2.8g",
-      "resizing": "Complimentary"
-    },
-    "shape": "pear",
-    "settingStyle": "trilogy",
-    "bandType": "plain",
-    "settingProfile": "high_set"
+   {
+     "id": "ring-hannah",
+     "slug": "ring-hannah",
+     "name": "Hannah",
+     "title": "Hannah - Marquise Claw Trilogy with Pear Side Stones and Hidden Halo Engagement Ring",
+     "description": "The Hannah engagement ring is a unique marquise trilogy ring, complete with two pear cut side stones and a hidden halo held within a cathedral setting on a slim tapered band. Schedule an appointment with Cullen US today.",
+     "basePrice": 1500,
+     "currency": "USD",
+     "images": [
+       "https://media.cullenjewellery.com/cdn-cgi/image/width=800,height=800/products/rings/hannah/renders/2ct/High%20Setting/Yellow/default",
+       "https://media.cullenjewellery.com/cdn-cgi/image/width=800,height=800/products/rings/hannah/renders/2ct/High%20Setting/White/default",
+       "https://media.cullenjewellery.com/cdn-cgi/image/width=800,height=800/products/rings/hannah/renders/2ct/High%20Setting/Rose/default"
+     ],
+     "thumbnails": [
+       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/hannah/renders/2ct/High%20Setting/Yellow/default"
+     ],
+     "specs": {
+       "bandWidth": "1.5mm",
+       "avgSideStones": "16",
+       "centerStoneSize": "6.5 x 4.5mm",
+       "estimatedWeight": "2.8g",
+       "resizing": "Complimentary"
+     },
+     "shape": "marquise",
+     "settingStyle": "trilogy",
+     "bandType": "plain",
+     "settingProfile": "high_set"
   },
   {
     "id": "ring-hayley",
@@ -3071,7 +3071,7 @@ export const engagementRings: Ring[] = [
       "resizing": "Complimentary"
     },
     "shape": "oval",
-    "settingStyle": "east_west",
+    "settingStyle": "solitaire",
     "bandType": "plain",
     "settingProfile": "high_set"
   },
@@ -3239,7 +3239,7 @@ export const engagementRings: Ring[] = [
       "resizing": "Complimentary"
     },
     "shape": "pear",
-    "settingStyle": "east_west",
+    "settingStyle": "solitaire",
     "bandType": "plain",
     "settingProfile": "high_set"
   },
@@ -3295,7 +3295,7 @@ export const engagementRings: Ring[] = [
       "resizing": "Complimentary"
     },
     "shape": "emerald",
-    "settingStyle": "halo",
+    "settingStyle": "solitaire",
     "bandType": "plain",
     "settingProfile": "high_set"
   },
@@ -3383,33 +3383,33 @@ export const engagementRings: Ring[] = [
     "bandType": "plain",
     "settingProfile": "high_set"
   },
-  {
-    "id": "ring-josephine",
-    "slug": "ring-josephine",
-    "name": "Josephine",
-    "title": "Josephine - Radiant 4 Claw Solitaire with Round Accent Stones and Wrap Around Hidden Halo Engagement Ring",
-    "description": "The 4-claw radiant solitaire design is elevated in the Josephine ring with a unique round cut side stone band and sparkling wrap-around hidden halo. Schedule an appointment with Cullen US today.",
-    "basePrice": 1500,
-    "currency": "USD",
-    "images": [
-      "https://media.cullenjewellery.com/cdn-cgi/image/width=800,height=800/products/rings/josephine/renders/2ct/High%20Setting/Yellow/default",
-      "https://media.cullenjewellery.com/cdn-cgi/image/width=800,height=800/products/rings/josephine/renders/2ct/High%20Setting/White/default",
-      "https://media.cullenjewellery.com/cdn-cgi/image/width=800,height=800/products/rings/josephine/renders/2ct/High%20Setting/Rose/default"
-    ],
-    "thumbnails": [
-      "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/josephine/renders/2ct/High%20Setting/Yellow/default"
-    ],
-    "specs": {
-      "bandWidth": "1.5mm",
-      "avgSideStones": "16",
-      "centerStoneSize": "6.5 x 4.5mm",
-      "estimatedWeight": "2.8g",
-      "resizing": "Complimentary"
-    },
-    "shape": "round",
-    "settingStyle": "halo",
-    "bandType": "accents",
-    "settingProfile": "high_set"
+   {
+     "id": "ring-josephine",
+     "slug": "ring-josephine",
+     "name": "Josephine",
+     "title": "Josephine - Radiant 4 Claw Solitaire with Round Accent Stones and Wrap Around Hidden Halo Engagement Ring",
+     "description": "The 4-claw radiant solitaire design is elevated in the Josephine ring with a unique round cut side stone band and sparkling wrap-around hidden halo. Schedule an appointment with Cullen US today.",
+     "basePrice": 1500,
+     "currency": "USD",
+     "images": [
+       "https://media.cullenjewellery.com/cdn-cgi/image/width=800,height=800/products/rings/josephine/renders/2ct/High%20Setting/Yellow/default",
+       "https://media.cullenjewellery.com/cdn-cgi/image/width=800,height=800/products/rings/josephine/renders/2ct/High%20Setting/White/default",
+       "https://media.cullenjewellery.com/cdn-cgi/image/width=800,height=800/products/rings/josephine/renders/2ct/High%20Setting/Rose/default"
+     ],
+     "thumbnails": [
+       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/josephine/renders/2ct/High%20Setting/Yellow/default"
+     ],
+     "specs": {
+       "bandWidth": "1.5mm",
+       "avgSideStones": "16",
+       "centerStoneSize": "6.5 x 4.5mm",
+       "estimatedWeight": "2.8g",
+       "resizing": "Complimentary"
+     },
+     "shape": "radiant",
+     "settingStyle": "solitaire",
+     "bandType": "accents",
+     "settingProfile": "high_set"
   },
   {
     "id": "ring-journee",
@@ -3435,7 +3435,7 @@ export const engagementRings: Ring[] = [
       "resizing": "Complimentary"
     },
     "shape": "emerald",
-    "settingStyle": "bezel",
+    "settingStyle": "solitaire",
     "bandType": "plain",
     "settingProfile": "high_set"
   },
@@ -3491,7 +3491,7 @@ export const engagementRings: Ring[] = [
       "resizing": "Complimentary"
     },
     "shape": "oval",
-    "settingStyle": "halo",
+    "settingStyle": "solitaire",
     "bandType": "pave",
     "settingProfile": "high_set"
   },
@@ -3575,7 +3575,7 @@ export const engagementRings: Ring[] = [
       "resizing": "Complimentary"
     },
     "shape": "emerald",
-    "settingStyle": "halo",
+    "settingStyle": "solitaire",
     "bandType": "plain",
     "settingProfile": "high_set"
   },
@@ -3631,7 +3631,7 @@ export const engagementRings: Ring[] = [
       "resizing": "Complimentary"
     },
     "shape": "oval",
-    "settingStyle": "halo",
+    "settingStyle": "solitaire",
     "bandType": "plain",
     "settingProfile": "low_set"
   },
@@ -3715,7 +3715,7 @@ export const engagementRings: Ring[] = [
       "resizing": "Complimentary"
     },
     "shape": "radiant",
-    "settingStyle": "halo",
+    "settingStyle": "solitaire",
     "bandType": "accents",
     "settingProfile": "high_set"
   },
@@ -3743,7 +3743,7 @@ export const engagementRings: Ring[] = [
       "resizing": "Complimentary"
     },
     "shape": "oval",
-    "settingStyle": "halo",
+    "settingStyle": "solitaire",
     "bandType": "pave",
     "settingProfile": "high_set"
   },
@@ -3799,7 +3799,7 @@ export const engagementRings: Ring[] = [
       "resizing": "Complimentary"
     },
     "shape": "round",
-    "settingStyle": "halo",
+    "settingStyle": "solitaire",
     "bandType": "accents",
     "settingProfile": "high_set"
   },
@@ -3827,37 +3827,37 @@ export const engagementRings: Ring[] = [
       "resizing": "Complimentary"
     },
     "shape": "oval",
-    "settingStyle": "bezel",
+    "settingStyle": "solitaire",
     "bandType": "plain",
     "settingProfile": "high_set"
   },
-  {
-    "id": "ring-liberty",
-    "slug": "ring-liberty",
-    "name": "Liberty",
-    "title": "Liberty - Radiant 4 Claw Solitaire with Wrap Around Hidden Halo Engagement Ring",
-    "description": "Liberty is a stunning solitaire design featuring a radiant cut centre stone, four eagle-tipped claws and a wrap-around hidden halo. Schedule an appointment with Cullen US today.",
-    "basePrice": 1500,
-    "currency": "USD",
-    "images": [
-      "https://media.cullenjewellery.com/cdn-cgi/image/width=800,height=800/products/rings/liberty/renders/2ct/High%20Setting/Yellow/default",
-      "https://media.cullenjewellery.com/cdn-cgi/image/width=800,height=800/products/rings/liberty/renders/2ct/High%20Setting/White/default",
-      "https://media.cullenjewellery.com/cdn-cgi/image/width=800,height=800/products/rings/liberty/renders/2ct/High%20Setting/Rose/default"
-    ],
-    "thumbnails": [
-      "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/liberty/renders/2ct/High%20Setting/Yellow/default"
-    ],
-    "specs": {
-      "bandWidth": "1.5mm",
-      "avgSideStones": "16",
-      "centerStoneSize": "6.5 x 4.5mm",
-      "estimatedWeight": "2.8g",
-      "resizing": "Complimentary"
-    },
-    "shape": "round",
-    "settingStyle": "halo",
-    "bandType": "plain",
-    "settingProfile": "high_set"
+   {
+     "id": "ring-liberty",
+     "slug": "ring-liberty",
+     "name": "Liberty",
+     "title": "Liberty - Radiant 4 Claw Solitaire with Wrap Around Hidden Halo Engagement Ring",
+     "description": "Liberty is a stunning solitaire design featuring a radiant cut centre stone, four eagle-tipped claws and a wrap-around hidden halo. Schedule an appointment with Cullen US today.",
+     "basePrice": 1500,
+     "currency": "USD",
+     "images": [
+       "https://media.cullenjewellery.com/cdn-cgi/image/width=800,height=800/products/rings/liberty/renders/2ct/High%20Setting/Yellow/default",
+       "https://media.cullenjewellery.com/cdn-cgi/image/width=800,height=800/products/rings/liberty/renders/2ct/High%20Setting/White/default",
+       "https://media.cullenjewellery.com/cdn-cgi/image/width=800,height=800/products/rings/liberty/renders/2ct/High%20Setting/Rose/default"
+     ],
+     "thumbnails": [
+       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/liberty/renders/2ct/High%20Setting/Yellow/default"
+     ],
+     "specs": {
+       "bandWidth": "1.5mm",
+       "avgSideStones": "16",
+       "centerStoneSize": "6.5 x 4.5mm",
+       "estimatedWeight": "2.8g",
+       "resizing": "Complimentary"
+     },
+     "shape": "radiant",
+     "settingStyle": "solitaire",
+     "bandType": "plain",
+     "settingProfile": "high_set"
   },
   {
     "id": "ring-lilly",
@@ -3911,7 +3911,7 @@ export const engagementRings: Ring[] = [
       "resizing": "Complimentary"
     },
     "shape": "round",
-    "settingStyle": "halo",
+    "settingStyle": "solitaire",
     "bandType": "pave",
     "settingProfile": "high_set"
   },
@@ -3995,7 +3995,7 @@ export const engagementRings: Ring[] = [
       "resizing": "Complimentary"
     },
     "shape": "round",
-    "settingStyle": "halo",
+    "settingStyle": "solitaire",
     "bandType": "plain",
     "settingProfile": "low_set"
   },
@@ -4023,7 +4023,7 @@ export const engagementRings: Ring[] = [
       "resizing": "Complimentary"
     },
     "shape": "oval",
-    "settingStyle": "east_west",
+    "settingStyle": "solitaire",
     "bandType": "plain",
     "settingProfile": "high_set"
   },
@@ -4079,7 +4079,7 @@ export const engagementRings: Ring[] = [
       "resizing": "Complimentary"
     },
     "shape": "round",
-    "settingStyle": "bezel",
+    "settingStyle": "solitaire",
     "bandType": "plain",
     "settingProfile": "high_set"
   },
@@ -4191,7 +4191,7 @@ export const engagementRings: Ring[] = [
       "resizing": "Complimentary"
     },
     "shape": "emerald",
-    "settingStyle": "bezel",
+    "settingStyle": "solitaire",
     "bandType": "plain",
     "settingProfile": "high_set"
   },
@@ -4247,7 +4247,7 @@ export const engagementRings: Ring[] = [
       "resizing": "Complimentary"
     },
     "shape": "oval",
-    "settingStyle": "bezel",
+    "settingStyle": "solitaire",
     "bandType": "plain",
     "settingProfile": "high_set"
   },
@@ -4275,7 +4275,7 @@ export const engagementRings: Ring[] = [
       "resizing": "Complimentary"
     },
     "shape": "radiant",
-    "settingStyle": "halo",
+    "settingStyle": "solitaire",
     "bandType": "plain",
     "settingProfile": "high_set"
   },
@@ -4359,7 +4359,7 @@ export const engagementRings: Ring[] = [
       "resizing": "Complimentary"
     },
     "shape": "emerald",
-    "settingStyle": "halo",
+    "settingStyle": "solitaire",
     "bandType": "plain",
     "settingProfile": "high_set"
   },
@@ -4391,33 +4391,33 @@ export const engagementRings: Ring[] = [
     "bandType": "plain",
     "settingProfile": "high_set"
   },
-  {
-    "id": "ring-morgan",
-    "slug": "ring-morgan",
-    "name": "Morgan",
-    "title": "Morgan - Pear and Radiant Claw Toi et Moi Engagement Ring",
-    "description": "Morgan is a stunning duo of pear cut and radiant cut stones, held in a beautiful toi et moi setting. Schedule an appointment with Cullen US today.",
-    "basePrice": 1500,
-    "currency": "USD",
-    "images": [
-      "https://media.cullenjewellery.com/cdn-cgi/image/width=800,height=800/products/rings/morgan/renders/2ct/High%20Setting/Yellow/default",
-      "https://media.cullenjewellery.com/cdn-cgi/image/width=800,height=800/products/rings/morgan/renders/2ct/High%20Setting/White/default",
-      "https://media.cullenjewellery.com/cdn-cgi/image/width=800,height=800/products/rings/morgan/renders/2ct/High%20Setting/Rose/default"
-    ],
-    "thumbnails": [
-      "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/morgan/renders/2ct/High%20Setting/Yellow/default"
-    ],
-    "specs": {
-      "bandWidth": "1.5mm",
-      "avgSideStones": "16",
-      "centerStoneSize": "6.5 x 4.5mm",
-      "estimatedWeight": "2.8g",
-      "resizing": "Complimentary"
-    },
-    "shape": "radiant",
-    "settingStyle": "toi_et_moi",
-    "bandType": "plain",
-    "settingProfile": "high_set"
+   {
+     "id": "ring-morgan",
+     "slug": "ring-morgan",
+     "name": "Morgan",
+     "title": "Morgan - Pear and Radiant Claw Toi et Moi Engagement Ring",
+     "description": "Morgan is a stunning duo of pear cut and radiant cut stones, held in a beautiful toi et moi setting. Schedule an appointment with Cullen US today.",
+     "basePrice": 1500,
+     "currency": "USD",
+     "images": [
+       "https://media.cullenjewellery.com/cdn-cgi/image/width=800,height=800/products/rings/morgan/renders/2ct/High%20Setting/Yellow/default",
+       "https://media.cullenjewellery.com/cdn-cgi/image/width=800,height=800/products/rings/morgan/renders/2ct/High%20Setting/White/default",
+       "https://media.cullenjewellery.com/cdn-cgi/image/width=800,height=800/products/rings/morgan/renders/2ct/High%20Setting/Rose/default"
+     ],
+     "thumbnails": [
+       "https://media.cullenjewellery.com/cdn-cgi/image/width=200,height=200/products/rings/morgan/renders/2ct/High%20Setting/Yellow/default"
+     ],
+     "specs": {
+       "bandWidth": "1.5mm",
+       "avgSideStones": "16",
+       "centerStoneSize": "6.5 x 4.5mm",
+       "estimatedWeight": "2.8g",
+       "resizing": "Complimentary"
+     },
+     "shape": "pear",
+     "settingStyle": "toi_et_moi",
+     "bandType": "plain",
+     "settingProfile": "high_set"
   },
   {
     "id": "ring-myrtle",
@@ -4499,7 +4499,7 @@ export const engagementRings: Ring[] = [
       "resizing": "Complimentary"
     },
     "shape": "emerald",
-    "settingStyle": "halo",
+    "settingStyle": "solitaire",
     "bandType": "plain",
     "settingProfile": "low_set"
   },
@@ -4527,7 +4527,7 @@ export const engagementRings: Ring[] = [
       "resizing": "Complimentary"
     },
     "shape": "princess",
-    "settingStyle": "halo",
+    "settingStyle": "solitaire",
     "bandType": "plain",
     "settingProfile": "high_set"
   },
@@ -4555,7 +4555,7 @@ export const engagementRings: Ring[] = [
       "resizing": "Complimentary"
     },
     "shape": "pear",
-    "settingStyle": "halo",
+    "settingStyle": "solitaire",
     "bandType": "plain",
     "settingProfile": "high_set"
   },
@@ -4751,7 +4751,7 @@ export const engagementRings: Ring[] = [
       "resizing": "Complimentary"
     },
     "shape": "emerald",
-    "settingStyle": "bezel",
+    "settingStyle": "solitaire",
     "bandType": "plain",
     "settingProfile": "high_set"
   },
@@ -4807,7 +4807,7 @@ export const engagementRings: Ring[] = [
       "resizing": "Complimentary"
     },
     "shape": "oval",
-    "settingStyle": "halo",
+    "settingStyle": "solitaire",
     "bandType": "pave",
     "settingProfile": "high_set"
   },
@@ -4863,7 +4863,7 @@ export const engagementRings: Ring[] = [
       "resizing": "Complimentary"
     },
     "shape": "oval",
-    "settingStyle": "halo",
+    "settingStyle": "solitaire",
     "bandType": "pave",
     "settingProfile": "high_set"
   },
@@ -4919,7 +4919,7 @@ export const engagementRings: Ring[] = [
       "resizing": "Complimentary"
     },
     "shape": "marquise",
-    "settingStyle": "east_west",
+    "settingStyle": "solitaire",
     "bandType": "plain",
     "settingProfile": "high_set"
   },
@@ -5003,7 +5003,7 @@ export const engagementRings: Ring[] = [
       "resizing": "Complimentary"
     },
     "shape": "radiant",
-    "settingStyle": "halo",
+    "settingStyle": "solitaire",
     "bandType": "pave",
     "settingProfile": "high_set"
   },
@@ -5059,7 +5059,7 @@ export const engagementRings: Ring[] = [
       "resizing": "Complimentary"
     },
     "shape": "radiant",
-    "settingStyle": "bezel",
+    "settingStyle": "solitaire",
     "bandType": "plain",
     "settingProfile": "high_set"
   },
@@ -5115,7 +5115,7 @@ export const engagementRings: Ring[] = [
       "resizing": "Complimentary"
     },
     "shape": "marquise",
-    "settingStyle": "east_west",
+    "settingStyle": "solitaire",
     "bandType": "plain",
     "settingProfile": "high_set"
   },
@@ -5199,7 +5199,7 @@ export const engagementRings: Ring[] = [
       "resizing": "Complimentary"
     },
     "shape": "cushion",
-    "settingStyle": "halo",
+    "settingStyle": "solitaire",
     "bandType": "plain",
     "settingProfile": "high_set"
   },
@@ -5227,7 +5227,7 @@ export const engagementRings: Ring[] = [
       "resizing": "Complimentary"
     },
     "shape": "emerald",
-    "settingStyle": "halo",
+    "settingStyle": "solitaire",
     "bandType": "pave",
     "settingProfile": "high_set"
   },
@@ -5283,7 +5283,7 @@ export const engagementRings: Ring[] = [
       "resizing": "Complimentary"
     },
     "shape": "oval",
-    "settingStyle": "bezel",
+    "settingStyle": "solitaire",
     "bandType": "plain",
     "settingProfile": "high_set"
   },
@@ -5339,7 +5339,7 @@ export const engagementRings: Ring[] = [
       "resizing": "Complimentary"
     },
     "shape": "oval",
-    "settingStyle": "halo",
+    "settingStyle": "solitaire",
     "bandType": "pave",
     "settingProfile": "high_set"
   },
@@ -5395,7 +5395,7 @@ export const engagementRings: Ring[] = [
       "resizing": "Complimentary"
     },
     "shape": "oval",
-    "settingStyle": "halo",
+    "settingStyle": "solitaire",
     "bandType": "plain",
     "settingProfile": "high_set"
   },
@@ -5479,7 +5479,7 @@ export const engagementRings: Ring[] = [
       "resizing": "Complimentary"
     },
     "shape": "pear",
-    "settingStyle": "east_west",
+    "settingStyle": "solitaire",
     "bandType": "plain",
     "settingProfile": "high_set"
   },
@@ -5535,7 +5535,7 @@ export const engagementRings: Ring[] = [
       "resizing": "Complimentary"
     },
     "shape": "oval",
-    "settingStyle": "east_west",
+    "settingStyle": "solitaire",
     "bandType": "pave",
     "settingProfile": "high_set"
   },
@@ -5619,7 +5619,7 @@ export const engagementRings: Ring[] = [
       "resizing": "Complimentary"
     },
     "shape": "oval",
-    "settingStyle": "halo",
+    "settingStyle": "solitaire",
     "bandType": "plain",
     "settingProfile": "high_set"
   },
@@ -5675,7 +5675,7 @@ export const engagementRings: Ring[] = [
       "resizing": "Complimentary"
     },
     "shape": "round",
-    "settingStyle": "halo",
+    "settingStyle": "solitaire",
     "bandType": "pave",
     "settingProfile": "high_set"
   },
@@ -5731,7 +5731,7 @@ export const engagementRings: Ring[] = [
       "resizing": "Complimentary"
     },
     "shape": "oval",
-    "settingStyle": "east_west",
+    "settingStyle": "solitaire",
     "bandType": "plain",
     "settingProfile": "high_set"
   },
@@ -5787,7 +5787,7 @@ export const engagementRings: Ring[] = [
       "resizing": "Complimentary"
     },
     "shape": "pear",
-    "settingStyle": "east_west",
+    "settingStyle": "solitaire",
     "bandType": "plain",
     "settingProfile": "high_set"
   },
@@ -5843,7 +5843,7 @@ export const engagementRings: Ring[] = [
       "resizing": "Complimentary"
     },
     "shape": "emerald",
-    "settingStyle": "halo",
+    "settingStyle": "toi_et_moi",
     "bandType": "plain",
     "settingProfile": "high_set"
   },
@@ -5899,7 +5899,7 @@ export const engagementRings: Ring[] = [
       "resizing": "Complimentary"
     },
     "shape": "elongated_cushion",
-    "settingStyle": "bezel",
+    "settingStyle": "solitaire",
     "bandType": "accents",
     "settingProfile": "high_set"
   },
@@ -5955,7 +5955,7 @@ export const engagementRings: Ring[] = [
       "resizing": "Complimentary"
     },
     "shape": "radiant",
-    "settingStyle": "halo",
+    "settingStyle": "solitaire",
     "bandType": "pave",
     "settingProfile": "high_set"
   },
@@ -6039,7 +6039,7 @@ export const engagementRings: Ring[] = [
       "resizing": "Complimentary"
     },
     "shape": "emerald",
-    "settingStyle": "halo",
+    "settingStyle": "solitaire",
     "bandType": "plain",
     "settingProfile": "high_set"
   },
@@ -6067,7 +6067,7 @@ export const engagementRings: Ring[] = [
       "resizing": "Complimentary"
     },
     "shape": "elongated_cushion",
-    "settingStyle": "halo",
+    "settingStyle": "solitaire",
     "bandType": "pave",
     "settingProfile": "high_set"
   },
@@ -6123,7 +6123,7 @@ export const engagementRings: Ring[] = [
       "resizing": "Complimentary"
     },
     "shape": "elongated_cushion",
-    "settingStyle": "halo",
+    "settingStyle": "solitaire",
     "bandType": "plain",
     "settingProfile": "high_set"
   },
@@ -6207,7 +6207,7 @@ export const engagementRings: Ring[] = [
       "resizing": "Complimentary"
     },
     "shape": "elongated_cushion",
-    "settingStyle": "halo",
+    "settingStyle": "solitaire",
     "bandType": "plain",
     "settingProfile": "high_set"
   },
@@ -6235,7 +6235,7 @@ export const engagementRings: Ring[] = [
       "resizing": "Complimentary"
     },
     "shape": "radiant",
-    "settingStyle": "east_west",
+    "settingStyle": "solitaire",
     "bandType": "plain",
     "settingProfile": "high_set"
   },
@@ -6263,7 +6263,7 @@ export const engagementRings: Ring[] = [
       "resizing": "Complimentary"
     },
     "shape": "marquise",
-    "settingStyle": "halo",
+    "settingStyle": "solitaire",
     "bandType": "plain",
     "settingProfile": "high_set"
   },
@@ -6319,7 +6319,7 @@ export const engagementRings: Ring[] = [
       "resizing": "Complimentary"
     },
     "shape": "radiant",
-    "settingStyle": "bezel",
+    "settingStyle": "solitaire",
     "bandType": "plain",
     "settingProfile": "high_set"
   },

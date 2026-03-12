@@ -3,7 +3,7 @@
 
 export type ShapeValue = 'round' | 'oval' | 'emerald' | 'radiant' | 'pear' | 'cushion' | 'elongated_cushion' | 'elongated_hexagon' | 'marquise' | 'princess' | 'asscher'
 export type MetalValue = 'platinum' | 'yellow_gold' | 'rose_gold' | 'white_gold' | '9k_yellow_gold' | '9k_white_gold' | '9k_rose_gold' | 'palladium'
-export type SettingStyleValue = 'trilogy' | 'solitaire' | 'halo' | 'toi_et_moi' | 'bezel' | 'east_west'
+export type SettingStyleValue = 'trilogy' | 'solitaire' | 'halo' | 'toi_et_moi'
 export type BandTypeValue = 'plain' | 'pave' | 'accents'
 export type SettingProfileValue = 'high_set' | 'low_set'
 
@@ -172,20 +172,7 @@ export const settingStyleOptions: FilterOption<SettingStyleValue>[] = [
     // Round stone + vertical oval stone side by side above a band
     svgPath: 'M3 12 a4 4 0 0 1 8 0 a4 4 0 0 1-8 0 M13 12 a4 5.5 0 0 1 8 0 a4 5.5 0 0 1-8 0 M2 20h20',
   },
-  {
-    value: 'bezel',
-    label: 'Bezel',
-    description: 'Stone encircled by a metal rim for modern protection',
-    // Rounded rectangle bezel frame with stone inside
-    svgPath: 'M7 4h10a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z M8.5 12 a3.5 3.5 0 0 1 7 0 a3.5 3.5 0 0 1-7 0',
-  },
-  {
-    value: 'east_west',
-    label: 'East West',
-    description: 'Stone set horizontally for a contemporary look',
-    // Horizontal wide ellipse above a band
-    svgPath: 'M4 11 a8 5 0 0 1 16 0 a8 5 0 0 1-16 0 M4 20h16',
-  },
+
 ]
 
 export const bandTypeOptions: FilterOption<BandTypeValue>[] = [
